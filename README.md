@@ -1,3 +1,3 @@
-# Brix Std
+# Brian Ragaza - Portfolio
 
-Brix Standard UI & Web Components.
+Personal portfolio and showcase.
