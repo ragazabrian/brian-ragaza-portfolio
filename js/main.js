@@ -74,10 +74,29 @@ function initMenu() {
   const menuDrawer = document.getElementById("menu-drawer");
   if (!menuBtn || !menuDrawer) return;
 
+  function setMenuState(open) {
+    menuDrawer.classList.toggle("open", open);
+    menuBtn.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    menuBtn.setAttribute("aria-label", open ? "Close navigation menu" : "Open main navigation menu");
+  }
+
   menuBtn.addEventListener("click", () => {
-    const isOpen = menuDrawer.classList.toggle("open");
-    const cancelIcon = window.HUGEICONS && window.HUGEICONS['cancel-01'] ? window.HUGEICONS['cancel-01'] : '✕';
-    menuBtn.innerHTML = isOpen ? `<span>Close</span> ${cancelIcon}` : '<span>Menu</span>';
+    const nextState = !menuDrawer.classList.contains("open");
+    setMenuState(nextState);
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuDrawer.classList.contains("open")) {
+      setMenuState(false);
+    }
+  });
+
+  const menuLinks = menuDrawer.querySelectorAll(".menu-nav-links a");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      setMenuState(false);
+    });
   });
 }
 

@@ -277,6 +277,7 @@ input, select, textarea, button {
 .menu-button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 8px 20px;
   border-radius: 9999px;
@@ -288,11 +289,47 @@ input, select, textarea, button {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .menu-button:hover {
   background: var(--pill-hover);
   border-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu-button .menu-text-closed {
+  display: inline;
+}
+
+.menu-button .menu-text-open {
+  display: none;
+}
+
+.menu-button .menu-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.menu-button .menu-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  display: block;
+}
+
+/* Open state on desktop */
+.menu-button.is-open .menu-text-closed {
+  display: none;
+}
+
+.menu-button.is-open .menu-text-open {
+  display: inline;
+}
+
+.menu-button.is-open .menu-icon-close {
+  display: inline-flex;
 }
 
 .header-right {
@@ -1087,6 +1124,38 @@ input, select, textarea, button {
     height: 32px;
   }
 
+  /* Responsive Menu Icon Button on Mobile */
+  .menu-button {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    gap: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-button .menu-text {
+    display: none !important;
+  }
+
+  .menu-button:not(.is-open) .menu-icon-hamburger {
+    display: inline-flex !important;
+  }
+
+  .menu-button:not(.is-open) .menu-icon-close {
+    display: none !important;
+  }
+
+  .menu-button.is-open .menu-icon-hamburger {
+    display: none !important;
+  }
+
+  .menu-button.is-open .menu-icon-close {
+    display: inline-flex !important;
+  }
+
   .hero-pills-stack {
     left: 20px;
     top: 42%;
@@ -1182,8 +1251,9 @@ input, select, textarea, button {
   }
 
   .menu-button {
-    padding: 6px 14px;
-    font-size: 12px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
   }
 
   .clock-display {
