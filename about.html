@@ -8,7 +8,7 @@
   <link rel="icon" href="https://cdn.dribbble.com/users/6427175/avatars/normal/e4a6acaa2ade0cceccc4dbbfe1ae71a5?1794066809">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .bio-section {
@@ -19,7 +19,8 @@
       font-size: 24px;
       line-height: 1.5;
       color: #ffffff;
-      font-weight: 300;
+      font-weight: 400;
+      letter-spacing: -0.015em;
       margin-bottom: 24px;
     }
     .bio-body {
@@ -37,8 +38,8 @@
       border-bottom: 1px solid var(--border);
       margin: 60px 0 80px;
     }
-    .stat-val { font-size: 52px; font-weight: 240; font-family: "PP Eiko", serif; color: #fff; margin-bottom: 4px; }
-    .stat-label { font-size: 11px; font-family: monospace; text-transform: uppercase; color: #777; }
+    .stat-val { font-size: 52px; font-weight: 600; font-family: var(--font-family); letter-spacing: -0.06em; color: #fff; margin-bottom: 4px; }
+    .stat-label { font-size: 11px; font-family: var(--font-mono); text-transform: uppercase; color: #777; }
 
     /* Resume Sections Styling */
     .resume-section {
@@ -46,16 +47,17 @@
     }
     .section-label {
       font-size: 11px;
-      font-family: monospace;
+      font-family: var(--font-mono);
       text-transform: uppercase;
       color: #10b981;
       letter-spacing: 0.1em;
       margin-bottom: 10px;
     }
     .section-title {
-      font-family: "PP Eiko", serif;
-      font-size: 38px;
-      font-weight: 240;
+      font-family: var(--font-family);
+      font-size: 36px;
+      font-weight: 600;
+      letter-spacing: -0.06em;
       color: #ffffff;
       margin-bottom: 36px;
       line-height: 1.2;
@@ -111,7 +113,7 @@
       align-items: center;
       gap: 10px;
       font-size: 12px;
-      font-family: monospace;
+      font-family: var(--font-mono);
       text-transform: uppercase;
       color: #888888;
     }
@@ -197,7 +199,7 @@
     }
     .education-year {
       font-size: 12px;
-      font-family: monospace;
+      font-family: var(--font-mono);
       color: #10b981;
       text-transform: uppercase;
       margin-bottom: 12px;
@@ -300,7 +302,7 @@
     }
     .speaking-year {
       font-size: 11px;
-      font-family: monospace;
+      font-family: var(--font-mono);
       color: #10b981;
       text-transform: uppercase;
       margin-bottom: 6px;

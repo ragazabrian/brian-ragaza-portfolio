@@ -1,5 +1,5 @@
 /* --- System Font: Bricolage Grotesque --- */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 
 /* --- Global Reset & Variables --- */
 :root {
@@ -13,6 +13,7 @@
   --pill-hover: rgba(255, 255, 255, 0.28);
   --card-bg: #0c0c0e;
   --font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 * {
@@ -58,41 +59,91 @@ video {
   object-fit: cover;
 }
 
-/* --- Typography Hierarchy (Headers semibold 600, tight tracking -0.06em) --- */
+/* --- Unified Typography Hierarchy across All Pages --- */
+/* Headers: Semibold 600, Bricolage Grotesque, Negative Tracking -0.06em */
 h1, h2, h3, h4, h5, h6,
 .hero-title,
 .page-title,
 .section-heading,
+.section-title,
 .nav-heading,
 .work-title,
 .cap-title,
-.menu-nav-links a,
-.stat-number {
+.article-title,
+.experience-role,
+.education-degree,
+.skill-cat-title,
+.speaking-event,
+.stat-number,
+.stat-val,
+.work-brand,
+.menu-nav-links a {
   font-family: var(--font-family) !important;
   font-weight: 600 !important;
   letter-spacing: -0.06em !important;
+  color: #ffffff;
 }
 
+/* Body & Paragraphs: Regular 400, Bricolage Grotesque, Balanced Tracking */
 p, span, li, a,
+.bio-lead,
+.bio-body,
 .work-desc,
 .news-text,
 .cap-desc,
+.cap-deliverable,
 .channel-link,
+.experience-bullets li,
+.experience-company,
+.education-school,
+.education-desc,
+.speaking-location,
+.speaking-desc,
+.contact-intro p,
 input, select, textarea, button {
   font-family: var(--font-family);
   font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
-.font-serif {
+/* Sub-header Italic Accents & Refined Subtitles */
+.page-title span,
+.font-serif,
+.italic,
+.font-light {
   font-family: var(--font-family) !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+  letter-spacing: -0.04em !important;
+  color: #e5e5e5;
 }
 
 .font-sans {
   font-family: var(--font-family) !important;
 }
 
-.font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+/* Monospace Meta, Badges, Labels, Timestamps across All Pages */
+.font-mono,
+.stat-label,
+.section-label,
+.experience-meta,
+.experience-badge,
+.education-year,
+.speaking-year,
+.channel-badge,
+.form-label,
+.cap-tag,
+.article-meta,
+.filter-label,
+.case-badge,
+.clock-display,
+.tz,
+.menu-subhead,
+.news-meta,
+.work-meta,
+.city-meta {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.05em;
 }
 
 .hero-title {
@@ -214,7 +265,7 @@ input, select, textarea, button {
 }
 
 .clock-display .tz {
-  font-family: monospace;
+  font-family: var(--font-mono);
   color: #777777;
   font-size: 11px;
 }
@@ -303,7 +354,7 @@ input, select, textarea, button {
 
 .menu-subhead {
   font-size: 11px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #777777;
@@ -479,7 +530,7 @@ input, select, textarea, button {
 
 .news-meta {
   font-size: 11px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   color: #777777;
   margin-bottom: 2px;
 }
@@ -646,7 +697,7 @@ input, select, textarea, button {
 
 .filter-label {
   font-size: 12px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   color: #888888;
   margin-right: 8px;
@@ -725,7 +776,7 @@ input, select, textarea, button {
 .work-services .case-badge {
   display: inline-block;
   color: #10b981;
-  font-family: monospace;
+  font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.05em;
   margin-top: 4px;
@@ -799,7 +850,7 @@ input, select, textarea, button {
 
 .cap-tag {
   font-size: 11px;
-  font-family: monospace;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   color: #777777;
   margin-bottom: 12px;
