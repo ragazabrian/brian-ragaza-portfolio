@@ -20,333 +20,420 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=3.2">
   <style>
-    .bio-section {
-      max-width: 900px;
-      margin: 40px 0 50px;
-    }
-    .bio-lead {
-      font-size: 24px;
-      line-height: 1.5;
-      color: #ffffff;
-      font-weight: 400;
-      letter-spacing: -0.015em;
-      margin-bottom: 24px;
-    }
-    .bio-body {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #999999;
-      margin-bottom: 20px;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 30px;
-      padding: 50px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin: 60px 0 80px;
-    }
-    .stat-val { font-size: 52px; font-weight: 600; font-family: var(--font-family); letter-spacing: -0.06em; color: #fff; margin-bottom: 4px; }
-    .stat-label { font-size: 11px; font-family: var(--font-mono); text-transform: uppercase; color: #777; }
-
-    /* Resume Sections Styling */
-    .resume-section {
-      margin-bottom: 90px;
-    }
-    .section-label {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      color: #10b981;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: var(--font-family);
-      font-size: 36px;
-      font-weight: 600;
-      letter-spacing: -0.06em;
-      color: #ffffff;
-      margin-bottom: 36px;
-      line-height: 1.2;
+    /* Tabfolio Direction - Focused Minimal Resume Layout */
+    .resume-container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 50px 24px 120px;
     }
 
-    /* Experience Cards */
-    .experience-list {
+    /* Hero Section */
+    .resume-hero {
       display: flex;
       flex-direction: column;
-      gap: 28px;
-    }
-    .experience-card {
-      background: #0f0f10;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 34px 38px;
-      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      position: relative;
-    }
-    .experience-card:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-    }
-    .experience-header {
-      display: flex;
-      justify-content: space-between;
       align-items: flex-start;
-      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .resume-avatar-wrap {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
       margin-bottom: 22px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      padding-bottom: 20px;
+      background: #141416;
     }
-    .experience-main {
-      flex: 1;
+    .resume-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
-    .experience-role {
-      font-size: 21px;
+    .resume-hero-name {
+      font-family: var(--font-family);
+      font-size: 44px;
       font-weight: 600;
+      letter-spacing: -0.06em;
+      line-height: 1.1;
       color: #ffffff;
-      letter-spacing: -0.04em;
-      margin-bottom: 6px;
+      margin-bottom: 14px;
     }
-    .experience-company {
-      font-size: 16px;
-      color: #e4e4e7;
+    .resume-hero-bio {
+      font-size: 16.5px;
+      line-height: 1.65;
+      color: #a1a1aa;
+      max-width: 720px;
+      margin-bottom: 26px;
+    }
+    .resume-hero-bio strong {
+      color: #ffffff;
       font-weight: 500;
-      margin-bottom: 10px;
     }
-    .experience-meta {
+    .resume-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      color: #888888;
+      gap: 12px;
     }
-    .experience-badge {
+    .resume-btn-primary {
       display: inline-flex;
       align-items: center;
-      padding: 3px 10px;
+      justify-content: center;
+      padding: 10px 22px;
       border-radius: 999px;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #10b981;
+      background: #ffffff;
+      color: #0c0c0e;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+    .resume-btn-primary:hover {
+      background: #e4e4e7;
+      transform: translateY(-1px);
+    }
+    .resume-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      transition: all 0.18s ease;
+    }
+    .resume-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.28);
+      transform: translateY(-1px);
+    }
+
+    /* Stats Strip */
+    .resume-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 36px 0 54px;
+    }
+    .resume-stat-val {
+      font-family: var(--font-family);
+      font-size: 38px;
+      font-weight: 600;
+      letter-spacing: -0.06em;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .resume-stat-label {
       font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      color: #71717a;
+      letter-spacing: 0.04em;
     }
-    .experience-badge.past {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #a1a1aa;
+
+    /* Section Styling */
+    .resume-block {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 48px;
+      margin-top: 48px;
     }
-    .experience-logo-wrap {
-      flex-shrink: 0;
-      width: 64px;
-      height: 64px;
-      border-radius: 14px;
-      background: #161617;
-      border: 1px solid rgba(255, 255, 255, 0.09);
+    .resume-block-title {
+      font-family: var(--font-family);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+      margin-bottom: 30px;
+    }
+
+    /* Work Experience List (Tabfolio Left-Logo Direction) */
+    .resume-exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+    }
+    .resume-exp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding-bottom: 34px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .resume-exp-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .resume-exp-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: #141416;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px;
-      overflow: hidden;
+      padding: 7px;
+      flex-shrink: 0;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     }
-    .experience-logo-wrap img, .experience-logo-wrap svg {
+    .resume-exp-logo img, .resume-exp-logo svg {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
       display: block;
     }
-    .experience-bullets {
+    .resume-exp-content {
+      flex: 1;
+    }
+    .resume-exp-role-company {
+      font-size: 16.5px;
+      line-height: 1.4;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+    }
+    .resume-exp-role {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .resume-exp-at {
+      color: #71717a;
+      font-weight: 400;
+      margin: 0 4px;
+    }
+    .resume-exp-company {
+      color: #e4e4e7;
+      font-weight: 500;
+    }
+    .resume-exp-meta {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: #88888e;
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .resume-exp-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      color: #10b981;
+      font-size: 10.5px;
+    }
+    .resume-exp-bullets {
       list-style: none;
-      margin: 0;
+      margin: 12px 0 0 0;
       padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 8px;
     }
-    .experience-bullets li {
+    .resume-exp-bullets li {
       position: relative;
-      padding-left: 20px;
+      padding-left: 18px;
       font-size: 14.5px;
-      line-height: 1.65;
+      line-height: 1.6;
       color: #a1a1aa;
     }
-    .experience-bullets li::before {
+    .resume-exp-bullets li::before {
       content: "•";
       position: absolute;
       left: 0;
       top: 0;
       color: #52525b;
-      font-size: 16px;
-      line-height: 1.4;
+      font-size: 15px;
     }
 
-    /* Education Grid */
-    .education-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .education-card {
-      background: #0f0f10;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: border-color 0.2s ease, transform 0.2s ease;
-    }
-    .education-card:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-      transform: translateY(-2px);
-    }
-    .education-year {
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: #10b981;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .education-degree {
-      font-size: 18px;
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1.35;
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
-    }
-    .education-school {
-      font-size: 14px;
-      color: #cccccc;
-      margin-bottom: 14px;
-    }
-    .education-desc {
-      font-size: 13.5px;
-      line-height: 1.6;
-      color: #888888;
-    }
-    .award-tag {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(245, 158, 11, 0.1);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      color: #fbbf24;
-      font-size: 11px;
-      font-weight: 500;
-    }
-
-    /* Skills Section */
-    .skills-grid {
+    /* Tools Powering My Work (Tabfolio Signature Feature) */
+    .resume-tools-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 14px;
     }
-    .skill-category-card {
-      background: #0f0f10;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 32px;
-    }
-    .skill-cat-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 18px;
-      letter-spacing: -0.03em;
+    .resume-tool-card {
+      background: #0d0d0f;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 16px 18px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
     }
-    .skill-cat-title::before {
-      content: "";
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
+    .resume-tool-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+      transform: translateY(-2px);
     }
-    .skills-tags-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .skill-tag {
-      font-size: 12.5px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: #161617;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      color: #cccccc;
-      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-    }
-    .skill-tag:hover {
-      background: #202022;
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    /* Speaking & Recognition */
-    .speaking-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-    .speaking-card {
-      background: #0f0f10;
+    .resume-tool-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 24px 28px;
-      transition: border-color 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #ffffff;
     }
-    .speaking-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+    .resume-tool-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
     }
-    .speaking-year {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: #10b981;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+    .resume-tool-info {
+      display: flex;
+      flex-direction: column;
     }
-    .speaking-event {
-      font-size: 16px;
+    .resume-tool-name {
+      font-size: 15px;
       font-weight: 600;
       color: #ffffff;
-      margin-bottom: 4px;
       letter-spacing: -0.02em;
     }
-    .speaking-location {
+    .resume-tool-purpose {
       font-size: 12.5px;
-      color: #888888;
-      margin-bottom: 8px;
-    }
-    .speaking-desc {
-      font-size: 13.5px;
-      color: #a1a1aa;
-      line-height: 1.5;
+      color: #71717a;
+      line-height: 1.4;
+      margin-top: 2px;
     }
 
-    @media (max-width: 900px) {
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .education-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .speaking-list { grid-template-columns: 1fr; }
+    /* Skills Pill Cloud (Tabfolio Style) */
+    .resume-skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
     }
-    @media (max-width: 600px) {
-      .experience-card { padding: 24px 20px; }
-      .experience-header { gap: 16px; }
-      .experience-role { font-size: 18px; }
-      .experience-company { font-size: 14.5px; }
-      .experience-logo-wrap { width: 52px; height: 52px; border-radius: 12px; padding: 8px; }
-      .stats-grid { grid-template-columns: 1fr; gap: 24px; }
+    .resume-skill-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      color: #e4e4e7;
+      font-size: 13.5px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      transition: all 0.18s ease;
+    }
+    .resume-skill-pill:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* Linear List for Awards, Education, Speaking (Tabfolio Style) */
+    .resume-linear-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .resume-linear-item {
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .resume-linear-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .resume-linear-title {
+      font-size: 16.5px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+    .resume-linear-meta {
+      font-size: 12.5px;
+      color: #88888e;
+      margin-bottom: 6px;
+    }
+    .resume-linear-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #a1a1aa;
+    }
+
+    /* Resume Footer / Call to Action Card */
+    .resume-footer-cta {
+      background: #0f0f11;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 38px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 60px;
+      gap: 16px;
+    }
+    .resume-footer-title {
+      font-family: var(--font-family);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+    }
+    .resume-footer-desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #a1a1aa;
+      max-width: 620px;
+    }
+    .resume-footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .resume-container {
+        padding: 30px 18px 80px;
+      }
+      .resume-hero-name {
+        font-size: 34px;
+      }
+      .resume-hero-bio {
+        font-size: 15px;
+      }
+      .resume-stats-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        padding: 24px 0;
+      }
+      .resume-stat-val {
+        font-size: 32px;
+      }
+      .resume-tools-grid {
+        grid-template-columns: 1fr;
+      }
+      .resume-exp-item {
+        gap: 14px;
+      }
+      .resume-exp-logo {
+        width: 38px;
+        height: 38px;
+      }
+      .resume-footer-cta {
+        padding: 26px 20px;
+      }
     }
   </style>
 </head>
@@ -460,437 +547,507 @@
     </div>
   </div>
 
-  <main class="page-container">
-    <h1 class="page-title">
-      Senior Product Designer <br>
-      <span class="font-serif italic font-light">for software where mistakes are expensive.</span>
-    </h1>
+  <main class="resume-container">
 
-    <div class="bio-section">
-      <p class="bio-lead">
-        I’m a senior product designer working on mission-critical software where accuracy, speed, and cognitive clarity are non-negotiable.
+    <!-- Hero Profile Section (Tabfolio Direction) -->
+    <section class="resume-hero">
+      <div class="resume-avatar-wrap">
+        <img src="assets/brian-ragaza.jpg" alt="Brian Ragaza">
+      </div>
+      <h1 class="resume-hero-name">Brian Ragaza</h1>
+      <p class="resume-hero-bio">
+        Senior Product Designer & Design Operations Lead specializing in mission-critical software where accuracy, speed, and cognitive clarity are non-negotiable. Designing systems backed by <strong>Google, Accenture, and OpenAI</strong> across hyperscale data centers, supply chain, and luxury brands.
       </p>
-      <p class="bio-body">
-        I currently design for a US construction software company backed by <strong>Google, Accenture, and OpenAI</strong>, whose tools support hyperscale data center projects for some of the world’s largest cloud and AI companies. Industries include hyperscale data centers, supply chain and procurement, consumer tech (<strong>ASUS</strong>), and B2B SaaS across 50+ companies.
-      </p>
-      <p class="bio-body">
-        Alongside hyperscale SaaS, I architect digital brand transformations, catalog portals, and luxury eCommerce ecosystems for over 25 market-leading Australian and international brands (including Creed Perfume, Trademaster, Libertine, Koda Cutters, Gary Mehigan, and Michelle Bridges).
-      </p>
-      <p class="bio-body">
-        Honored as a <strong>LinkedIn Top Voice in UX Research</strong> and named among the <strong>Top 100 Filipinos on LinkedIn in 2024 and 2025</strong>.
-      </p>
-    </div>
+      <div class="resume-actions">
+        <a href="work.html" class="resume-btn-primary">My latest work</a>
+        <a href="contact.html" class="resume-btn-secondary">Let's chat</a>
+        <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="resume-btn-secondary">LinkedIn ↗</a>
+      </div>
+    </section>
 
-    <div class="stats-grid">
+    <!-- Stats Strip -->
+    <div class="resume-stats-strip">
       <div>
-        <div class="stat-val">50+</div>
-        <div class="stat-label">SaaS & B2B Platforms</div>
+        <div class="resume-stat-val">50+</div>
+        <div class="resume-stat-label">SaaS & B2B Platforms</div>
       </div>
       <div>
-        <div class="stat-val">$100B+</div>
-        <div class="stat-label">Hyperscale Build Value</div>
+        <div class="resume-stat-val">$100B+</div>
+        <div class="resume-stat-label">Hyperscale Build Value</div>
       </div>
       <div>
-        <div class="stat-val">25+</div>
-        <div class="stat-label">Production Brand Launches</div>
+        <div class="resume-stat-val">25+</div>
+        <div class="resume-stat-label">Brand Launches</div>
       </div>
       <div>
-        <div class="stat-val">Top 1%</div>
-        <div class="stat-label">LinkedIn Voice UX Research</div>
+        <div class="resume-stat-val">Top 1%</div>
+        <div class="resume-stat-label">LinkedIn Voice UX Research</div>
       </div>
     </div>
 
-    <!-- RELEVANT PROFESSIONAL EXPERIENCE -->
-    <section class="resume-section">
-      <div class="section-label">Career Timeline</div>
-      <h2 class="section-title">Relevant Professional Experience</h2>
+    <!-- WORK EXPERIENCE (Tabfolio Left-Logo Direction) -->
+    <section class="resume-block">
+      <h2 class="resume-block-title">Experience</h2>
 
-      <div class="experience-list">
+      <div class="resume-exp-list">
 
         <!-- 1. Kaya AI -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Design Operations Lead & Product Design Lead</h3>
-              <div class="experience-company">Kaya AI</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="Kaya AI">
+            <img src="assets/companies/kaya-ai.svg" alt="Kaya AI Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Design Operations Lead & Product Design Lead</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">Kaya AI</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Apr 2024 - Present</span>
+                <span>·</span>
                 <span>Columbus, Ohio (Remote)</span>
-                <span>•</span>
-                <span class="experience-badge">Apr 2024 - Present</span>
+                <span class="resume-exp-meta-badge">Current</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="Kaya AI">
-              <img src="assets/companies/kaya-ai.svg" alt="Kaya AI Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Built the entire design function from zero across product, marketing, and brand for an AI-native procurement and supply chain platform, scaling to 17 enterprise customers including Suffolk, Turner Construction, Harkins, and Prologis.</li>
+              <li>Grew contract value 20x versus 2024, scaling ARR to $2.7M across 17 enterprise accounts supporting $20B+ in managed construction value.</li>
+              <li>Drove brand and growth marketing across out-of-home advertising, digital campaigns, and enterprise partnership assets, maintaining consistency across every customer touchpoint.</li>
+              <li>Established design operations processes, sprint workflows, and cross-functional handoff standards that enabled team scaling without added headcount.</li>
+              <li>Led end-to-end UX strategy and usability reviews across procurement workflows, contributing to 85% operational efficiency gains and 50% reduction in project delays.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Built the entire design function from zero across product, marketing, and brand for an AI-native procurement and supply chain platform, scaling to 17 enterprise customers including Suffolk, Turner Construction, Harkins, and Prologis.</li>
-            <li>Grew contract value 20x versus 2024, scaling ARR to $2.7M across 17 enterprise accounts supporting $20B+ in managed construction value.</li>
-            <li>Drove brand and growth marketing across out-of-home advertising, digital campaigns, and enterprise partnership assets, maintaining consistency across every customer touchpoint.</li>
-            <li>Established design operations processes, sprint workflows, and cross-functional handoff standards that enabled team scaling without added headcount.</li>
-            <li>Led end-to-end UX strategy and usability reviews across procurement workflows, contributing to 85% operational efficiency gains and 50% reduction in project delays.</li>
-          </ul>
         </article>
 
         <!-- 2. CIIT Philippines -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Lecturer, Product Development</h3>
-              <div class="experience-company">CIIT Philippines</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="CIIT Philippines">
+            <img src="assets/companies/ciit.svg" alt="CIIT Philippines Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Lecturer, Product Development</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">CIIT Philippines</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Jan 2025 - Present</span>
+                <span>·</span>
                 <span>Quezon City, Philippines (Part-time)</span>
-                <span>•</span>
-                <span class="experience-badge">Jan 2025 - Present</span>
+                <span class="resume-exp-meta-badge">Current</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="CIIT Philippines">
-              <img src="assets/companies/ciit.svg" alt="CIIT Philippines Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Advised 8 capstone groups as Technical Adviser, with 5 of 8 recognized as Best Capstone at CIIT.</li>
+              <li>Teach product development, design thinking, and user-centered strategy to undergraduate students, in partnership with Adobe, Autodesk, and IBM Philippines.</li>
+              <li>Design end-to-end curriculum modules covering ideation, user research, prototyping, and go-to-market strategy.</li>
+              <li>Mentor students on portfolio-quality product work meeting current industry hiring standards.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Advised 8 capstone groups as Technical Adviser, with 5 of 8 recognized as Best Capstone at CIIT.</li>
-            <li>Teach product development, design thinking, and user-centered strategy to undergraduate students, in partnership with Adobe, Autodesk, and IBM Philippines.</li>
-            <li>Design end-to-end curriculum modules covering ideation, user research, prototyping, and go-to-market strategy.</li>
-            <li>Mentor students on portfolio-quality product work meeting current industry hiring standards.</li>
-          </ul>
         </article>
 
         <!-- 3. City College of San Jose Del Monte -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">College Instructor I, Product Design & HCI</h3>
-              <div class="experience-company">City College of San Jose Del Monte</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="City College of San Jose Del Monte">
+            <img src="assets/companies/ccsjdm.png" alt="City College of San Jose Del Monte Seal">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">College Instructor I, Product Design & HCI</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">City College of San Jose Del Monte</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Jun 2023 - Jun 2026</span>
+                <span>·</span>
                 <span>Bulacan, Philippines (Full-time)</span>
-                <span>•</span>
-                <span class="experience-badge">Jun 2023 - Jun 2026</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="City College of San Jose Del Monte">
-              <img src="assets/companies/ccsjdm.png" alt="City College of San Jose Del Monte Seal">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Teach product design, HCI, and prototyping to undergraduate computing and multimedia students at a CHED-recognized public college.</li>
+              <li>Designed design-thinking workshops adopted institution-wide, extending reach to non-design departments.</li>
+              <li>Developed CHED-aligned assessment rubrics ensuring evaluation consistency across multiple cohorts.</li>
+              <li>Advised award-winning capstone projects recognized institution-wide for design quality and research depth.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Teach product design, HCI, and prototyping to undergraduate computing and multimedia students at a CHED-recognized public college.</li>
-            <li>Designed design-thinking workshops adopted institution-wide, extending reach to non-design departments.</li>
-            <li>Developed CHED-aligned assessment rubrics ensuring evaluation consistency across multiple cohorts.</li>
-            <li>Advised award-winning capstone projects recognized institution-wide for design quality and research depth.</li>
-          </ul>
         </article>
 
         <!-- 4. Prem AI (Prem Labs LLC) -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Product Design Lead</h3>
-              <div class="experience-company">Prem AI (Prem Labs LLC)</div>
-              <div class="experience-meta">
-                <span>Italy (Remote)</span>
-                <span>•</span>
-                <span class="experience-badge past">Mar 2023 - Apr 2024</span>
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="Prem AI">
+            <img src="assets/companies/premai.png" alt="Prem AI Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Product Design Lead</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">Prem AI (Prem Labs LLC)</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Mar 2023 - Apr 2024</span>
+                <span>·</span>
+                <span>Lugano, Switzerland / Italy (Remote)</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="Prem AI">
-              <img src="assets/companies/premai.png" alt="Prem AI Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Led product design for an enterprise AI platform across finance, compliance, and gaming, owning the full user experience from concept through production.</li>
+              <li>Reduced user errors 20% and improved task completion through structured research and usability testing with developer users.</li>
+              <li>Built and shipped a comprehensive design system and component library that maintained UI consistency through a $14M seed-funded growth stage.</li>
+              <li>Delivered 35% improvement in customer satisfaction and 25% product adoption growth across a fully distributed international team.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Led product design for an enterprise AI platform across finance, compliance, and gaming, owning the full user experience from concept through production.</li>
-            <li>Reduced user errors 20% and improved task completion through structured research and usability testing with developer users.</li>
-            <li>Built and shipped a comprehensive design system and component library that maintained UI consistency through a $14M seed-funded growth stage.</li>
-            <li>Delivered 35% improvement in customer satisfaction and 25% product adoption growth across a fully distributed international team.</li>
-          </ul>
         </article>
 
         <!-- 5. AXA Philippines -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Senior Product Designer</h3>
-              <div class="experience-company">AXA Philippines</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="AXA Philippines">
+            <img src="assets/companies/axa.png" alt="AXA Philippines Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Senior Product Designer</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">AXA Philippines</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Sep 2022 - Dec 2022</span>
+                <span>·</span>
                 <span>Taguig City, Philippines</span>
-                <span>•</span>
-                <span class="experience-badge past">Sep 2022 - Dec 2022</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="AXA Philippines">
-              <img src="assets/companies/axa.png" alt="AXA Philippines Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Designed end-to-end UX for AXA Philippines mobile application and in-branch self-service systems, serving 1M+ policyholders.</li>
+              <li>Conducted multi-segment user research across individual, SME, and corporate customers, informing improvements to digital onboarding and claims flows.</li>
+              <li>Delivered production-ready kiosk specifications deployed across 45+ branches nationwide, supporting a shift to digital self-service.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Designed end-to-end UX for AXA Philippines’ mobile application and in-branch self-service systems, serving 1M+ policyholders.</li>
-            <li>Conducted multi-segment user research across individual, SME, and corporate customers, informing improvements to digital onboarding and claims flows.</li>
-            <li>Delivered production-ready kiosk specifications deployed across 45+ branches nationwide, supporting a shift to digital self-service.</li>
-          </ul>
         </article>
 
         <!-- 6. Cognitif Incorporation -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Product Designer</h3>
-              <div class="experience-company">Cognitif Incorporation</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="Cognitif Incorporation">
+            <img src="assets/companies/cognitif.png" alt="Cognitif Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Product Designer</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">Cognitif Incorporation</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Jan 2022 - Aug 2022</span>
+                <span>·</span>
                 <span>Ortigas, Pasig City, Philippines</span>
-                <span>•</span>
-                <span class="experience-badge past">Jan 2022 - Aug 2022</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="Cognitif Incorporation">
-              <img src="assets/companies/cognitif.png" alt="Cognitif Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Developed brand identities and product design for client launches across healthcare, enterprise productivity, and professional services.</li>
+              <li>Built full design systems and component libraries powering scalable UI patterns across web and mobile.</li>
+              <li>Delivered SaaS UI/UX design that improved user engagement and reduced onboarding friction.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Developed brand identities and product design for client launches across healthcare, enterprise productivity, and professional services.</li>
-            <li>Built full design systems and component libraries powering scalable UI patterns across web and mobile.</li>
-            <li>Delivered SaaS UI/UX design that improved user engagement and reduced onboarding friction.</li>
-          </ul>
         </article>
 
         <!-- 7. Netergy -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Product Development & Web Development Lead</h3>
-              <div class="experience-company">Netergy</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="Netergy">
+            <img src="assets/companies/netergy.png" alt="Netergy Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Product Development & Web Development Lead</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">Netergy</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Nov 2020 - Jan 2022</span>
+                <span>·</span>
                 <span>Pyrmont, Sydney, Australia (Remote)</span>
-                <span>•</span>
-                <span class="experience-badge past">Nov 2020 - Jan 2022</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="Netergy">
-              <img src="assets/companies/netergy.png" alt="Netergy Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Led brand identity and web development for premium clients including Creed Perfume, Bang & Olufsen, Foxtel, and Tefal.</li>
+              <li>Developed design systems for responsive web platforms, standardizing visual language across retail, luxury, and media verticals.</li>
+              <li>Produced high-conversion landing pages and campaign assets in direct collaboration with Sydney-based stakeholders.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Led brand identity and web development for premium clients including Creed Perfume, Bang & Olufsen, Foxtel, and Tefal.</li>
-            <li>Developed design systems for responsive web platforms, standardizing visual language across retail, luxury, and media verticals.</li>
-            <li>Produced high-conversion landing pages and campaign assets in direct collaboration with Sydney-based stakeholders.</li>
-          </ul>
         </article>
 
         <!-- 8. Winterwind Incorporation -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Product Designer</h3>
-              <div class="experience-company">Winterwind Incorporation</div>
-              <div class="experience-meta">
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="Winterwind Incorporation">
+            <img src="assets/companies/winterwind-icon.png" alt="Winterwind Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Product Designer</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">Winterwind Incorporation</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Jun 2019 - Jun 2020</span>
+                <span>·</span>
                 <span>Vancouver, Canada (Remote)</span>
-                <span>•</span>
-                <span class="experience-badge past">Jun 2019 - Jun 2020</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="Winterwind Incorporation">
-              <img src="assets/companies/winterwind-icon.png" alt="Winterwind Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Designed UI systems and user flows for North American SaaS clients, building reusable libraries that cut design-to-development handoff time.</li>
+              <li>Built landing pages and digital assets with structured user flows, contributing to measurable trial conversion improvements.</li>
+              <li>Developed brand identities for early-stage startups aligned to North American market positioning.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Designed UI systems and user flows for North American SaaS clients, building reusable libraries that cut design-to-development handoff time.</li>
-            <li>Built landing pages and digital assets with structured user flows, contributing to measurable trial conversion improvements.</li>
-            <li>Developed brand identities for early-stage startups aligned to North American market positioning.</li>
-          </ul>
         </article>
 
         <!-- 9. Biswal Grapiko -->
-        <article class="experience-card">
-          <div class="experience-header">
-            <div class="experience-main">
-              <h3 class="experience-role">Principal Designer, Chief of Design & Founder</h3>
-              <div class="experience-company">Biswal Grapiko</div>
-              <div class="experience-meta">
-                <span>Caloocan City, Philippines (Independent Studio)</span>
-                <span>•</span>
-                <span class="experience-badge">Jun 2016 - Present</span>
+        <article class="resume-exp-item">
+          <div class="resume-exp-logo" title="Biswal Grapiko">
+            <img src="assets/companies/biswal-grapiko.svg" alt="Biswal Grapiko Logo">
+          </div>
+          <div class="resume-exp-content">
+            <div class="resume-exp-header">
+              <div class="resume-exp-role-company">
+                <span class="resume-exp-role">Principal Designer & Founder</span>
+                <span class="resume-exp-at">@</span>
+                <span class="resume-exp-company">Biswal Grapiko</span>
+              </div>
+              <div class="resume-exp-meta">
+                <span>Jun 2016 - Present</span>
+                <span>·</span>
+                <span>Caloocan City, Philippines</span>
+                <span class="resume-exp-meta-badge">Studio</span>
               </div>
             </div>
-            <div class="experience-logo-wrap" title="Biswal Grapiko">
-              <img src="assets/companies/biswal-grapiko.svg" alt="Biswal Grapiko Logo">
-            </div>
+            <ul class="resume-exp-bullets">
+              <li>Operate an independent design studio delivering brand identity, print, and digital design for Philippine SMEs, NGOs, and media organizations for 10+ years.</li>
+              <li>Led design strategy for Kaya AI Series A investor materials, supporting the STO Building Group expansion from a $45K pilot to a $2.7M enterprise contract (30x growth) in 6 months.</li>
+              <li>Delivered Kaya AI full digital product surface, platform UI, and four product-line landing pages, cutting outsourced development spend by $15-25K annually.</li>
+              <li>Achieved a 35% NPS improvement and 25% product adoption increase within one quarter of shipping redesigned onboarding flows.</li>
+            </ul>
           </div>
-          <ul class="experience-bullets">
-            <li>Operate an independent design studio delivering brand identity, print, and digital design for Philippine SMEs, NGOs, and media organizations for 10+ years.</li>
-            <li>Led design strategy for Kaya AI’s Series A investor materials, supporting the STO Building Group expansion from a $45K pilot to a $2.7M enterprise contract (30x growth) in 6 months.</li>
-            <li>Delivered Kaya AI’s full digital product surface, platform UI, and four product-line landing pages, cutting outsourced development spend by $15-25K annually.</li>
-            <li>Achieved a 35% NPS improvement and 25% product adoption increase within one quarter of shipping redesigned onboarding flows.</li>
-          </ul>
         </article>
 
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section class="resume-section">
-      <div class="section-label">Academic Background</div>
-      <h2 class="section-title">Education</h2>
+    <!-- TOOLS POWERING MY WORK (Tabfolio Signature Feature) -->
+    <section class="resume-block">
+      <h2 class="resume-block-title">Tools powering my work</h2>
 
-      <div class="education-grid">
-        <div class="education-card">
-          <div>
-            <div class="education-year">2026</div>
-            <h3 class="education-degree">M.A. in Education, Major in Educational Management</h3>
-            <div class="education-school">Sandigan College, Inc. • NCR, Philippines</div>
-            <p class="education-desc">Graduate research in higher-education leadership, curriculum development, and educational policy, with applied focus on HCI education and design pedagogy.</p>
+      <div class="resume-tools-grid">
+
+        <div class="resume-tool-card">
+          <div class="resume-tool-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 2a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4V2H8zm8 0h-4v8h4a4 4 0 0 0 0-8zm-8 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4h4v-8H8zm8 0h-4v8h4a4 4 0 0 0 0-8zm-8 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8z"/></svg>
+          </div>
+          <div class="resume-tool-info">
+            <div class="resume-tool-name">Figma</div>
+            <div class="resume-tool-purpose">UI/UX design, interactive prototyping & design systems</div>
           </div>
         </div>
 
-        <div class="education-card">
-          <div>
-            <div class="education-year">2018 - 2022</div>
-            <h3 class="education-degree">B.S. in Entertainment and Multimedia Computing</h3>
-            <div class="education-school">University of Caloocan City • Caloocan City</div>
-            <p class="education-desc">Concentrated in multimedia production, interactive media, game design, and digital arts. Directed visual design for official publication The New Crossroads over four years.</p>
-            <span class="award-tag">★ Awarded Best Thesis</span>
+        <div class="resume-tool-card">
+          <div class="resume-tool-icon">
+            <svg viewBox="0 0 24 24"><path d="M22.28 9.87a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.61-2.82A5.99 5.99 0 0 0 10.6.6a6.05 6.05 0 0 0-5.8 4.22A5.99 5.99 0 0 0 1.2 8.44a6.05 6.05 0 0 0 .96 7.15 5.98 5.98 0 0 0 .52 4.91 6.05 6.05 0 0 0 6.61 2.82A5.99 5.99 0 0 0 13.8 24.8a6.05 6.05 0 0 0 5.8-4.22 5.99 5.99 0 0 0 3.6-3.62 6.05 6.05 0 0 0-.92-7.09zM13.8 23.2a4.45 4.45 0 0 1-2.9-1.07l.15-.08 4.88-2.82a.8.8 0 0 0 .4-.69v-6.88l2.07 1.2a.78.78 0 0 1 .4.63v5.63a4.52 4.52 0 0 1-4.99 4.08zM3.4 18.02a4.46 4.46 0 0 1-.55-3.05l.15.09 4.88 2.82c.25.14.4.4.4.69v6.88l-2.07-1.2a.78.78 0 0 1-.4-.63v-5.6zm-1.05-8.5a4.46 4.46 0 0 1 2.35-1.97v5.82a.8.8 0 0 0 .4.69l4.88 2.82-2.07 1.2a.78.78 0 0 1-.74 0L2.35 15.2a4.52 4.52 0 0 1 0-5.68zm14.62 2.37l-4.88-2.82 2.07-1.2a.78.78 0 0 1 .74 0l4.8 2.77a4.52 4.52 0 0 1-.38 8.12v-5.82a.8.8 0 0 0-.35-.69v-.36zm2.46-3.26l-.15-.09-4.88-2.82a.8.8 0 0 0-.4-.69V-.14l2.07 1.2a.78.78 0 0 1 .4.63v5.63a4.46 4.46 0 0 1 .96 1.31zm-9.35-3.67l-2.07-1.2a.78.78 0 0 1-.4-.63V1.65a4.52 4.52 0 0 1 7.29-1.18l-.15.09-4.88 2.82a.8.8 0 0 0-.4.69v.91zm-2.07 4.79l2.79-1.61 2.79 1.61v3.23l-2.79 1.61-2.79-1.61V9.75z"/></svg>
+          </div>
+          <div class="resume-tool-info">
+            <div class="resume-tool-name">Claude & OpenAI</div>
+            <div class="resume-tool-purpose">AI workflow design, prompt architecture & ideation</div>
           </div>
         </div>
 
-        <div class="education-card">
-          <div>
-            <div class="education-year">2016 - 2018</div>
-            <h3 class="education-degree">Information and Communication Technology</h3>
-            <div class="education-school">AMA Computer College • Quezon City</div>
-            <p class="education-desc">Built technical foundation in computer systems, networking, programming, and digital communications.</p>
+        <div class="resume-tool-card">
+          <div class="resume-tool-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
           </div>
+          <div class="resume-tool-info">
+            <div class="resume-tool-name">Linear & Jira</div>
+            <div class="resume-tool-purpose">Design operations, sprint workflows & agile delivery</div>
+          </div>
+        </div>
+
+        <div class="resume-tool-card">
+          <div class="resume-tool-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm2 4v4h4V6H6zm6 0v8h6V6h-6zm-6 6v6h4v-6H6zm6 10h6v-4h-6v4z"/></svg>
+          </div>
+          <div class="resume-tool-info">
+            <div class="resume-tool-name">Webflow & Framer</div>
+            <div class="resume-tool-purpose">Web publishing, CMS platforms & production landing pages</div>
+          </div>
+        </div>
+
+        <div class="resume-tool-card">
+          <div class="resume-tool-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+          </div>
+          <div class="resume-tool-info">
+            <div class="resume-tool-name">VS Code & GitHub</div>
+            <div class="resume-tool-purpose">Design engineering, front-end systems & git version control</div>
+          </div>
+        </div>
+
+        <div class="resume-tool-card">
+          <div class="resume-tool-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5zm4 4h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+          </div>
+          <div class="resume-tool-info">
+            <div class="resume-tool-name">Adobe Creative Cloud</div>
+            <div class="resume-tool-purpose">Brand identity craft, vector graphics & publication design</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS (Tabfolio Pill Cloud) -->
+    <section class="resume-block">
+      <h2 class="resume-block-title">Skills</h2>
+
+      <div class="resume-skills-cloud">
+        <span class="resume-skill-pill">Product Design</span>
+        <span class="resume-skill-pill">Design Operations</span>
+        <span class="resume-skill-pill">Design Systems</span>
+        <span class="resume-skill-pill">UX Strategy</span>
+        <span class="resume-skill-pill">User Research</span>
+        <span class="resume-skill-pill">Usability Testing</span>
+        <span class="resume-skill-pill">Information Architecture</span>
+        <span class="resume-skill-pill">Interaction Design</span>
+        <span class="resume-skill-pill">AI Product Design</span>
+        <span class="resume-skill-pill">Enterprise SaaS</span>
+        <span class="resume-skill-pill">Brand Strategy</span>
+        <span class="resume-skill-pill">Visual Identity</span>
+        <span class="resume-skill-pill">Rapid Prototyping</span>
+        <span class="resume-skill-pill">Wireframing</span>
+        <span class="resume-skill-pill">Front-End Collaboration</span>
+        <span class="resume-skill-pill">Cross-Functional Leadership</span>
+        <span class="resume-skill-pill">Curriculum Development</span>
+        <span class="resume-skill-pill">Conversion Rate Optimization</span>
+      </div>
+    </section>
+
+    <!-- AWARDS & RECOGNITION (Tabfolio Linear Layout) -->
+    <section class="resume-block">
+      <h2 class="resume-block-title">Awards & Recognition</h2>
+
+      <div class="resume-linear-list">
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">LinkedIn Top Voice in UX Research</div>
+          <div class="resume-linear-meta">LinkedIn · 2024 & 2025 · Global Honor</div>
+          <div class="resume-linear-desc">Honored among the top global voices for high-impact writing on mission-critical workflow architecture and user experience research.</div>
+        </div>
+
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Top 100 Filipinos on LinkedIn</div>
+          <div class="resume-linear-meta">National Honor · 2024 & 2025</div>
+          <div class="resume-linear-desc">Awarded for significant thought leadership and professional impact in software design, digital products, and technology innovation.</div>
+        </div>
+
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Best Capstone Technical Adviser (5x Recognized)</div>
+          <div class="resume-linear-meta">CIIT Philippines · 2025 - 2026</div>
+          <div class="resume-linear-desc">Technical adviser for 8 capstone research cohorts, with 5 recognized as Best Capstone institution-wide for design rigor and technical depth.</div>
+        </div>
+
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Awarded Best Thesis</div>
+          <div class="resume-linear-meta">University of Caloocan City · 2022</div>
+          <div class="resume-linear-desc">Recognized for premier academic and practical innovation in multimedia computing and human-computer interaction.</div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS & COMPETENCIES -->
-    <section class="resume-section">
-      <div class="section-label">Expertise</div>
-      <h2 class="section-title">Core Competencies & Skills</h2>
+    <!-- EDUCATION (Tabfolio Linear Layout) -->
+    <section class="resume-block">
+      <h2 class="resume-block-title">Education</h2>
 
-      <div class="skills-grid">
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Product & UX Strategy</h3>
-          <div class="skills-tags-wrap">
-            <span class="skill-tag">Product Design</span>
-            <span class="skill-tag">UX Strategy</span>
-            <span class="skill-tag">Design Operations</span>
-            <span class="skill-tag">Design Systems</span>
-            <span class="skill-tag">User Research</span>
-            <span class="skill-tag">Usability Testing</span>
-            <span class="skill-tag">Information Architecture</span>
-            <span class="skill-tag">Interaction Design</span>
-            <span class="skill-tag">AI Product Design</span>
-            <span class="skill-tag">Enterprise SaaS</span>
-          </div>
+      <div class="resume-linear-list">
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">M.A. in Education, Major in Educational Management</div>
+          <div class="resume-linear-meta">Sandigan College, Inc. · 2026 · NCR, Philippines</div>
+          <div class="resume-linear-desc">Graduate research in higher-education leadership, curriculum development, and educational policy, with applied focus on HCI education and design pedagogy.</div>
         </div>
 
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Marketing & Brand</h3>
-          <div class="skills-tags-wrap">
-            <span class="skill-tag">Brand Strategy</span>
-            <span class="skill-tag">Visual Identity</span>
-            <span class="skill-tag">Campaign Strategy</span>
-            <span class="skill-tag">Growth Marketing</span>
-            <span class="skill-tag">Investor Decks</span>
-            <span class="skill-tag">Out-of-Home Advertising</span>
-            <span class="skill-tag">Content Marketing</span>
-            <span class="skill-tag">B2B Marketing</span>
-            <span class="skill-tag">Demand Generation</span>
-          </div>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">B.S. in Entertainment and Multimedia Computing</div>
+          <div class="resume-linear-meta">University of Caloocan City · 2018 - 2022 · Awarded Best Thesis</div>
+          <div class="resume-linear-desc">Concentrated in multimedia production, interactive media, and digital arts. Directed visual design for official publication The New Crossroads over four years.</div>
         </div>
 
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Digital & Web Execution</h3>
-          <div class="skills-tags-wrap">
-            <span class="skill-tag">Web Design</span>
-            <span class="skill-tag">Responsive Design</span>
-            <span class="skill-tag">Landing Page Optimization</span>
-            <span class="skill-tag">Conversion Rate Optimization</span>
-            <span class="skill-tag">Rapid Prototyping</span>
-            <span class="skill-tag">Wireframing</span>
-            <span class="skill-tag">UI Design</span>
-            <span class="skill-tag">Front-End Collaboration</span>
-            <span class="skill-tag">Agile & Scrum</span>
-          </div>
-        </div>
-
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Leadership & Operations</h3>
-          <div class="skills-tags-wrap">
-            <span class="skill-tag">Design Leadership</span>
-            <span class="skill-tag">Cross-Functional Leadership</span>
-            <span class="skill-tag">Stakeholder Management</span>
-            <span class="skill-tag">Design Thinking</span>
-            <span class="skill-tag">Curriculum Development</span>
-            <span class="skill-tag">Team Mentorship</span>
-            <span class="skill-tag">Community Leadership</span>
-            <span class="skill-tag">Workshop Facilitation</span>
-            <span class="skill-tag">Distributed Team Management</span>
-          </div>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Information and Communication Technology</div>
+          <div class="resume-linear-meta">AMA Computer College · 2016 - 2018 · Quezon City</div>
+          <div class="resume-linear-desc">Built technical foundation in computer systems, networking, programming, and digital communications.</div>
         </div>
       </div>
     </section>
 
-    <!-- SPEAKING & RECOGNITION -->
-    <section class="resume-section">
-      <div class="section-label">Thought Leadership</div>
-      <h2 class="section-title">Speaking & Recognition</h2>
+    <!-- SPEAKING & THOUGHT LEADERSHIP (Tabfolio Linear Layout) -->
+    <section class="resume-block">
+      <h2 class="resume-block-title">Speaking & Thought Leadership</h2>
 
-      <div class="speaking-list">
-        <div class="speaking-card">
-          <div class="speaking-year">2026 • Manila, Philippines</div>
-          <h3 class="speaking-event">PrintCon Philippines</h3>
-          <div class="speaking-location">Featured on Manila Bulletin • Resource Speaker</div>
-          <p class="speaking-desc">Keynote on design leadership, visual communication in enterprise business, and AI as a creative partner.</p>
+      <div class="resume-linear-list">
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">PrintCon Philippines</div>
+          <div class="resume-linear-meta">2026 · Manila, Philippines · Featured on Manila Bulletin · Resource Speaker</div>
+          <div class="resume-linear-desc">Keynote on design leadership, visual communication in enterprise business, and AI as a creative partner.</div>
         </div>
 
-        <div class="speaking-card">
-          <div class="speaking-year">2025 • Valencia, Bukidnon</div>
-          <h3 class="speaking-event">Bukidnon Business Summit</h3>
-          <div class="speaking-location">Resource Speaker</div>
-          <p class="speaking-desc">Spoke on visual communication frameworks, modern design systems, and scaling business value through product craft.</p>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Bukidnon Business Summit</div>
+          <div class="resume-linear-meta">2025 · Valencia, Bukidnon · Resource Speaker</div>
+          <div class="resume-linear-desc">Spoke on visual communication frameworks, modern design systems, and scaling business value through product craft.</div>
         </div>
 
-        <div class="speaking-card">
-          <div class="speaking-year">2026 & 2025 • Special Edition</div>
-          <h3 class="speaking-event">PIAP Graphika Publications</h3>
-          <div class="speaking-location">Philippine Institute of Advertising Practitioners</div>
-          <p class="speaking-desc">Author of featured articles exploring ethical design responsibility and AI-augmented creative execution.</p>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">PIAP Graphika Publications</div>
+          <div class="resume-linear-meta">2025 & 2026 · Special Edition · Philippine Institute of Advertising Practitioners</div>
+          <div class="resume-linear-desc">Author of featured articles exploring ethical design responsibility and AI-augmented creative execution.</div>
         </div>
 
-        <div class="speaking-card">
-          <div class="speaking-year">2024 & 2025 • National Honor</div>
-          <h3 class="speaking-event">Top 100 Filipinos on LinkedIn</h3>
-          <div class="speaking-location">LinkedIn Top Voice in UX Research</div>
-          <p class="speaking-desc">Recognized among top Philippine leaders for high-impact content in UX methodology, design systems, and digital product strategy.</p>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Forest Lake Graphic Design Workshop</div>
+          <div class="resume-linear-meta">2024 · Biñan, Laguna · Workshop Lead</div>
+          <div class="resume-linear-desc">Conducted intensive hands-on workshops on visual identity architectures and brand fundamentals for corporate teams.</div>
         </div>
 
-        <div class="speaking-card">
-          <div class="speaking-year">2024 • Biñan, Laguna</div>
-          <h3 class="speaking-event">Forest Lake Graphic Design Workshop</h3>
-          <div class="speaking-location">Workshop Lead</div>
-          <p class="speaking-desc">Conducted intensive hands-on workshops on visual identity architectures and brand fundamentals for corporate teams.</p>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Blogapalooza: Design in Content Creation</div>
+          <div class="resume-linear-meta">2024 · Pasig City, Philippines · Invited Speaker</div>
+          <div class="resume-linear-desc">Presented on the intersection of deep design craft and content strategy for digital creators and brands.</div>
         </div>
 
-        <div class="speaking-card">
-          <div class="speaking-year">2024 • Pasig City, Philippines</div>
-          <h3 class="speaking-event">Blogapalooza: Design in Content Creation</h3>
-          <div class="speaking-location">Invited Speaker</div>
-          <p class="speaking-desc">Presented on the intersection of deep design craft and content strategy for digital creators and brands.</p>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">Bureau of Fire Protection</div>
+          <div class="resume-linear-meta">2023 · CALABARZON HQ · Resource Speaker</div>
+          <div class="resume-linear-desc">Public service design for emergency and public safety visual communication messaging.</div>
         </div>
 
-        <div class="speaking-card">
-          <div class="speaking-year">2023 • Laguna HQ</div>
-          <h3 class="speaking-event">Bureau of Fire Protection</h3>
-          <div class="speaking-location">Resource Speaker • CALABARZON HQ</div>
-          <p class="speaking-desc">Public service design for emergency and public safety visual communication messaging.</p>
-        </div>
-
-        <div class="speaking-card">
-          <div class="speaking-year">2022 - 2024 • Caloocan City</div>
-          <h3 class="speaking-event">University of Caloocan City</h3>
-          <div class="speaking-location">Resource Speaker • Visual Communication in Publication</div>
-          <p class="speaking-desc">Editorial design, layout systems, and publication production mentorship for collegiate journalists.</p>
+        <div class="resume-linear-item">
+          <div class="resume-linear-title">University of Caloocan City</div>
+          <div class="resume-linear-meta">2022 - 2024 · Caloocan City · Resource Speaker</div>
+          <div class="resume-linear-desc">Editorial design, layout systems, and publication production mentorship for collegiate journalists.</div>
         </div>
       </div>
     </section>
+
+    <!-- Resume Call to Action Footer (Tabfolio Style) -->
+    <div class="resume-footer-cta">
+      <h3 class="resume-footer-title">Let's build something exceptional.</h3>
+      <p class="resume-footer-desc">
+        Available for senior product design advisory, design operations consulting, and high-impact enterprise contracts.
+      </p>
+      <div class="resume-footer-actions">
+        <a href="contact.html" class="resume-btn-primary">Get in touch</a>
+        <a href="work.html" class="resume-btn-secondary">View selected work ↗</a>
+      </div>
+    </div>
 
   </main>
 
