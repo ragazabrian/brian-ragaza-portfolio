@@ -138,10 +138,13 @@ function initWorkTable() {
   }
 }
 
-// --- Contact Form Submission to ragazabrian@gmail.com ---
+// --- Contact Form Submission ---
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
+
+  // Obfuscated endpoint destination
+  const endpoint = atob("aHR0cHM6Ly9mb3Jtc3VibWl0LmNvL2FqYXgvcmFnYXphYnJpYW5AZ21haWwuY29t");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -173,7 +176,7 @@ function initContactForm() {
     if (statusEl) {
       statusEl.style.display = "block";
       statusEl.style.color = "#999999";
-      statusEl.textContent = "Delivering your inquiry to ragazabrian@gmail.com...";
+      statusEl.textContent = "Sending your message...";
     }
 
     const payload = {
@@ -182,12 +185,12 @@ function initContactForm() {
       company: company,
       project_scope: scope,
       message: message,
-      _subject: `${scope} — Inquiry from ${name}`,
+      _subject: `${scope} — Response from ${name}`,
       _replyto: email,
     };
 
     try {
-      const response = await fetch("https://formsubmit.co/ajax/ragazabrian@gmail.com", {
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -199,7 +202,7 @@ function initContactForm() {
       if (response.ok) {
         if (statusEl) {
           statusEl.style.color = "#10b981";
-          statusEl.innerHTML = `✓ Thank you, ${name}! Your inquiry has been sent to <strong>ragazabrian@gmail.com</strong>. I'll get back to you shortly.`;
+          statusEl.innerHTML = `✓ Thank you, ${name}! Your entry has been sent successfully. I have received your response and will get back to you shortly.`;
         }
         form.reset();
         if (submitBtn) {
@@ -214,16 +217,16 @@ function initContactForm() {
         throw new Error("Service returned status: " + response.status);
       }
     } catch (err) {
-      console.warn("Direct POST failed, falling back to mailto client:", err);
+      console.warn("Direct POST failed, falling back to mail client:", err);
       const mailtoSubject = encodeURIComponent(`${scope} (${name})`);
       const mailtoBody = encodeURIComponent(
         `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nProject Scope: ${scope}\n\nMessage / Bottleneck Screen:\n${message}`
       );
-      const mailtoUrl = `mailto:ragazabrian@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+      const mailtoUrl = `mailto:${atob("cmFnYXphYnJpYW5AZ21haWwuY29t")}?subject=${mailtoSubject}&body=${mailtoBody}`;
 
       if (statusEl) {
         statusEl.style.color = "#f59e0b";
-        statusEl.innerHTML = `Message prepared! If sending didn't trigger automatically: <a href="${mailtoUrl}" style="color: #fff; text-decoration: underline;">Click here to send directly to ragazabrian@gmail.com</a>`;
+        statusEl.innerHTML = `Thank you! If you did not receive immediate confirmation, <a href="${mailtoUrl}" style="color: #fff; text-decoration: underline;">click here to finish sending your response</a>.`;
       }
       window.location.href = mailtoUrl;
 
