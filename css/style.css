@@ -665,23 +665,16 @@ input, select, textarea, button {
 }
 
 /* --- Interactive Custom Mouse Cursor (Smooth follower dot) --- */
+/* --- Interactive Figma Multiplayer "YOU" Cursor --- */
 .custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 9px;
-  height: 9px;
-  background-color: #ffffff;
-  border-radius: 50%;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 999999;
   transform: translate3d(-100px, -100px, 0);
-  transition: width 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.15s ease,
-              border-color 0.15s ease;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
   display: none;
+  will-change: transform;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -690,14 +683,59 @@ input, select, textarea, button {
   }
 }
 
-.custom-cursor.hovering {
-  width: 32px;
-  height: 32px;
-  background-color: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+.cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.cursor-badge {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: var(--font-family);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  padding: 3px 6.5px;
+  border-radius: 2px 9px 9px 9px;
+  white-space: nowrap;
+  user-select: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              color 0.2s ease;
+}
+
+/* Hovering state on interactive elements */
+.custom-cursor.hovering .cursor-dot {
+  transform: translate(-50%, -50%) scale(1.28);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+.custom-cursor.hovering .cursor-badge {
+  transform: translate(2px, 2px) scale(1.05);
+}
+
+/* Clicking state */
+.custom-cursor.clicking .cursor-dot {
+  transform: translate(-50%, -50%) scale(0.85);
+}
+
+.custom-cursor.clicking .cursor-badge {
+  transform: translate(1px, 1px) scale(0.95);
 }
 
 /* --- Work Page Editorial Table --- */
@@ -1367,16 +1405,20 @@ input, select, textarea, button {
   border-color: rgba(0, 0, 0, 0.2);
 }
 
-/* Custom Cursor in Light Mode */
-[data-theme="light"] .custom-cursor {
-  background-color: #111114;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+/* Figma "YOU" Cursor in Light Mode */
+[data-theme="light"] .cursor-dot {
+  background-color: #000000 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
 }
 
-[data-theme="light"] .custom-cursor.hovering {
-  background-color: rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 0, 0, 0.35);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+[data-theme="light"] .cursor-badge {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="light"] .custom-cursor.hovering .cursor-dot {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
 }
 
 /* Smooth Transitions for Theme Toggle */

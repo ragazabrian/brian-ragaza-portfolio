@@ -133,6 +133,16 @@ function initCustomCursor() {
   const cursor = document.getElementById("custom-cursor");
   if (!cursor || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
+  if (!cursor.querySelector(".cursor-dot")) {
+    cursor.innerHTML = `
+      <span class="cursor-dot"></span>
+      <span class="cursor-badge">YOU</span>
+    `;
+  }
+
+  window.addEventListener("mousedown", () => cursor.classList.add("clicking"));
+  window.addEventListener("mouseup", () => cursor.classList.remove("clicking"));
+
   let mouseX = -100, mouseY = -100;
   let cursorX = -100, cursorY = -100;
   let isMoving = false;
@@ -149,9 +159,9 @@ function initCustomCursor() {
 
   function render() {
     if (isMoving) {
-      cursorX += (mouseX - cursorX) * 0.32;
-      cursorY += (mouseY - cursorY) * 0.32;
-      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+      cursorX += (mouseX - cursorX) * 0.35;
+      cursorY += (mouseY - cursorY) * 0.35;
+      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
     }
     requestAnimationFrame(render);
   }
