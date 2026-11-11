@@ -586,13 +586,12 @@ input, select, textarea, button {
 
 .hero-pills-stack {
   position: absolute;
-  top: 48%;
-  transform: translateY(-50%);
+  top: clamp(100px, 16vh, 150px);
   left: 48px;
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   align-items: flex-start;
 }
 
@@ -785,25 +784,27 @@ input, select, textarea, button {
 /* Floating Hover Preview */
 .floating-preview {
   position: fixed;
-  bottom: 48px;
-  right: 48px;
-  width: 320px;
-  height: 200px;
+  top: 0;
+  left: 0;
+  width: 380px;
+  aspect-ratio: 16/10;
+  height: auto;
   border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #000000;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #0c0c0e;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
   pointer-events: none;
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.25s ease;
+  transform: translate3d(0, 0, 0) scale(0.96);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
   z-index: 80;
 }
 
 .floating-preview.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(var(--fp-x, 0), var(--fp-y, 0), 0) scale(1);
 }
 
 .floating-preview video, .floating-preview img {
@@ -812,26 +813,56 @@ input, select, textarea, button {
   object-fit: cover;
 }
 
-/* --- What We Do Device Showcase --- */
+/* --- What We Do Device Showcase & High-Res App Preview --- */
 .device-center {
   display: flex;
   justify-content: center;
-  margin: 60px 0 100px;
+  margin: 50px auto 90px;
+  max-width: 960px;
+  width: 100%;
 }
 
 .device-frame {
-  width: 320px;
-  height: 640px;
-  border-radius: 52px;
+  width: 100%;
+  border-radius: 20px;
   overflow: hidden;
-  border: 10px solid #1a1a1c;
-  background: #000000;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #0c0c0e;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.device-chrome {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  background: #141416;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 8px;
+}
+
+.chrome-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.chrome-dot:nth-child(1) { background: #ff5f56; }
+.chrome-dot:nth-child(2) { background: #ffbd2e; }
+.chrome-dot:nth-child(3) { background: #27c93f; }
+
+.chrome-title {
+  margin-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #888888;
+  letter-spacing: 0.04em;
 }
 
 .device-frame video {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 16/10;
+  display: block;
   object-fit: cover;
 }
 

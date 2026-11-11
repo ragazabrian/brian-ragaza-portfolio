@@ -1,4 +1,6 @@
-# Brian Ragaza — Senior Product Designer Portfolio
+# Brian Ragaza: Senior Product Designer Portfolio
+
+![Brian Ragaza Portfolio Preview](assets/og-preview.png)
 
 An editorial, high-performance portfolio website built for **Brian Ragaza**, Senior Product Designer (UX/UI) specializing in mission-critical software, B2B SaaS, AI Workspaces, and brand design systems.
 

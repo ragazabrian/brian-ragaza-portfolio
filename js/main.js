@@ -170,13 +170,35 @@ function initWorkTable() {
   }
 
   if (floatingPreview && workRows.length > 0) {
+    const updatePreviewPos = (e) => {
+      const previewWidth = 380;
+      const previewHeight = 238;
+      let posX = e.clientX + 28;
+      let posY = e.clientY - (previewHeight / 2);
+
+      if (posX + previewWidth > window.innerWidth - 24) {
+        posX = e.clientX - previewWidth - 28;
+      }
+      if (posY + previewHeight > window.innerHeight - 24) {
+        posY = window.innerHeight - previewHeight - 24;
+      }
+      if (posY < 24) posY = 24;
+
+      floatingPreview.style.setProperty("--fp-x", posX + "px");
+      floatingPreview.style.setProperty("--fp-y", posY + "px");
+    };
+
     workRows.forEach((row) => {
-      row.addEventListener("mouseenter", () => {
+      row.addEventListener("mouseenter", (e) => {
         const videoUrl = row.getAttribute("data-preview-video");
         const imgUrl = row.getAttribute("data-preview-img");
 
+        updatePreviewPos(e);
+
         if (videoUrl && previewVideo) {
-          previewVideo.src = videoUrl;
+          if (previewVideo.src !== videoUrl) {
+            previewVideo.src = videoUrl;
+          }
           previewVideo.style.display = "block";
           if (previewImg) previewImg.style.display = "none";
           previewVideo.play().catch(() => {});
@@ -190,6 +212,10 @@ function initWorkTable() {
           }
           floatingPreview.classList.add("visible");
         }
+      });
+
+      row.addEventListener("mousemove", (e) => {
+        updatePreviewPos(e);
       });
 
       row.addEventListener("mouseleave", () => {
