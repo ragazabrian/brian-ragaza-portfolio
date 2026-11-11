@@ -423,10 +423,27 @@ input, select, textarea, button {
   fill: #ffffff;
 }
 
-/* Rotating Client Badge (Google, Accenture, OpenAI) */
+/* Top 100 Filipinos Badge */
+.badge-top100 {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-top100 img {
+  width: 31px;
+  height: 31px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Rotating Client Badge (Google, Accenture, OpenAI) - All White */
 .rotating-logo-badge {
   position: relative;
   background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   overflow: hidden;
 }
 
@@ -448,9 +465,16 @@ input, select, textarea, button {
   pointer-events: auto;
 }
 
-.rotating-logo-item svg {
-  width: 20px;
-  height: 20px;
+.rotating-logo-item svg,
+.rotating-logo-item img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.rotating-logo-item svg,
+.rotating-logo-item svg path {
+  fill: #ffffff !important;
 }
 
 .news-meta {
