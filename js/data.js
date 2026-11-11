@@ -98,6 +98,22 @@ const PROJECTS_DATA = [
     "linkText": "DRIBBBLE ↗"
   },
   {
+    "title": "Emma by AXA Philippines",
+    "slug": "emma-axa",
+    "client": "AXA Philippines",
+    "category": "Mobile Apps",
+    "industries": ["Fintech", "Mobile", "Healthcare", "Enterprise"],
+    "shortDescription": "Flagship digital healthcare, insurance management, and policyholder service application serving over 1,000,000 policyholders across the Philippines with teleconsultation, claims filing, and investment tracking.",
+    "tags": ["Fintech", "Mobile App", "Insurance", "Healthcare"],
+    "hasFullCaseStudy": false,
+    "hoverImage": "assets/projects/emma-by-axa.jpg",
+    "videoDesktop": null,
+    "link": "https://www.axa.com.ph/emma",
+    "linkText": "WEBSITE ↗",
+    "secondaryLink": "https://play.google.com/store/apps/details?id=com.axa.ph.emma&hl=en",
+    "secondaryLinkText": "GOOGLE PLAY ↗"
+  },
+  {
     "title": "Creed Perfume Australia Official",
     "slug": "creed-perfume",
     "client": "Creed Perfume Australia",
