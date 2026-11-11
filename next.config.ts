@@ -6,6 +6,7 @@ const repoName = "brian-ragaza-portfolio";
 const nextConfig: NextConfig = {
   output: isGithubPages ? "export" : undefined,
   basePath: isGithubPages ? `/${repoName}` : undefined,
+  trailingSlash: true,
   images: {
     unoptimized: isGithubPages ? true : false,
     remotePatterns: [
