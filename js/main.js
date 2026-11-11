@@ -1,4 +1,4 @@
-// --- Studio Clock ---
+// --- Studio Clock (Sydney Time) ---
 function initClock() {
   const clockEl = document.getElementById("clock-time");
   if (!clockEl) return;
@@ -6,6 +6,7 @@ function initClock() {
   function update() {
     const now = new Date();
     clockEl.textContent = now.toLocaleTimeString("en-US", {
+      timeZone: "Australia/Sydney",
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
@@ -67,7 +68,7 @@ function initWorkTable() {
         filterPills.forEach((p) => p.classList.remove("active"));
         btn.classList.add("active");
 
-        const selectedFilter = btn.getAttribute("data-filter");
+        const selectedFilter = (btn.getAttribute("data-filter") || "").toLowerCase();
 
         workRows.forEach((row) => {
           if (!selectedFilter || selectedFilter === "all") {
@@ -101,14 +102,19 @@ function initWorkTable() {
         } else if (imgUrl && previewImg) {
           previewImg.src = imgUrl;
           previewImg.style.display = "block";
-          if (previewVideo) previewVideo.style.display = "none";
+          if (previewVideo) {
+            previewVideo.style.display = "none";
+            previewVideo.pause();
+          }
           floatingPreview.classList.add("visible");
         }
       });
 
       row.addEventListener("mouseleave", () => {
         floatingPreview.classList.remove("visible");
-        if (previewVideo) previewVideo.pause();
+        if (previewVideo) {
+          previewVideo.pause();
+        }
       });
     });
   }

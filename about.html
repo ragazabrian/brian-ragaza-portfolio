@@ -3,10 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About | Metalab</title>
-  <link rel="icon" href="https://www.metalab.com/favicon.ico">
+  <title>About Brian Ragaza | Senior Product Designer</title>
+  <meta name="description" content="Senior Product Designer (UX/UI) | B2B SaaS & Hyperscale Software. Designing mission-critical platforms backed by Google, Accenture & OpenAI, and digital transformations at Netergy Sydney.">
+  <link rel="icon" href="https://cdn.dribbble.com/users/6427175/avatars/normal/e4a6acaa2ade0cceccc4dbbfe1ae71a5?1794066809">
   <link rel="stylesheet" href="css/style.css">
   <style>
+    .bio-section {
+      max-width: 900px;
+      margin: 40px 0 60px;
+    }
+    .bio-lead {
+      font-size: 24px;
+      line-height: 1.5;
+      color: #ffffff;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .bio-body {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #999999;
+      margin-bottom: 20px;
+    }
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -16,7 +34,7 @@
       border-bottom: 1px solid var(--border);
       margin: 80px 0;
     }
-    .stat-val { font-size: 56px; font-weight: 240; font-family: "PP Eiko", serif; color: #fff; margin-bottom: 4px; }
+    .stat-val { font-size: 52px; font-weight: 240; font-family: "PP Eiko", serif; color: #fff; margin-bottom: 4px; }
     .stat-label { font-size: 11px; font-family: monospace; text-transform: uppercase; color: #777; }
     .cities-grid {
       display: grid;
@@ -33,7 +51,8 @@
       border: 1px solid var(--border);
       padding: 24px;
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      justify-content: flex-end;
     }
     .city-card img {
       position: absolute;
@@ -41,9 +60,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.5;
+      opacity: 0.35;
     }
-    .city-name { position: relative; z-index: 2; font-size: 20px; font-weight: 400; color: #fff; }
+    .city-meta { position: relative; z-index: 2; font-size: 11px; font-family: monospace; text-transform: uppercase; color: #10b981; margin-bottom: 4px; }
+    .city-name { position: relative; z-index: 2; font-size: 22px; font-weight: 400; color: #fff; }
     @media (max-width: 768px) {
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .cities-grid { grid-template-columns: 1fr; }
@@ -61,20 +81,20 @@
     </div>
 
     <div class="header-center">
-      <a href="index.html" class="logo-link">Metalab</a>
+      <a href="index.html" class="logo-link">Brian Ragaza</a>
     </div>
 
     <div class="header-right">
       <div class="clock-display">
-        <span class="tz">LDN</span>
-        <span id="clock-time">1:25 PM</span>
+        <span class="tz">SYD</span>
+        <span id="clock-time">5:52 PM</span>
       </div>
 
-      <button class="icon-btn" aria-label="Toggle Night Mode">
-        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
+      <a href="https://dribbble.com/ragazabrian" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="Brian Ragaza on Dribbble" title="Dribbble">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm7.93 9.07c-.44-.06-2.61-.35-5.06.69-.16-.36-.34-.73-.53-1.09 3.01-1.42 4.19-3.23 4.29-3.4 1.15 1.1 1.86 2.62 1.3 3.8zm-2.58-5.06c-.1.14-1.22 1.85-4.14 3.22-1.26-2.28-2.67-4.18-2.82-4.38 1.09-.54 2.33-.85 3.61-.85 1.25 0 2.42.34 3.35 2.01zM8.9 5.86c.15.2 1.54 2.08 2.8 4.34-3.55 1.07-6.81.42-7.15.35.65-2.07 2.14-3.79 4.35-4.69zM3.99 12c.24.05 3.06.6 6.36-.45.3.62.59 1.26.85 1.89-3.9 1.31-7.1 4.54-7.24 4.69C3.36 16.58 3 14.86 3 13.06c0-.36.03-.71.99-1.06zm2.08 7.37c.18-.18 3.05-3.09 6.89-4.32 1.05 2.76 1.5 5.25 1.57 5.72-1.39.52-2.9.8-4.53.8-1.52 0-2.95-.44-3.93-2.2zm10.02 1.3c-.08-.43-.49-2.73-1.46-5.32 2.24-.97 4.14-.72 4.54-.66-.4 2.62-1.89 4.86-3.08 5.98z"></path></svg>
+      </a>
 
-      <a href="contact.html" class="icon-btn" aria-label="Contact MetaLab">
+      <a href="contact.html" class="icon-btn" aria-label="Contact Brian Ragaza" title="Contact">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6" stroke="#000" stroke-width="1.5" fill="none"></polyline></svg>
       </a>
     </div>
@@ -85,38 +105,52 @@
     <div class="menu-grid">
       <div>
         <nav class="menu-nav-links">
-          <a href="what-we-do.html">What We Do</a>
-          <a href="about.html">About Us</a>
-          <a href="careers.html">Latest News</a>
+          <a href="what-we-do.html">What I Do</a>
+          <a href="work.html">Selected Work</a>
+          <a href="about.html">About Brian</a>
           <a href="contact.html">Get in Touch</a>
         </nav>
         <div class="menu-case-studies">
-          <p class="menu-subhead">Case Studies</p>
+          <p class="menu-subhead">Featured Projects</p>
           <div class="menu-pills-wrap">
-            <a href="work.html#robinhood" class="pill-item">Robinhood</a>
-            <a href="work.html#midjourney" class="pill-item">Midjourney</a>
-            <a href="work.html#uber" class="pill-item">Uber</a>
-            <a href="work.html#suno" class="pill-item">Suno</a>
-            <a href="work.html#ro" class="pill-item">Ro</a>
-            <a href="work.html#atoms" class="pill-item">Atoms</a>
-            <a href="work.html#the-atlantic" class="pill-item">The Atlantic</a>
-            <a href="work.html#calvin-klein" class="pill-item">Calvin Klein</a>
-            <a href="work.html#headspace" class="pill-item">Headspace</a>
-            <a href="work.html" class="pill-item">All Work</a>
+            <a href="work.html#ai-construction" class="pill-item">AI Construction</a>
+            <a href="work.html#ai-workspace" class="pill-item">AI Workspace</a>
+            <a href="work.html#caregiving-app" class="pill-item">Caregiving App</a>
+            <a href="work.html#site-assistant" class="pill-item">Site Assistant</a>
+            <a href="work.html#logistics-ai" class="pill-item">Logistics AI</a>
+            <a href="work.html#mobile-banking" class="pill-item">Mobile Banking</a>
+            <a href="work.html#creed-perfume" class="pill-item">Creed Perfume</a>
+            <a href="work.html#trademaster" class="pill-item">Trademaster</a>
+            <a href="work.html#koda-cutters" class="pill-item">Koda Cutters</a>
+            <a href="work.html" class="pill-item">All Work (25+)</a>
           </div>
         </div>
       </div>
       <div class="menu-middle-frame">
         <div class="menu-video-card">
-          <video autoplay loop muted playsinline src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"></video>
+          <video autoplay loop muted playsinline src="https://cdn.dribbble.com/userupload/49571121/file/large-3f20540ca39b89adc7c1a773e2c7d31a.mp4"></video>
         </div>
       </div>
       <div class="menu-news-column">
-        <a href="work.html#windsurf" class="news-card">
-          <div class="news-badge badge-white">AI</div>
+        <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="news-card">
+          <div class="news-badge badge-green">VOICE</div>
           <div>
-            <p class="news-meta">Featured Story</p>
-            <p class="news-text">Our Windsurf case study: humanizing AI code assistants.</p>
+            <p class="news-meta">Recognition</p>
+            <p class="news-text">LinkedIn Top Voice in UX Research — writing on mission-critical workflow architecture.</p>
+          </div>
+        </a>
+        <div class="news-card">
+          <div class="news-badge badge-white">TOP 100</div>
+          <div>
+            <p class="news-meta">2024 & 2025</p>
+            <p class="news-text">Awarded Top 100 Filipino on LinkedIn for contributions to software design & tech.</p>
+          </div>
+        </div>
+        <a href="https://netergy.com.au/" target="_blank" rel="noopener noreferrer" class="news-card">
+          <div class="news-badge badge-white">SCALE</div>
+          <div>
+            <p class="news-meta">Portfolio Impact</p>
+            <p class="news-text">Designing software backed by Google, Accenture & OpenAI, and 25+ brands at Netergy Sydney.</p>
           </div>
         </a>
       </div>
@@ -125,45 +159,63 @@
 
   <main class="page-container">
     <h1 class="page-title">
-      Global talent, <br>
-      <span class="font-serif italic font-light">Canadian roots.</span>
+      Senior Product Designer — <br>
+      <span class="font-serif italic font-light">for software where mistakes are expensive.</span>
     </h1>
+
+    <div class="bio-section">
+      <p class="bio-lead">
+        I’m a senior product designer working on mission-critical software where accuracy, speed, and cognitive clarity are non-negotiable.
+      </p>
+      <p class="bio-body">
+        I currently design for a US construction software company backed by <strong>Google, Accenture, and OpenAI</strong>, whose tools support hyperscale data center projects for some of the world’s largest cloud and AI companies. Industries include hyperscale data centers, supply chain and procurement, consumer tech (<strong>ASUS</strong>), and B2B SaaS across 50+ companies.
+      </p>
+      <p class="bio-body">
+        Alongside hyperscale SaaS, I collaborate with <strong>Netergy Sydney</strong>, architecting digital brand transformations, catalog portals, and luxury eCommerce ecosystems for over 25 market-leading Australian and international brands (including Creed Perfume, Trademaster, Libertine, Koda Cutters, Gary Mehigan, and Michelle Bridges).
+      </p>
+      <p class="bio-body">
+        Honored as a <strong>LinkedIn Top Voice in UX Research</strong> and named among the <strong>Top 100 Filipinos on LinkedIn in 2024 and 2025</strong>.
+      </p>
+    </div>
 
     <div class="stats-grid">
       <div>
-        <div class="stat-val">2006</div>
-        <div class="stat-label">Year Founded</div>
-      </div>
-      <div>
-        <div class="stat-val">160+</div>
-        <div class="stat-label">Designers & Engineers</div>
-      </div>
-      <div>
-        <div class="stat-val">85+</div>
-        <div class="stat-label">Products Shipped</div>
+        <div class="stat-val">50+</div>
+        <div class="stat-label">SaaS & B2B Platforms</div>
       </div>
       <div>
         <div class="stat-val">$100B+</div>
-        <div class="stat-label">Combined Valuation</div>
+        <div class="stat-label">Hyperscale Build Value</div>
+      </div>
+      <div>
+        <div class="stat-val">25+</div>
+        <div class="stat-label">Netergy Brand Launches</div>
+      </div>
+      <div>
+        <div class="stat-val">Top 1%</div>
+        <div class="stat-label">LinkedIn Voice UX Research</div>
       </div>
     </div>
 
     <div>
-      <p style="font-size: 11px; font-family: monospace; text-transform: uppercase; color: #777; margin-bottom: 8px;">A Global Studio</p>
-      <h2 style="font-family: 'PP Eiko', serif; font-size: 36px; font-weight: 240; color: #fff;">Distributed across 14 timezones.</h2>
+      <p style="font-size: 11px; font-family: monospace; text-transform: uppercase; color: #777; margin-bottom: 8px;">Global Focus</p>
+      <h2 style="font-family: 'PP Eiko', serif; font-size: 36px; font-weight: 240; color: #fff;">Operating across key timezones.</h2>
       
       <div class="cities-grid">
         <div class="city-card">
-          <img src="https://cdn.sanity.io/images/nuxb3jim/production-july-2025/f901e2c0757af49745b98b75cbd85ad12bcd8cde-1500x2000.png" alt="Victoria">
-          <span class="city-name">Victoria, BC</span>
+          <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80" alt="Sydney">
+          <span class="city-meta">Agency Partner</span>
+          <span class="city-name">Sydney, Australia</span>
         </div>
         <div class="city-card">
-          <img src="https://cdn.sanity.io/images/nuxb3jim/production-july-2025/459bd4436ca8807e73a713da82cfeb4e6a9bed3a-1500x2000.png" alt="Vancouver">
-          <span class="city-name">Vancouver, BC</span>
+          <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80" alt="Manila">
+          <span class="city-meta">Base Location</span>
+          <span class="city-name">Manila, Philippines</span>
         </div>
         <div class="city-card">
-          <img src="https://cdn.sanity.io/images/nuxb3jim/production-july-2025/f901e2c0757af49745b98b75cbd85ad12bcd8cde-1500x2000.png" alt="New York">
-          <span class="city-name">New York, NY</span>
+          <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="San Francisco">
+          <span class="city-meta">Enterprise Client Hub</span>
+          <span class="city-name">San Francisco, USA</span>
         </div>
       </div>
     </div>
