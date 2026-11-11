@@ -57,24 +57,28 @@ function initHeroVideoSwitcher() {
   pills.forEach((pill) => {
     pill.addEventListener("mouseenter", () => {
       const targetId = pill.getAttribute("data-target");
-      const targetVideo = targetId ? document.getElementById(targetId) : defaultVideo;
-      if (!targetVideo || targetVideo === activeVideo) return;
+      const targetMedia = targetId ? document.getElementById(targetId) : defaultVideo;
+      if (!targetMedia || targetMedia === activeVideo) return;
 
-      targetVideo.play().catch(() => {});
-      targetVideo.classList.add("active");
+      if (typeof targetMedia.play === "function") {
+        targetMedia.play().catch(() => {});
+      }
+      targetMedia.classList.add("active");
 
-      if (activeVideo && activeVideo !== targetVideo) {
+      if (activeVideo && activeVideo !== targetMedia) {
         activeVideo.classList.remove("active");
       }
 
-      activeVideo = targetVideo;
+      activeVideo = targetMedia;
     });
 
     pill.addEventListener("mouseleave", () => {
       if (activeVideo === defaultVideo) return;
 
       defaultVideo.classList.add("active");
-      defaultVideo.play().catch(() => {});
+      if (typeof defaultVideo.play === "function") {
+        defaultVideo.play().catch(() => {});
+      }
 
       if (activeVideo && activeVideo !== defaultVideo) {
         activeVideo.classList.remove("active");
