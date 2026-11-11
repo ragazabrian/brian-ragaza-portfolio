@@ -23,8 +23,8 @@
   --bg: #f8f8fa !important;
   --fg: #111114 !important;
   --fg-subtle: #5f5d68 !important;
-  --fg-muted: #8c8a94 !important;
-  --border: rgba(0, 0, 0, 0.09) !important;
+  --fg-muted: #52525b !important;
+  --border: rgba(0, 0, 0, 0.12) !important;
   --border-subtle: rgba(0, 0, 0, 0.05) !important;
   --pill-bg: rgba(0, 0, 0, 0.06) !important;
   --pill-hover: rgba(0, 0, 0, 0.12) !important;
@@ -890,6 +890,15 @@ input, select, textarea, button {
   margin-top: 4px;
 }
 
+.work-services .badge-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
 /* Floating Hover Preview (Dynamic Cursor Follower) */
 .floating-preview {
   position: fixed;
@@ -1126,6 +1135,10 @@ input, select, textarea, button {
     text-align: left;
   }
 
+  .work-services .badge-group {
+    justify-content: flex-start;
+  }
+
   .floating-preview {
     display: none !important;
   }
@@ -1340,7 +1353,7 @@ input, select, textarea, button {
 }
 
 [data-theme="light"] .work-desc {
-  color: #52525b;
+  color: #3f3f46;
 }
 
 [data-theme="light"] .work-row:hover .work-desc {
@@ -1348,26 +1361,40 @@ input, select, textarea, button {
 }
 
 [data-theme="light"] .work-services {
-  color: #71717a;
+  color: #52525b;
+}
+
+[data-theme="light"] .work-services .case-badge {
+  color: #047857 !important;
+  font-weight: 600 !important;
+}
+
+[data-theme="light"] .work-services .case-badge:hover {
+  color: #064e3b !important;
+  text-decoration: underline;
 }
 
 [data-theme="light"] .filter-label {
-  color: #71717a;
+  color: #52525b;
+  font-weight: 500;
 }
 
 [data-theme="light"] .filter-pill {
   background: rgba(0, 0, 0, 0.05);
-  color: #52525b;
+  color: #27272a;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="light"] .filter-pill:hover {
   background: rgba(0, 0, 0, 0.09);
   color: #111114;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="light"] .filter-pill.active {
   background: #111114;
   color: #ffffff;
+  border-color: #111114;
 }
 
 [data-theme="light"] .floating-preview {

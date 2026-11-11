@@ -1,10 +1,18 @@
 
 // --- Theme Toggle (Dark / Light Mode with Hugeicons) ---
+// Applies only on pages that contain the theme toggle button (work.html & about.html)
 function initThemeToggle() {
-  const toggleBtn = document.getElementById("theme-toggle-btn");
+  const toggleBtn = document.getElementById("theme-toggle-btn") || document.getElementById("theme-toggle");
+  
+  // If not on an allowed theme page, enforce default dark mode
+  if (!toggleBtn) {
+    document.documentElement.removeAttribute("data-theme");
+    return;
+  }
+
   const sunIcon = window.HUGEICONS && window.HUGEICONS["sun-01"] 
     ? window.HUGEICONS["sun-01"] 
-    : `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+    : `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
   const moonIcon = window.HUGEICONS && window.HUGEICONS["moon-02"] 
     ? window.HUGEICONS["moon-02"] 
     : `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.5 14.078A8.557 8.557 0 0 1 9.922 2.5C5.668 3.497 2.5 7.315 2.5 11.873a9.627 9.627 0 0 0 9.627 9.627c4.558 0 8.376-3.168 9.373-7.422"/></svg>`;
@@ -22,15 +30,21 @@ function initThemeToggle() {
     }
   }
 
-  let currentTheme = document.documentElement.getAttribute("data-theme") || localStorage.getItem("portfolio-theme") || "dark";
-  document.documentElement.setAttribute("data-theme", currentTheme);
+  let currentTheme = localStorage.getItem("portfolio-theme") || "dark";
+  if (currentTheme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
   updateIcon(currentTheme);
-
-  if (!toggleBtn) return;
 
   toggleBtn.addEventListener("click", () => {
     currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", currentTheme);
+    if (currentTheme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
     localStorage.setItem("portfolio-theme", currentTheme);
     updateIcon(currentTheme);
   });
