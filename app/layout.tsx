@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import MetaLabHeader from "@/components/MetaLabHeader";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Metalab | We make interfaces",
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark bg-black">
       <body className="bg-black text-white min-h-screen selection:bg-white selection:text-black">
-        <MetaLabHeader />
+        <Header />
         <main>{children}</main>
       </body>
     </html>
