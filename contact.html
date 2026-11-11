@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Metalab</title>
+  <link rel="icon" href="https://www.metalab.com/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 60px;
+      margin-top: 40px;
+    }
+    .contact-intro p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 24px;
+    }
+    .contact-form {
+      background: #0d0d0f;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 40px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-label {
+      display: block;
+      font-size: 11px;
+      font-family: monospace;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 8px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: #18181b;
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #666;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 9999px;
+      background: #fff;
+      color: #000;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .submit-btn:hover {
+      background: #ccc;
+    }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-form { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-button" aria-label="Open the main navigation menu">
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo-link">Metalab</a>
+    </div>
+
+    <div class="header-right">
+      <div class="clock-display">
+        <span class="tz">LDN</span>
+        <span id="clock-time">1:25 PM</span>
+      </div>
+
+      <button class="icon-btn" aria-label="Toggle Night Mode">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <a href="contact.html" class="icon-btn" aria-label="Contact MetaLab">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6" stroke="#000" stroke-width="1.5" fill="none"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Fullscreen Menu Drawer -->
+  <div id="menu-drawer" class="menu-drawer">
+    <div class="menu-grid">
+      <div>
+        <nav class="menu-nav-links">
+          <a href="what-we-do.html">What We Do</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Latest News</a>
+          <a href="contact.html">Get in Touch</a>
+        </nav>
+        <div class="menu-case-studies">
+          <p class="menu-subhead">Case Studies</p>
+          <div class="menu-pills-wrap">
+            <a href="work.html#robinhood" class="pill-item">Robinhood</a>
+            <a href="work.html#midjourney" class="pill-item">Midjourney</a>
+            <a href="work.html#uber" class="pill-item">Uber</a>
+            <a href="work.html#suno" class="pill-item">Suno</a>
+            <a href="work.html#ro" class="pill-item">Ro</a>
+            <a href="work.html#atoms" class="pill-item">Atoms</a>
+            <a href="work.html#the-atlantic" class="pill-item">The Atlantic</a>
+            <a href="work.html#calvin-klein" class="pill-item">Calvin Klein</a>
+            <a href="work.html#headspace" class="pill-item">Headspace</a>
+            <a href="work.html" class="pill-item">All Work</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-middle-frame">
+        <div class="menu-video-card">
+          <video autoplay loop muted playsinline src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"></video>
+        </div>
+      </div>
+      <div class="menu-news-column">
+        <a href="work.html#windsurf" class="news-card">
+          <div class="news-badge badge-white">AI</div>
+          <div>
+            <p class="news-meta">Featured Story</p>
+            <p class="news-text">Our Windsurf case study: humanizing AI code assistants.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-container">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <h1 class="page-title" style="margin-bottom: 30px;">
+          Say <br>
+          <span class="font-serif italic font-light">hey.</span>
+        </h1>
+        <p>Not sure where to start? Tell us about your product, your timeline, how you heard about us, and where you’re located.</p>
+        <p>Or reach out directly at <a href="mailto:contact@metalab.com" style="color: #fff; text-decoration: underline;">contact@metalab.com</a>.</p>
+        <p style="color: #666; font-size: 14px;">We read every message. So, thanks in advance for making it a good one.</p>
+      </div>
+
+      <div class="contact-form">
+        <form onsubmit="event.preventDefault(); alert('Message sent to MetaLab team!');">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" required class="form-input" placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" required class="form-input" placeholder="jane@company.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Service of Interest</label>
+            <select class="form-select">
+              <option>Product Design</option>
+              <option>AI & Frontier Interfaces</option>
+              <option>Full-Stack Engineering</option>
+              <option>Brand & Motion</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea rows="4" required class="form-textarea" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Inquiry &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

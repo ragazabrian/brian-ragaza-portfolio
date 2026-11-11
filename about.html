@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Metalab</title>
+  <link rel="icon" href="https://www.metalab.com/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 80px 0;
+    }
+    .stat-val { font-size: 56px; font-weight: 240; font-family: "PP Eiko", serif; color: #fff; margin-bottom: 4px; }
+    .stat-label { font-size: 11px; font-family: monospace; text-transform: uppercase; color: #777; }
+    .cities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .city-card {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #111;
+      border: 1px solid var(--border);
+      padding: 24px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .city-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+    .city-name { position: relative; z-index: 2; font-size: 20px; font-weight: 400; color: #fff; }
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .cities-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-button" aria-label="Open the main navigation menu">
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo-link">Metalab</a>
+    </div>
+
+    <div class="header-right">
+      <div class="clock-display">
+        <span class="tz">LDN</span>
+        <span id="clock-time">1:25 PM</span>
+      </div>
+
+      <button class="icon-btn" aria-label="Toggle Night Mode">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <a href="contact.html" class="icon-btn" aria-label="Contact MetaLab">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6" stroke="#000" stroke-width="1.5" fill="none"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Fullscreen Menu Drawer -->
+  <div id="menu-drawer" class="menu-drawer">
+    <div class="menu-grid">
+      <div>
+        <nav class="menu-nav-links">
+          <a href="what-we-do.html">What We Do</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Latest News</a>
+          <a href="contact.html">Get in Touch</a>
+        </nav>
+        <div class="menu-case-studies">
+          <p class="menu-subhead">Case Studies</p>
+          <div class="menu-pills-wrap">
+            <a href="work.html#robinhood" class="pill-item">Robinhood</a>
+            <a href="work.html#midjourney" class="pill-item">Midjourney</a>
+            <a href="work.html#uber" class="pill-item">Uber</a>
+            <a href="work.html#suno" class="pill-item">Suno</a>
+            <a href="work.html#ro" class="pill-item">Ro</a>
+            <a href="work.html#atoms" class="pill-item">Atoms</a>
+            <a href="work.html#the-atlantic" class="pill-item">The Atlantic</a>
+            <a href="work.html#calvin-klein" class="pill-item">Calvin Klein</a>
+            <a href="work.html#headspace" class="pill-item">Headspace</a>
+            <a href="work.html" class="pill-item">All Work</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-middle-frame">
+        <div class="menu-video-card">
+          <video autoplay loop muted playsinline src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"></video>
+        </div>
+      </div>
+      <div class="menu-news-column">
+        <a href="work.html#windsurf" class="news-card">
+          <div class="news-badge badge-white">AI</div>
+          <div>
+            <p class="news-meta">Featured Story</p>
+            <p class="news-text">Our Windsurf case study: humanizing AI code assistants.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-container">
+    <h1 class="page-title">
+      Global talent, <br>
+      <span class="font-serif italic font-light">Canadian roots.</span>
+    </h1>
+
+    <div class="stats-grid">
+      <div>
+        <div class="stat-val">2006</div>
+        <div class="stat-label">Year Founded</div>
+      </div>
+      <div>
+        <div class="stat-val">160+</div>
+        <div class="stat-label">Designers & Engineers</div>
+      </div>
+      <div>
+        <div class="stat-val">85+</div>
+        <div class="stat-label">Products Shipped</div>
+      </div>
+      <div>
+        <div class="stat-val">$100B+</div>
+        <div class="stat-label">Combined Valuation</div>
+      </div>
+    </div>
+
+    <div>
+      <p style="font-size: 11px; font-family: monospace; text-transform: uppercase; color: #777; margin-bottom: 8px;">A Global Studio</p>
+      <h2 style="font-family: 'PP Eiko', serif; font-size: 36px; font-weight: 240; color: #fff;">Distributed across 14 timezones.</h2>
+      
+      <div class="cities-grid">
+        <div class="city-card">
+          <img src="https://cdn.sanity.io/images/nuxb3jim/production-july-2025/f901e2c0757af49745b98b75cbd85ad12bcd8cde-1500x2000.png" alt="Victoria">
+          <span class="city-name">Victoria, BC</span>
+        </div>
+        <div class="city-card">
+          <img src="https://cdn.sanity.io/images/nuxb3jim/production-july-2025/459bd4436ca8807e73a713da82cfeb4e6a9bed3a-1500x2000.png" alt="Vancouver">
+          <span class="city-name">Vancouver, BC</span>
+        </div>
+        <div class="city-card">
+          <img src="https://cdn.sanity.io/images/nuxb3jim/production-july-2025/f901e2c0757af49745b98b75cbd85ad12bcd8cde-1500x2000.png" alt="New York">
+          <span class="city-name">New York, NY</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

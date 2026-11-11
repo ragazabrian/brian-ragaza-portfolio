@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Metalab</title>
+  <link rel="icon" href="https://www.metalab.com/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .job-list {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .job-card {
+      background: #0d0d0f;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .job-card:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      background: #141418;
+    }
+    .job-title { font-size: 20px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+    .job-meta { font-size: 12px; font-family: monospace; color: #777; }
+    .apply-badge {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: #222;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .job-card:hover .apply-badge {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-button" aria-label="Open the main navigation menu">
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo-link">Metalab</a>
+    </div>
+
+    <div class="header-right">
+      <div class="clock-display">
+        <span class="tz">LDN</span>
+        <span id="clock-time">1:25 PM</span>
+      </div>
+
+      <button class="icon-btn" aria-label="Toggle Night Mode">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <a href="contact.html" class="icon-btn" aria-label="Contact MetaLab">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6" stroke="#000" stroke-width="1.5" fill="none"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Fullscreen Menu Drawer -->
+  <div id="menu-drawer" class="menu-drawer">
+    <div class="menu-grid">
+      <div>
+        <nav class="menu-nav-links">
+          <a href="what-we-do.html">What We Do</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Latest News</a>
+          <a href="contact.html">Get in Touch</a>
+        </nav>
+        <div class="menu-case-studies">
+          <p class="menu-subhead">Case Studies</p>
+          <div class="menu-pills-wrap">
+            <a href="work.html#robinhood" class="pill-item">Robinhood</a>
+            <a href="work.html#midjourney" class="pill-item">Midjourney</a>
+            <a href="work.html#uber" class="pill-item">Uber</a>
+            <a href="work.html#suno" class="pill-item">Suno</a>
+            <a href="work.html#ro" class="pill-item">Ro</a>
+            <a href="work.html#atoms" class="pill-item">Atoms</a>
+            <a href="work.html#the-atlantic" class="pill-item">The Atlantic</a>
+            <a href="work.html#calvin-klein" class="pill-item">Calvin Klein</a>
+            <a href="work.html#headspace" class="pill-item">Headspace</a>
+            <a href="work.html" class="pill-item">All Work</a>
+          </div>
+        </div>
+      </div>
+      <div class="menu-middle-frame">
+        <div class="menu-video-card">
+          <video autoplay loop muted playsinline src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"></video>
+        </div>
+      </div>
+      <div class="menu-news-column">
+        <a href="work.html#windsurf" class="news-card">
+          <div class="news-badge badge-white">AI</div>
+          <div>
+            <p class="news-meta">Featured Story</p>
+            <p class="news-text">Our Windsurf case study: humanizing AI code assistants.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-container">
+    <h1 class="page-title">
+      Your career — <br>
+      <span class="font-serif italic font-light">our open roles.</span>
+    </h1>
+
+    <div class="job-list">
+      <a href="https://job-boards.greenhouse.io/metalab" target="_blank" class="job-card">
+        <div>
+          <h3 class="job-title">Executive Design Director (Brand & Product)</h3>
+          <p class="job-meta">Design • Remote (EST / PST)</p>
+        </div>
+        <span class="apply-badge">Apply on Greenhouse ↗</span>
+      </a>
+
+      <a href="https://job-boards.greenhouse.io/metalab" target="_blank" class="job-card">
+        <div>
+          <h3 class="job-title">Design Lead</h3>
+          <p class="job-meta">Design • Remote Worldwide</p>
+        </div>
+        <span class="apply-badge">Apply on Greenhouse ↗</span>
+      </a>
+
+      <a href="https://job-boards.greenhouse.io/metalab" target="_blank" class="job-card">
+        <div>
+          <h3 class="job-title">Brand Director</h3>
+          <p class="job-meta">Design • Remote Worldwide</p>
+        </div>
+        <span class="apply-badge">Apply on Greenhouse ↗</span>
+      </a>
+
+      <a href="https://job-boards.greenhouse.io/metalab" target="_blank" class="job-card">
+        <div>
+          <h3 class="job-title">Senior Frontend Engineer (React / Next.js)</h3>
+          <p class="job-meta">Engineering • Remote Worldwide</p>
+        </div>
+        <span class="apply-badge">Apply on Greenhouse ↗</span>
+      </a>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

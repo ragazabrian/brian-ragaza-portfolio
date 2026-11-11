@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metalab | We make interfaces</title>
+  <meta name="description" content="Metalab helps some of the world's top companies — like Slack and Google — design, build, and ship amazing digital products and brands.">
+  <link rel="icon" href="https://www.metalab.com/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-button" aria-label="Open the main navigation menu">
+        <span>Menu</span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo-link">Metalab</a>
+    </div>
+
+    <div class="header-right">
+      <div class="clock-display">
+        <span class="tz">LDN</span>
+        <span id="clock-time">1:25 PM</span>
+      </div>
+
+      <button class="icon-btn" aria-label="Toggle Night Mode">
+        <svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+
+      <a href="contact.html" class="icon-btn" aria-label="Contact MetaLab">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6" stroke="#000" stroke-width="1.5" fill="none"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Fullscreen Menu Drawer -->
+  <div id="menu-drawer" class="menu-drawer">
+    <div class="menu-grid">
+      <!-- Left Column -->
+      <div>
+        <nav class="menu-nav-links">
+          <a href="what-we-do.html">What We Do</a>
+          <a href="about.html">About Us</a>
+          <a href="careers.html">Latest News</a>
+          <a href="contact.html">Get in Touch</a>
+        </nav>
+
+        <div class="menu-case-studies">
+          <p class="menu-subhead">Case Studies</p>
+          <div class="menu-pills-wrap">
+            <a href="work.html#robinhood" class="pill-item">Robinhood</a>
+            <a href="work.html#midjourney" class="pill-item">Midjourney</a>
+            <a href="work.html#uber" class="pill-item">Uber</a>
+            <a href="work.html#suno" class="pill-item">Suno</a>
+            <a href="work.html#ro" class="pill-item">Ro</a>
+            <a href="work.html#atoms" class="pill-item">Atoms</a>
+            <a href="work.html#the-atlantic" class="pill-item">The Atlantic</a>
+            <a href="work.html#calvin-klein" class="pill-item">Calvin Klein</a>
+            <a href="work.html#headspace" class="pill-item">Headspace</a>
+            <a href="work.html" class="pill-item">All Work</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Frame -->
+      <div class="menu-middle-frame">
+        <div class="menu-video-card">
+          <video autoplay loop muted playsinline src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"></video>
+        </div>
+      </div>
+
+      <!-- Right News Column -->
+      <div class="menu-news-column">
+        <a href="work.html#windsurf" class="news-card">
+          <div class="news-badge badge-white">AI</div>
+          <div>
+            <p class="news-meta">Featured Story</p>
+            <p class="news-text">Our Windsurf case study: humanizing AI code assistants.</p>
+          </div>
+        </a>
+
+        <div class="news-card">
+          <div class="news-badge badge-white">FAST</div>
+          <div>
+            <p class="news-meta">Mar 2026</p>
+            <p class="news-text">Metalab awarded Most Innovative Design Companies for 2026.</p>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-badge badge-green">TC</div>
+          <div>
+            <p class="news-meta">Jul 2025</p>
+            <p class="news-text">PlayerZero raises $15M in a Series A funding round.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Fullscreen Showcase -->
+  <main class="hero-wrapper">
+    <!-- Video Player -->
+    <div class="hero-video-bg">
+      <video
+        id="hero-video-player"
+        autoplay
+        loop
+        muted
+        playsinline
+        data-default-src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"
+        src="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4"
+      ></video>
+    </div>
+
+    <!-- Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Left Pill Stack -->
+    <div class="hero-pills-stack">
+      <a href="work.html#robinhood" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/e1d3d5c5d03db97abd91769b3ae3cf13c2a83a2a.mp4">Robinhood</a>
+      <a href="work.html#midjourney" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/0ba9b63a2c6fbd52ecab9aa5f9fc5eee78fabf84.mp4">Midjourney</a>
+      <a href="work.html#uber" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/252d9fbe676eacbadfd63fbbab09a6912e459965.mp4">Uber</a>
+      <a href="work.html#suno" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/f97dd92a601263f3e1cf6ea57bcd49bb74e73035.mp4">Suno</a>
+      <a href="work.html#ro" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/b810fb6a8ea6b187daf93c142d98333fc2d5914b.mp4">Ro</a>
+      <a href="work.html#atoms" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/d586a21cd5f7efa31f7eb1a816534d3d4262a280.mp4">Atoms</a>
+      <a href="work.html#the-atlantic" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/d8c4a84638ba32a4add866ed0e6529492b9e6f96.mp4">The Atlantic</a>
+      <a href="work.html#calvin-klein" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/a5ee552185b0080836dc855b157e59c3cad20ac6.mp4">Calvin Klein</a>
+      <a href="work.html#headspace" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/66c9fa66516f407457747c38548c941a67927f86.mp4">Headspace</a>
+      <a href="work.html" class="pill-item" data-video="https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4">All Work</a>
+    </div>
+
+    <!-- Middle-Right Studio Statement -->
+    <div class="hero-statement">
+      <p>Since 2006, we’ve helped the most innovative startups and reputable brands design, build, and ship products worth talking about.</p>
+    </div>
+
+    <!-- Bottom Massive Headline -->
+    <div class="hero-headline-wrap">
+      <h1 class="hero-title">
+        We make
+        <span class="hero-title-line2">interfaces</span>
+      </h1>
+    </div>
+
+    <!-- Right Indicator Dot -->
+    <div class="hero-dot-indicator"></div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
