@@ -114,6 +114,34 @@ const PROJECTS_DATA = [
     "secondaryLinkText": "GOOGLE PLAY ↗"
   },
   {
+    "title": "ROG Phone 6 BATMAN Edition",
+    "slug": "rog-batman",
+    "client": "ASUS ROG & Warner Bros.",
+    "category": "Mobile Apps",
+    "industries": ["Gaming", "Mobile", "Brand"],
+    "shortDescription": "Exclusive gaming smartphone collaboration with Warner Bros. Consumer Products featuring custom Gotham City UI, interactive lock screens, custom icon packs, Batman AOD, and incoming call interface.",
+    "tags": ["Gaming UI", "Mobile Experience", "Brand Collaboration", "Exclusive Theme"],
+    "hasFullCaseStudy": false,
+    "hoverImage": "assets/projects/rog-batman-edition.jpg",
+    "videoDesktop": null,
+    "link": "https://rog.asus.com/phones/rog-phone-6-batman-edition-model/",
+    "linkText": "ASUS ROG ↗"
+  },
+  {
+    "title": "ROG Phone 6 Diablo Immortal Edition",
+    "slug": "rog-diablo",
+    "client": "ASUS ROG & Blizzard Entertainment",
+    "category": "Mobile Apps",
+    "industries": ["Gaming", "Mobile", "Brand"],
+    "shortDescription": "Official gaming smartphone collaboration with Blizzard Entertainment featuring immersive Sanctuary UI, Hellfire Red live wallpapers, custom Diablo icon packs, sound effects, and themed charging animation.",
+    "tags": ["Gaming UI", "Mobile Experience", "Blizzard Collaboration", "Worldstone Theme"],
+    "hasFullCaseStudy": false,
+    "hoverImage": "assets/projects/rog-diablo-edition.jpg",
+    "videoDesktop": null,
+    "link": "https://rog.asus.com/phones/rog-phone-6-diablo-immortal-edition-model/",
+    "linkText": "ASUS ROG ↗"
+  },
+  {
     "title": "Creed Perfume Australia Official",
     "slug": "creed-perfume",
     "client": "Creed Perfume Australia",

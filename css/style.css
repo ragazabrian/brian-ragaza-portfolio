@@ -199,6 +199,32 @@ input, select, textarea, button {
   justify-content: space-between;
   padding: 24px 36px;
   pointer-events: none;
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              -webkit-backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-header.scrolled {
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+[data-theme="light"] .site-header.scrolled {
+  background: rgba(248, 248, 250, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 16px 36px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  pointer-events: auto;
 }
 
 .header-left, .header-center, .header-right {
@@ -607,13 +633,37 @@ input, select, textarea, button {
 
 .hero-pills-stack {
   position: absolute;
-  top: clamp(100px, 16vh, 150px);
+  top: 50%;
+  transform: translateY(-50%);
   left: 48px;
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   align-items: flex-start;
+}
+
+.hero-pills-stack .pill-item {
+  transform-origin: left center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              font-size 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.22s ease;
+}
+
+.hero-pills-stack .pill-item:hover,
+.hero-pills-stack .pill-item.active {
+  transform: scale(1.16) translateX(4px);
+  padding: 8px 22px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
 }
 
 .pill-item {

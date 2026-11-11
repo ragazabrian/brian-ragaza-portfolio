@@ -382,7 +382,25 @@ function initContactForm() {
   });
 }
 
+// --- Header Backdrop on Scroll ---
+function initHeaderScroll() {
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  function onScroll() {
+    if (window.scrollY > 20) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  initHeaderScroll();
   initThemeToggle();
   initClock();
   initMenu();
