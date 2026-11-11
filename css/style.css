@@ -472,19 +472,32 @@ input, select, textarea, button {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background: #000000;
 }
 
-.hero-video-bg video {
+.hero-layer-video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: opacity 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.hero-layer-video.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   background: rgba(0, 0, 0, 0.25);
   pointer-events: none;
 }
@@ -512,15 +525,16 @@ input, select, textarea, button {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background 0.12s ease, border-color 0.12s ease, transform 0.12s ease, color 0.12s ease;
   cursor: pointer;
+  user-select: none;
 }
 
 .pill-item:hover, .pill-item.active {
   background: var(--pill-hover);
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.35);
-  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
 }
 
 .hero-statement {
@@ -548,16 +562,40 @@ input, select, textarea, button {
   pointer-events: none;
 }
 
-.hero-dot-indicator {
-  position: absolute;
-  right: 48px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+/* --- Interactive Custom Mouse Cursor (Smooth follower dot) --- */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 9px;
   height: 9px;
+  background-color: #ffffff;
   border-radius: 50%;
-  background: #ffffff;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate3d(-100px, -100px, 0);
+  transition: width 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.15s ease,
+              border-color 0.15s ease;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
+}
+
+.custom-cursor.hovering {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
 }
 
 /* --- Work Page Editorial Table --- */

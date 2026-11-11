@@ -46,30 +46,90 @@ function initRotatingLogos() {
   });
 }
 
-// --- Hero Hover Video Switcher ---
+// --- Fast Hero Hover Video Switcher (Preloaded 0ms Layer Crossfading) ---
 function initHeroVideoSwitcher() {
-  const videoPlayer = document.getElementById("hero-video-player");
   const pills = document.querySelectorAll(".hero-pills-stack .pill-item");
-  if (!videoPlayer || pills.length === 0) return;
+  const defaultVideo = document.getElementById("hero-vid-default");
+  if (pills.length === 0 || !defaultVideo) return;
 
-  const defaultSrc = videoPlayer.getAttribute("data-default-src");
+  let activeVideo = defaultVideo;
 
   pills.forEach((pill) => {
     pill.addEventListener("mouseenter", () => {
-      const targetVideo = pill.getAttribute("data-video");
-      if (targetVideo && targetVideo !== videoPlayer.src) {
-        videoPlayer.src = targetVideo;
-        videoPlayer.play().catch(() => {});
+      const targetId = pill.getAttribute("data-target");
+      const targetVideo = targetId ? document.getElementById(targetId) : defaultVideo;
+      if (!targetVideo || targetVideo === activeVideo) return;
+
+      targetVideo.play().catch(() => {});
+      targetVideo.classList.add("active");
+
+      if (activeVideo && activeVideo !== targetVideo) {
+        activeVideo.classList.remove("active");
       }
+
+      activeVideo = targetVideo;
     });
 
     pill.addEventListener("mouseleave", () => {
-      if (defaultSrc && videoPlayer.src !== defaultSrc) {
-        videoPlayer.src = defaultSrc;
-        videoPlayer.play().catch(() => {});
+      if (activeVideo === defaultVideo) return;
+
+      defaultVideo.classList.add("active");
+      defaultVideo.play().catch(() => {});
+
+      if (activeVideo && activeVideo !== defaultVideo) {
+        activeVideo.classList.remove("active");
       }
+
+      activeVideo = defaultVideo;
     });
   });
+}
+
+// --- Interactive Custom Mouse Cursor (Smooth follower dot) ---
+function initCustomCursor() {
+  const cursor = document.getElementById("custom-cursor");
+  if (!cursor || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+
+  let mouseX = -100, mouseY = -100;
+  let cursorX = -100, cursorY = -100;
+  let isMoving = false;
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!isMoving) {
+      cursorX = mouseX;
+      cursorY = mouseY;
+      isMoving = true;
+    }
+  }, { passive: true });
+
+  function render() {
+    if (isMoving) {
+      cursorX += (mouseX - cursorX) * 0.32;
+      cursorY += (mouseY - cursorY) * 0.32;
+      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+    }
+    requestAnimationFrame(render);
+  }
+  requestAnimationFrame(render);
+
+  function attachHover() {
+    const targets = document.querySelectorAll(
+      "a, button, .pill-item, .news-card, .work-row, .channel-link, input, select, textarea"
+    );
+    targets.forEach((t) => {
+      t.addEventListener("mouseenter", () => cursor.classList.add("hovering"));
+      t.addEventListener("mouseleave", () => cursor.classList.remove("hovering"));
+    });
+  }
+
+  attachHover();
+
+  const menuBtn = document.getElementById("menu-toggle-btn");
+  if (menuBtn) {
+    menuBtn.addEventListener("click", () => setTimeout(attachHover, 100));
+  }
 }
 
 // --- Work Page Filters & Floating Previews ---
@@ -243,6 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initClock();
   initMenu();
   initRotatingLogos();
+  initCustomCursor();
   initHeroVideoSwitcher();
   initWorkTable();
   initContactForm();
