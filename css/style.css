@@ -156,18 +156,25 @@ input, select, textarea, button {
 .logo-desktop {
   display: inline-block;
   font-family: var(--font-family);
-  font-size: 19px;
+  font-size: 25px;
   font-weight: 700;
   letter-spacing: -0.06em;
   color: #ffffff;
   white-space: nowrap;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+.logo-desktop:hover {
+  opacity: 0.85;
 }
 
 .logo-mobile {
   display: none;
-  height: 28px;
+  height: 46px;
   width: auto;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .menu-button {
@@ -839,7 +846,7 @@ input, select, textarea, button {
   }
   .logo-mobile {
     display: block;
-    height: 32px;
+    height: 46px;
     width: auto;
   }
 
@@ -958,7 +965,7 @@ input, select, textarea, button {
   }
 
   .logo-mobile {
-    height: 28px;
+    height: 42px;
   }
 
   .hero-title {
