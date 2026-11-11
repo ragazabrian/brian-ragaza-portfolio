@@ -170,34 +170,62 @@ function initWorkTable() {
   }
 
   if (floatingPreview && workRows.length > 0) {
-    const updatePreviewPos = (e) => {
-      const previewWidth = 380;
-      const previewHeight = 238;
-      let posX = e.clientX + 28;
-      let posY = e.clientY - (previewHeight / 2);
+    const previewWidth = 400;
+    const previewHeight = 250;
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let isHovering = false;
+    let rafId = null;
 
+    const calculatePosition = (clientX, clientY) => {
+      let posX = clientX + 30;
+      let posY = clientY - previewHeight / 2;
+
+      // Flip to left if it would overflow right viewport
       if (posX + previewWidth > window.innerWidth - 24) {
-        posX = e.clientX - previewWidth - 28;
+        posX = clientX - previewWidth - 30;
       }
+      // Keep within left viewport
+      if (posX < 24) posX = 24;
+
+      // Keep within vertical viewport
       if (posY + previewHeight > window.innerHeight - 24) {
         posY = window.innerHeight - previewHeight - 24;
       }
       if (posY < 24) posY = 24;
 
-      floatingPreview.style.setProperty("--fp-x", posX + "px");
-      floatingPreview.style.setProperty("--fp-y", posY + "px");
+      return { x: posX, y: posY };
+    };
+
+    const animate = () => {
+      if (!isHovering) return;
+      currentX += (targetX - currentX) * 0.28;
+      currentY += (targetY - currentY) * 0.28;
+
+      floatingPreview.style.transform = `translate3d(${Math.round(currentX)}px, ${Math.round(currentY)}px, 0)`;
+      rafId = requestAnimationFrame(animate);
     };
 
     workRows.forEach((row) => {
       row.addEventListener("mouseenter", (e) => {
+        if (window.innerWidth <= 768) return;
+
         const videoUrl = row.getAttribute("data-preview-video");
         const imgUrl = row.getAttribute("data-preview-img");
 
-        updatePreviewPos(e);
+        const pos = calculatePosition(e.clientX, e.clientY);
+        currentX = pos.x;
+        currentY = pos.y;
+        targetX = pos.x;
+        targetY = pos.y;
+        floatingPreview.style.transform = `translate3d(${Math.round(currentX)}px, ${Math.round(currentY)}px, 0)`;
 
         if (videoUrl && previewVideo) {
           if (previewVideo.src !== videoUrl) {
             previewVideo.src = videoUrl;
+            previewVideo.load();
           }
           previewVideo.style.display = "block";
           if (previewImg) previewImg.style.display = "none";
@@ -212,13 +240,22 @@ function initWorkTable() {
           }
           floatingPreview.classList.add("visible");
         }
+
+        isHovering = true;
+        cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(animate);
       });
 
       row.addEventListener("mousemove", (e) => {
-        updatePreviewPos(e);
+        if (window.innerWidth <= 768) return;
+        const pos = calculatePosition(e.clientX, e.clientY);
+        targetX = pos.x;
+        targetY = pos.y;
       });
 
       row.addEventListener("mouseleave", () => {
+        isHovering = false;
+        cancelAnimationFrame(rafId);
         floatingPreview.classList.remove("visible");
         if (previewVideo) {
           previewVideo.pause();

@@ -781,12 +781,12 @@ input, select, textarea, button {
   margin-top: 4px;
 }
 
-/* Floating Hover Preview */
+/* Floating Hover Preview (Dynamic Cursor Follower) */
 .floating-preview {
   position: fixed;
   top: 0;
   left: 0;
-  width: 380px;
+  width: 400px;
   aspect-ratio: 16/10;
   height: auto;
   border-radius: 16px;
@@ -796,21 +796,23 @@ input, select, textarea, button {
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.95);
   pointer-events: none;
   opacity: 0;
-  transform: translate3d(0, 0, 0) scale(0.96);
-  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
+  transform: translate3d(-9999px, -9999px, 0);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
-  z-index: 80;
+  z-index: 100;
 }
 
 .floating-preview.visible {
   opacity: 1;
-  transform: translate3d(var(--fp-x, 0), var(--fp-y, 0), 0) scale(1);
+  visibility: visible;
 }
 
 .floating-preview video, .floating-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* --- What We Do Device Showcase & High-Res App Preview --- */
