@@ -1,38 +1,33 @@
-# Brian Ragaza — Portfolio (MetaLab Architecture)
+# Brian Ragaza — Senior Product Designer Portfolio
 
-An exact, high-fidelity recreation of [MetaLab](https://www.metalab.com/) built for **Brian Ragaza's Portfolio**. Replicates MetaLab's signature dark aesthetic, typography, ambient video loops, interactive project showcases, and complete directory of 85+ shipped case studies.
+An editorial, high-performance portfolio website built for **Brian Ragaza**, Senior Product Designer (UX/UI) specializing in mission-critical software, B2B SaaS, AI Workspaces, and brand design systems.
 
 ## ✨ Highlights & Architecture
 
-- **Stack**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Framer Motion, Lucide Icons.
-- **Pages Cloned**:
-  - **Home (`/`)**: "We make interfaces" hero with ambient video backdrop, client logo marquee, featured category-defining projects, agency philosophy manifesto, capabilities preview, and start-a-project CTA.
-  - **Work (`/work`)**: Comprehensive directory of 85+ products and platforms with live category filtering (`AI`, `Product`, `Full Build`, `Web`, `Brand`), instant search bar, video hover previews, and case study tags.
-  - **Case Studies (`/work/[slug]`)**: In-depth project breakdown pages for 85+ projects (including Midjourney, Robinhood, Suno, Uber, Windsurf, Atoms, Headspace, Pitch, Calvin Klein) with hero visuals, impact metrics, challenges, solutions, client quotes, and next-project navigators.
-  - **Capabilities (`/what-we-do`)**: "Odds are you've used a product we've built", 4 core pillars (Product Design, AI & Frontier Interfaces, Full-Stack Engineering, Brand & Motion), and engagement models (0-to-1 Sprints, Scale & Redesign, Embedded Labs).
-  - **About (`/about`)**: "Global talent, Canadian roots", 160+ team members, global cities showcase, studio principles, and culture.
-  - **Careers (`/careers`)**: "Your career — our open roles", perks & benefits grid, Greenhouse job links, and studio inquiry channels.
-  - **Contact (`/contact`)**: "Say hey.", interactive inquiry form with budget/service selectors, and direct studio contact information.
-- **Assets**: Streaming video loops, vector logos, and imagery directly from MetaLab's production Sanity CDN.
+- **Zero-Dependency Stack**: Built with pure semantic HTML5, modern CSS3, and vanilla JavaScript for instant loading, zero build steps, and maximum reliability.
+- **Typography**: System typography using **Bricolage Grotesque** with semibold headers (`font-weight: 600`, tight negative tracking `-0.06em`) and regular body (`font-weight: 400`).
+- **Responsive Branding**: Centered navigation branding featuring a single-line wordmark for desktop and tablet screens, seamlessly adapting to a custom two-line mark for mobile devices.
+- **Studio Clock**: Real-time studio time for Manila (`MNL` / `Asia/Manila`).
+- **Menu Drawer Centerpiece**: Featuring Brian's portrait, verified LinkedIn Top Voice recognition badge, and a smooth rotating impact showcase highlighting engineering backed by Google, Accenture, and OpenAI.
+- **Functional Form Dispatch**: Automated inquiry submission routing full project specs directly to `ragazabrian@gmail.com` with dynamic project scope email subjects and mail client fallbacks.
+- **Showcase of 25+ Shipped Platforms**: Including AI Construction Workspaces, Frontier AI Interfaces, Mobile Neo-Banking, and luxury digital flagship transformations.
 
-## 🚀 Getting Started
+## 🚀 Running Locally
 
 ```bash
 # Clone the repository
 git clone https://github.com/ragazabrian/brian-ragaza-portfolio.git
 
-# Navigate into directory
+# Enter project directory
 cd brian-ragaza-portfolio
 
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
+# Start the local Python server
+python3 server.py
 ```
 
+Then visit `http://localhost:8000` in your browser.
+
 ## 🌐 Live Deployment
-Ready for one-click deployment to Vercel, Netlify, or any modern Edge / Node runtime.
+
+Hosted live on GitHub Pages:
+[https://ragazabrian.github.io/brian-ragaza-portfolio/](https://ragazabrian.github.io/brian-ragaza-portfolio/)

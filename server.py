@@ -1,14 +1,12 @@
 #!/usr/bin/env python3
 """
-Simple HTTP Server for MetaLab Clone (HTML/CSS/JS)
+Simple HTTP Server for Brian Ragaza Portfolio (HTML/CSS/JS)
 Run: python3 server.py
 """
 
 import http.server
 import socketserver
-import webbrowser
 import os
-import sys
 
 PORT = 8000
 
@@ -20,7 +18,7 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         super().end_headers()
 
     def guess_type(self, path):
-        # Ensure correct MIME types for woff2 and mp4
+        # Ensure correct MIME types for woff2, mp4, and svg
         if path.endswith('.woff2'):
             return 'font/woff2'
         if path.endswith('.woff'):
@@ -36,7 +34,7 @@ def main():
     socketserver.TCPServer.allow_reuse_address = True
     
     with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:
-        print(f"🚀 MetaLab Clone running at http://localhost:{PORT}")
+        print(f"🚀 Brian Ragaza Portfolio running at http://localhost:{PORT}")
         print("Press Ctrl+C to stop.")
         try:
             httpd.serve_forever()

@@ -1,51 +1,5 @@
-/* --- MetaLab Authentic Fonts --- */
-@font-face {
-  font-family: "PP Eiko";
-  src: url("../fonts/ppeiko-light.woff2") format("woff2");
-  font-weight: 200 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "PP Eiko";
-  src: url("../fonts/ppeiko-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Suisse Intl";
-  src: url("../fonts/suisse-intl-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Suisse Intl";
-  src: url("../fonts/suisse-intl-book.woff2") format("woff2");
-  font-weight: 450;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Basis Grotesque";
-  src: url("../fonts/basis-grotesque-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Basis Grotesque";
-  src: url("../fonts/basis-grotesque-medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* --- System Font: Bricolage Grotesque --- */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&display=swap');
 
 /* --- Global Reset & Variables --- */
 :root {
@@ -58,6 +12,7 @@
   --pill-bg: rgba(255, 255, 255, 0.12);
   --pill-hover: rgba(255, 255, 255, 0.28);
   --card-bg: #0c0c0e;
+  --font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 * {
@@ -69,7 +24,9 @@
 html, body {
   background-color: var(--bg);
   color: var(--fg);
-  font-family: "Suisse Intl", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--font-family);
+  font-weight: 400;
+  letter-spacing: -0.015em;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,13 +47,48 @@ button {
   outline: none;
 }
 
-/* --- Typography --- */
+/* --- High-Quality Video Rendering --- */
+video {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  object-fit: cover;
+}
+
+/* --- Typography Hierarchy (Headers semibold 600, tight tracking -0.06em) --- */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.page-title,
+.section-heading,
+.nav-heading,
+.work-title,
+.cap-title,
+.menu-nav-links a,
+.stat-number {
+  font-family: var(--font-family) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.06em !important;
+}
+
+p, span, li, a,
+.work-desc,
+.news-text,
+.cap-desc,
+.channel-link,
+input, select, textarea, button {
+  font-family: var(--font-family);
+  font-weight: 400;
+}
+
 .font-serif {
-  font-family: "PP Eiko", Georgia, serif !important;
+  font-family: var(--font-family) !important;
 }
 
 .font-sans {
-  font-family: "Suisse Intl", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: var(--font-family) !important;
 }
 
 .font-mono {
@@ -104,29 +96,27 @@ button {
 }
 
 .hero-title {
-  font-family: "PP Eiko", Georgia, serif;
-  font-weight: 240;
-  font-size: clamp(3.8rem, 8.5vw, 8.8rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-weight: 600 !important;
+  font-size: clamp(3.4rem, 8vw, 8.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.07em !important;
   color: #ffffff;
 }
 
 .hero-title-line2 {
   display: block;
-  margin-left: clamp(3rem, 15vw, 20rem);
+  margin-left: clamp(2.5rem, 14vw, 18rem);
 }
 
 .page-title {
-  font-family: "PP Eiko", Georgia, serif;
-  font-weight: 240;
-  font-size: clamp(2.8rem, 6.5vw, 6.2rem);
-  line-height: 0.94;
-  letter-spacing: -0.03em;
+  font-weight: 600 !important;
+  font-size: clamp(2.6rem, 6vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.06em !important;
   color: #ffffff;
 }
 
-/* --- Navigation Header --- */
+/* --- Top Navigation Header --- */
 .site-header {
   position: fixed;
   top: 0;
@@ -136,12 +126,48 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 48px;
+  padding: 24px 36px;
   pointer-events: none;
 }
 
 .header-left, .header-center, .header-right {
   pointer-events: auto;
+}
+
+/* Centered Navbar Logo */
+.header-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo-desktop {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.logo-mobile {
+  display: none;
+  height: 28px;
+  width: auto;
+  object-fit: contain;
 }
 
 .menu-button {
@@ -165,17 +191,6 @@ button {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.logo-link {
-  font-size: 20px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  color: #ffffff;
-}
-
-.logo-link:hover {
-  opacity: 0.8;
-}
-
 .header-right {
   display: flex;
   align-items: center;
@@ -194,6 +209,7 @@ button {
 .clock-display .tz {
   font-family: monospace;
   color: #777777;
+  font-size: 11px;
 }
 
 .icon-btn {
@@ -253,6 +269,7 @@ button {
   max-width: 1400px;
   margin: auto;
   width: 100%;
+  align-items: center;
 }
 
 .menu-nav-links {
@@ -262,9 +279,9 @@ button {
 }
 
 .menu-nav-links a {
-  font-family: "PP Eiko", Georgia, serif;
-  font-size: 44px;
-  font-weight: 240;
+  font-size: clamp(32px, 3.8vw, 46px);
+  font-weight: 600 !important;
+  letter-spacing: -0.06em !important;
   line-height: 1.1;
   color: #ffffff;
 }
@@ -274,14 +291,14 @@ button {
 }
 
 .menu-case-studies {
-  margin-top: 36px;
+  margin-top: 32px;
 }
 
 .menu-subhead {
   font-size: 11px;
   font-family: monospace;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #777777;
   margin-bottom: 14px;
 }
@@ -292,26 +309,64 @@ button {
   gap: 8px;
 }
 
+/* Menu Center Frame: Brian's Portrait Photo Card */
 .menu-middle-frame {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.menu-video-card {
-  width: 270px;
-  height: 460px;
-  border-radius: 28px;
+.menu-photo-card {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 4/5;
+  border-radius: 24px;
   overflow: hidden;
   border: 1px solid var(--border);
+  background: #0f0f12;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
-.menu-video-card video {
+.menu-portrait-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
+.menu-photo-card:hover .menu-portrait-img {
+  transform: scale(1.03);
+}
+
+.menu-photo-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 20px 18px;
+  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.photo-name {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.photo-title {
+  font-size: 12px;
+  color: #aaaaaa;
+  letter-spacing: -0.01em;
+}
+
+/* Menu News Column & Badges */
 .menu-news-column {
   display: flex;
   flex-direction: column;
@@ -337,17 +392,59 @@ button {
 .news-badge {
   width: 44px;
   height: 44px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 11px;
   flex-shrink: 0;
 }
 
 .badge-white { background: #ffffff; color: #000000; }
 .badge-green { background: #10b981; color: #ffffff; }
+
+/* Official LinkedIn Logo Badge */
+.badge-linkedin {
+  background: #0077b5 !important;
+  color: #ffffff !important;
+}
+
+.badge-linkedin svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+/* Rotating Client Badge (Google, Accenture, OpenAI) */
+.rotating-logo-badge {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1) !important;
+  overflow: hidden;
+}
+
+.rotating-logo-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.rotating-logo-item.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.rotating-logo-item svg {
+  width: 20px;
+  height: 20px;
+}
 
 .news-meta {
   font-size: 11px;
@@ -388,7 +485,7 @@ button {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.25);
   pointer-events: none;
 }
 
@@ -431,7 +528,7 @@ button {
   top: 26%;
   right: 120px;
   z-index: 10;
-  max-width: 270px;
+  max-width: 280px;
   pointer-events: none;
 }
 
@@ -467,7 +564,7 @@ button {
 .page-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 140px 48px 100px;
+  padding: 130px 48px 100px;
 }
 
 .filter-row {
@@ -475,7 +572,7 @@ button {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-  margin: 50px 0 60px;
+  margin: 40px 0 50px;
 }
 
 .filter-label {
@@ -504,7 +601,7 @@ button {
 .filter-pill.active {
   background: #ffffff;
   color: #000000;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .work-table {
@@ -516,7 +613,7 @@ button {
   grid-template-columns: 3fr 6fr 3fr;
   align-items: baseline;
   gap: 32px;
-  padding: 38px 0;
+  padding: 34px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: border-color 0.2s ease;
 }
@@ -526,9 +623,9 @@ button {
 }
 
 .work-brand {
-  font-size: 26px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.05em;
   color: #ffffff;
 }
 
@@ -640,9 +737,9 @@ button {
 }
 
 .cap-title {
-  font-family: "PP Eiko", Georgia, serif;
-  font-size: 40px;
-  font-weight: 240;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.06em;
   margin-bottom: 20px;
 }
 
@@ -666,16 +763,175 @@ button {
   color: #888888;
 }
 
-/* --- Responsive Media Queries --- */
+/* --- Responsive Breakpoints --- */
+
+/* Tablet (769px to 1024px) */
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 20px 32px;
+  }
+  .page-container {
+    padding: 110px 32px 80px;
+  }
+  .menu-grid {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 28px;
+  }
+  .menu-photo-card {
+    max-width: 280px;
+  }
+  .hero-statement {
+    right: 48px;
+  }
+  .work-row {
+    grid-template-columns: 3fr 5fr 2fr;
+    gap: 20px;
+  }
+}
+
+/* Mobile & Tablet Portrait (<= 768px) */
 @media (max-width: 768px) {
-  .site-header { padding: 20px 24px; }
-  .hero-pills-stack { left: 24px; top: 44%; }
-  .hero-statement { display: none; }
-  .hero-headline-wrap { left: 24px; right: 24px; bottom: 28px; }
-  .hero-title-line2 { margin-left: 2rem; }
-  .page-container { padding: 100px 24px 60px; }
-  .work-row { grid-template-columns: 1fr; gap: 12px; }
-  .work-services { text-align: left; }
-  .menu-grid { grid-template-columns: 1fr; }
-  .menu-middle-frame { display: none; }
+  .site-header {
+    padding: 16px 20px;
+  }
+
+  /* Centered Mobile Logo: Show two lines logo, hide single line text */
+  .logo-desktop {
+    display: none;
+  }
+  .logo-mobile {
+    display: block;
+    height: 32px;
+    width: auto;
+  }
+
+  .clock-display {
+    font-size: 12px;
+    gap: 4px;
+    margin-right: 2px;
+  }
+
+  .icon-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-pills-stack {
+    left: 20px;
+    top: 42%;
+    gap: 6px;
+  }
+
+  .pill-item {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+
+  .hero-statement {
+    display: none;
+  }
+
+  .hero-headline-wrap {
+    left: 20px;
+    right: 20px;
+    bottom: 24px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 11vw, 4.4rem);
+  }
+
+  .hero-title-line2 {
+    margin-left: 1.5rem;
+  }
+
+  .page-container {
+    padding: 100px 20px 60px;
+  }
+
+  /* Responsive Work Row */
+  .work-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 24px 0;
+  }
+
+  .work-brand {
+    font-size: 20px;
+  }
+
+  .work-services {
+    text-align: left;
+  }
+
+  .floating-preview {
+    display: none !important;
+  }
+
+  /* Responsive Menu Drawer */
+  .menu-drawer {
+    padding: 90px 24px 36px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .menu-middle-frame {
+    order: 2;
+  }
+
+  .menu-photo-card {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .menu-news-column {
+    order: 3;
+  }
+
+  .capabilities-list {
+    gap: 48px;
+  }
+
+  .cap-deliverables {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .site-header {
+    padding: 14px 16px;
+  }
+
+  .menu-button {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  .clock-display {
+    display: none; /* Keep clean space on extra narrow phones */
+  }
+
+  .header-right {
+    gap: 8px;
+  }
+
+  .logo-mobile {
+    height: 28px;
+  }
+
+  .hero-title {
+    font-size: 2.3rem;
+  }
+
+  .hero-title-line2 {
+    margin-left: 0.8rem;
+  }
+
+  .menu-nav-links a {
+    font-size: 28px;
+  }
 }

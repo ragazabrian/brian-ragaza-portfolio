@@ -6,6 +6,9 @@
   <title>Selected Work | Brian Ragaza</title>
   <meta name="description" content="A curated selection of product design, UX/UI, and digital transformation projects across hyperscale B2B SaaS, mobile apps, and iconic Australian brands.">
   <link rel="icon" href="https://cdn.dribbble.com/users/6427175/avatars/normal/e4a6acaa2ade0cceccc4dbbfe1ae71a5?1794066809">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -19,12 +22,12 @@
     </div>
 
     <div class="header-center">
-      <a href="index.html" class="logo-link">Brian Ragaza</a>
+      <a href="index.html" class="logo-link" aria-label="Brian Ragaza Homepage"><span class="logo-desktop">brian ragaza</span><img src="assets/logo-mobile.png" alt="brian ragaza" class="logo-mobile"></a>
     </div>
 
     <div class="header-right">
       <div class="clock-display">
-        <span class="tz">SYD</span>
+        <span class="tz">MNL</span>
         <span id="clock-time">5:52 PM</span>
       </div>
 
@@ -64,14 +67,19 @@
           </div>
         </div>
       </div>
+      <!-- Center Frame: Brian's Face -->
       <div class="menu-middle-frame">
-        <div class="menu-video-card">
-          <video autoplay loop muted playsinline src="https://cdn.dribbble.com/userupload/49571121/file/large-3f20540ca39b89adc7c1a773e2c7d31a.mp4"></video>
+        <div class="menu-photo-card">
+          <img src="assets/brian-ragaza.jpg" alt="Brian Ragaza - Senior Product Designer" class="menu-portrait-img">
+          <div class="menu-photo-caption">
+            <span class="photo-name">Brian Ragaza</span>
+            <span class="photo-title">Senior Product Designer &bull; Manila / Remote</span>
+          </div>
         </div>
       </div>
       <div class="menu-news-column">
         <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="news-card">
-          <div class="news-badge badge-green">VOICE</div>
+          <div class="news-badge badge-linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.89H5.06v8.61h2.8z"/></svg></div>
           <div>
             <p class="news-meta">Recognition</p>
             <p class="news-text">LinkedIn Top Voice in UX Research — writing on mission-critical workflow architecture.</p>
@@ -84,11 +92,21 @@
             <p class="news-text">Awarded Top 100 Filipino on LinkedIn for contributions to software design & tech.</p>
           </div>
         </div>
-        <a href="https://netergy.com.au/" target="_blank" rel="noopener noreferrer" class="news-card">
-          <div class="news-badge badge-white">SCALE</div>
+        <a href="work.html" class="news-card">
+          <div class="news-badge rotating-logo-badge" aria-label="Hyperscale Clients">
+            <span class="rotating-logo-item active" data-brand="google">
+              <svg viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.3 8.9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.7s.1-2 .4-2.7L1.6 6.4C.6 8.3 0 10.6 0 12s.6 3.7 1.6 5.6l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.3-6.7-5.3L1.6 16C3.5 20.4 7.4 23 12 23z"/></svg>
+            </span>
+            <span class="rotating-logo-item" data-brand="accenture">
+              <svg viewBox="0 0 24 24" fill="#A100FF"><path d="M4 14.5L14 4l-3 10.5 9-9-9 14.5z"/></svg>
+            </span>
+            <span class="rotating-logo-item" data-brand="openai">
+              <svg viewBox="0 0 24 24" fill="#10A37F"><path d="M22.28 9.87a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.61-2.82A5.99 5.99 0 0 0 10.6.6a6.05 6.05 0 0 0-5.8 4.22A5.99 5.99 0 0 0 1.2 8.44a6.05 6.05 0 0 0 .96 7.15 5.98 5.98 0 0 0 .52 4.91 6.05 6.05 0 0 0 6.61 2.82A5.99 5.99 0 0 0 13.8 24.8a6.05 6.05 0 0 0 5.8-4.22 5.99 5.99 0 0 0 3.6-3.62 6.05 6.05 0 0 0-.92-7.09zM13.8 23.2a4.45 4.45 0 0 1-2.9-1.07l.15-.08 4.88-2.82a.8.8 0 0 0 .4-.69v-6.88l2.07 1.2a.78.78 0 0 1 .4.63v5.63a4.52 4.52 0 0 1-4.99 4.08zM3.4 18.02a4.46 4.46 0 0 1-.55-3.05l.15.09 4.88 2.82c.25.14.4.4.4.69v6.88l-2.07-1.2a.78.78 0 0 1-.4-.63v-5.6zm-1.05-8.5a4.46 4.46 0 0 1 2.35-1.97v5.82a.8.8 0 0 0 .4.69l4.88 2.82-2.07 1.2a.78.78 0 0 1-.74 0L2.35 15.2a4.52 4.52 0 0 1 0-5.68zm14.62 2.37l-4.88-2.82 2.07-1.2a.78.78 0 0 1 .74 0l4.8 2.77a4.52 4.52 0 0 1-.38 8.12v-5.82a.8.8 0 0 0-.35-.69v-.36zm2.46-3.26l-.15-.09-4.88-2.82a.8.8 0 0 0-.4-.69V-.14l2.07 1.2a.78.78 0 0 1 .4.63v5.63a4.46 4.46 0 0 1 .96 1.31zm-9.35-3.67l-2.07-1.2a.78.78 0 0 1-.4-.63V1.65a4.52 4.52 0 0 1 7.29-1.18l-.15.09-4.88 2.82a.8.8 0 0 0-.4.69v.91zm-2.07 4.79l2.79-1.61 2.79 1.61v3.23l-2.79 1.61-2.79-1.61V9.75z"/></svg>
+            </span>
+          </div>
           <div>
             <p class="news-meta">Portfolio Impact</p>
-            <p class="news-text">Designing software backed by Google, Accenture & OpenAI, and 25+ brands at Netergy Sydney.</p>
+            <p class="news-text">Designing software backed by Google, Accenture & OpenAI across 25+ platforms.</p>
           </div>
         </a>
       </div>
@@ -188,9 +206,9 @@
       </div>
 
       <!-- 8. Creed Perfume Australia -->
-      <div class="work-row" id="creed-perfume" data-category="luxury ecommerce" data-tags="luxury brand ecommerce editorial ux luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/05/creed-copy-e1593524079359.jpg">
+      <div class="work-row" id="creed-perfume" data-category="luxury ecommerce" data-tags="luxury brand ecommerce editorial ux luxury" data-preview-video="" data-preview-img="assets/projects/creed-copy-e1593524079359.jpg">
         <div class="work-brand">Creed Perfume Australia</div>
-        <div class="work-desc">Digital flagship and luxury eCommerce brand experience for the royal French fragrance house established in 1760. Developed with Netergy Sydney.</div>
+        <div class="work-desc">Digital flagship and luxury eCommerce brand experience for the royal French fragrance house established in 1760. </div>
         <div class="work-services">
           <div>Luxury Brand, eCommerce</div>
           <a href="https://www.creedperfume.com.au" target="_blank" rel="noopener noreferrer" class="case-badge">VISIT SITE ↗</a>
@@ -198,7 +216,7 @@
       </div>
 
       <!-- 9. Trademaster -->
-      <div class="work-row" id="trademaster" data-category="enterprise ecommerce" data-tags="b2b portal catalog ux architecture enterprise" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/trademaster-e1593522510411.jpg">
+      <div class="work-row" id="trademaster" data-category="enterprise ecommerce" data-tags="b2b portal catalog ux architecture enterprise" data-preview-video="" data-preview-img="assets/projects/trademaster-e1593522510411.jpg">
         <div class="work-brand">Trademaster Australia</div>
         <div class="work-desc">Complete digital catalog and B2B ordering architecture for Australia's premier joinery and fit-out raw materials distributor since 1981.</div>
         <div class="work-services">
@@ -208,7 +226,7 @@
       </div>
 
       <!-- 10. ICTechnology -->
-      <div class="work-row" id="ictechnology" data-category="enterprise saas" data-tags="enterprise web information architecture enterprise saas" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/06/ictechnology-1.jpg">
+      <div class="work-row" id="ictechnology" data-category="enterprise saas" data-tags="enterprise web information architecture enterprise saas" data-preview-video="" data-preview-img="assets/projects/ictechnology-1.jpg">
         <div class="work-brand">ICTechnology</div>
         <div class="work-desc">Enterprise IT infrastructure and network solutions portal, communicating reliability for over 20 years of client partnerships across Australia.</div>
         <div class="work-services">
@@ -218,7 +236,7 @@
       </div>
 
       <!-- 11. Libertine Parfumerie -->
-      <div class="work-row" id="libertine" data-category="luxury ecommerce" data-tags="ecommerce luxury fragrance ui ux luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/06/libertine.jpg">
+      <div class="work-row" id="libertine" data-category="luxury ecommerce" data-tags="ecommerce luxury fragrance ui ux luxury" data-preview-video="" data-preview-img="assets/projects/libertine.jpg">
         <div class="work-brand">Libertine Parfumerie</div>
         <div class="work-desc">Australia's most exquisite fragrance emporium: showcasing world-class niche perfumes, bespoke home scents, and luxury skincare.</div>
         <div class="work-services">
@@ -228,7 +246,7 @@
       </div>
 
       <!-- 12. Agence De Parfum -->
-      <div class="work-row" id="agence-de-parfum" data-category="luxury enterprise" data-tags="b2b brand distribution brand strategy luxury enterprise" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/agence-de-parfum-e1593407290649.jpg">
+      <div class="work-row" id="agence-de-parfum" data-category="luxury enterprise" data-tags="b2b brand distribution brand strategy luxury enterprise" data-preview-video="" data-preview-img="assets/projects/agence-de-parfum-e1593407290649.jpg">
         <div class="work-brand">Agence De Parfum</div>
         <div class="work-desc">Dedicated distributor providing Australasia with rare, exotic, and expertly crafted niche fragrances from heritage European perfumeries.</div>
         <div class="work-services">
@@ -238,7 +256,7 @@
       </div>
 
       <!-- 13. Koda Cutters Bondi -->
-      <div class="work-row" id="koda-cutters" data-category="brand luxury" data-tags="editorial web fashion ux booking flow brand luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/06/koda-cutters-2.jpg">
+      <div class="work-row" id="koda-cutters" data-category="brand luxury" data-tags="editorial web fashion ux booking flow brand luxury" data-preview-video="" data-preview-img="assets/projects/koda-cutters-2.jpg">
         <div class="work-brand">Koda Cutters Bondi</div>
         <div class="work-desc">Editorial salon experience founded by Diane Gorgievski, premier stylist for Vogue, Russh, Harpers Bazaar, and Elle.</div>
         <div class="work-services">
@@ -248,7 +266,7 @@
       </div>
 
       <!-- 14. Gary Mehigan Official -->
-      <div class="work-row" id="gary-mehigan" data-category="brand" data-tags="celebrity brand content ux media brand" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/garymehigan-3-e1593524199866.jpg">
+      <div class="work-row" id="gary-mehigan" data-category="brand" data-tags="celebrity brand content ux media brand" data-preview-video="" data-preview-img="assets/projects/garymehigan-3-e1593524199866.jpg">
         <div class="work-brand">Gary Mehigan Official</div>
         <div class="work-desc">Digital presence and recipe knowledge base for the beloved celebrity chef, author, and MasterChef Australia judge.</div>
         <div class="work-services">
@@ -258,7 +276,7 @@
       </div>
 
       <!-- 15. Michelle Bridges 12WBT -->
-      <div class="work-row" id="michelle-bridges" data-category="brand fintech" data-tags="conversion design healthtech subscription ux brand" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/michelle-bridges-4-e1593524168263.jpg">
+      <div class="work-row" id="michelle-bridges" data-category="brand fintech" data-tags="conversion design healthtech subscription ux brand" data-preview-video="" data-preview-img="assets/projects/michelle-bridges-4-e1593524168263.jpg">
         <div class="work-brand">Michelle Bridges 12WBT</div>
         <div class="work-desc">Digital ecosystem for Australia’s premier fitness icon (12 Week Body Transformation and author of 16 national bestsellers).</div>
         <div class="work-services">
@@ -268,7 +286,7 @@
       </div>
 
       <!-- 16. Prince & Pauper -->
-      <div class="work-row" id="prince-pauper" data-category="luxury ecommerce" data-tags="sustainable ecommerce storytelling dtc luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/08/Alex-@-Prince-Pauper.jpg">
+      <div class="work-row" id="prince-pauper" data-category="luxury ecommerce" data-tags="sustainable ecommerce storytelling dtc luxury" data-preview-video="" data-preview-img="assets/projects/alex--prince-pauper.jpg">
         <div class="work-brand">Prince & Pauper</div>
         <div class="work-desc">Direct-to-consumer ethical luxury footwear platform hand-crafted in Kenya with zero-waste leather and recycled materials by Alex Moore.</div>
         <div class="work-services">
@@ -278,7 +296,7 @@
       </div>
 
       <!-- 17. Rickard Engineering -->
-      <div class="work-row" id="rickard-engineering" data-category="enterprise" data-tags="engineering case studies enterprise" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/05/Rickard-Engineering-Australia108-e1593407087757.jpg">
+      <div class="work-row" id="rickard-engineering" data-category="enterprise" data-tags="engineering case studies enterprise" data-preview-video="" data-preview-img="assets/projects/rickard-engineering-australia108-e1593407087757.jpg">
         <div class="work-brand">Rickard Engineering</div>
         <div class="work-desc">Technical engineering showcase highlighting glass-reinforced concrete (GRC) and complex architectural facades worldwide.</div>
         <div class="work-services">
@@ -288,7 +306,7 @@
       </div>
 
       <!-- 18. Auto Artisan -->
-      <div class="work-row" id="auto-artisan" data-category="brand" data-tags="automotive lead gen visual design brand" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/05/auto-artisan-1-e1593522916552.jpg">
+      <div class="work-row" id="auto-artisan" data-category="brand" data-tags="automotive lead gen visual design brand" data-preview-video="" data-preview-img="assets/projects/auto-artisan-1-e1593522916552.jpg">
         <div class="work-brand">Auto Artisan</div>
         <div class="work-desc">Visual showcase and interactive vehicle styling configuration funnel for custom luxury car wraps and commercial fleets.</div>
         <div class="work-services">
@@ -298,7 +316,7 @@
       </div>
 
       <!-- 19. ByStella -->
-      <div class="work-row" id="bystella" data-category="brand luxury" data-tags="aesthetics booking engine brand identity brand luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/bystella-e1593407414134.jpg">
+      <div class="work-row" id="bystella" data-category="brand luxury" data-tags="aesthetics booking engine brand identity brand luxury" data-preview-video="" data-preview-img="assets/projects/bystella-e1593407414134.jpg">
         <div class="work-brand">ByStella Clinic</div>
         <div class="work-desc">Aesthetic clinic portal for Australia’s leading cosmetic technician Stella Shenouda, featuring treatment booking and clinical galleries.</div>
         <div class="work-services">
@@ -308,7 +326,7 @@
       </div>
 
       <!-- 20. Entrée Management -->
-      <div class="work-row" id="entree-management" data-category="enterprise brand" data-tags="talent agency editorial media roster enterprise brand" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/entree-management-e1593406664560.jpg">
+      <div class="work-row" id="entree-management" data-category="enterprise brand" data-tags="talent agency editorial media roster enterprise brand" data-preview-video="" data-preview-img="assets/projects/entree-management-e1593406664560.jpg">
         <div class="work-brand">Entrée Management</div>
         <div class="work-desc">Talent roster and casting showcase representing Australia's fastest-growing agency for the nation's elite generation of celebrity chefs.</div>
         <div class="work-services">
@@ -318,7 +336,7 @@
       </div>
 
       <!-- 21. Wear To Dine -->
-      <div class="work-row" id="wear-to-dine" data-category="luxury brand" data-tags="editorial magazine lifestyle content ux luxury brand" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/Untitled-1-04-e1593425592200.png">
+      <div class="work-row" id="wear-to-dine" data-category="luxury brand" data-tags="editorial magazine lifestyle content ux luxury brand" data-preview-video="" data-preview-img="assets/projects/untitled-1-04-e1593425592200.png">
         <div class="work-brand">Wear To Dine</div>
         <div class="work-desc">Editorial magazine curation by Angela Shalis celebrating the confluence of Sydney's finest dining establishments and contemporary fashion.</div>
         <div class="work-services">
@@ -328,7 +346,7 @@
       </div>
 
       <!-- 22. CATERAID -->
-      <div class="work-row" id="cateraid" data-category="brand luxury" data-tags="hospitality event inquiries visual storytelling brand luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/07/cateraid.jpg">
+      <div class="work-row" id="cateraid" data-category="brand luxury" data-tags="hospitality event inquiries visual storytelling brand luxury" data-preview-video="" data-preview-img="assets/projects/cateraid.jpg">
         <div class="work-brand">CATERAID Dining</div>
         <div class="work-desc">Award-winning bespoke catering and dining experience platform serving private events from the Hunter Valley to Sydney.</div>
         <div class="work-services">
@@ -338,7 +356,7 @@
       </div>
 
       <!-- 23. Life Style Store -->
-      <div class="work-row" id="lifestyle-store" data-category="enterprise luxury" data-tags="retail showcase audio specs automotive enterprise luxury" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/05/life-style-store-e1593524123840.jpg">
+      <div class="work-row" id="lifestyle-store" data-category="enterprise luxury" data-tags="retail showcase audio specs automotive enterprise luxury" data-preview-video="" data-preview-img="assets/projects/life-style-store-e1593524123840.jpg">
         <div class="work-brand">Life Style Store</div>
         <div class="work-desc">Showcase of audiophile vehicle sound integration and custom acoustic craftsmanship built over two decades of industry leadership in Sydney.</div>
         <div class="work-services">
@@ -348,7 +366,7 @@
       </div>
 
       <!-- 24. Sydney Art Flooring -->
-      <div class="work-row" id="sydney-art-flooring" data-category="enterprise" data-tags="interior design architectural catalog enterprise" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/sydney-art-flooring-e1593524005663.jpg">
+      <div class="work-row" id="sydney-art-flooring" data-category="enterprise" data-tags="interior design architectural catalog enterprise" data-preview-video="" data-preview-img="assets/projects/sydney-art-flooring-e1593524005663.jpg">
         <div class="work-brand">Sydney Art Flooring</div>
         <div class="work-desc">Commercial surface architecture catalog highlighting high-end residential and commercial flooring projects throughout New South Wales.</div>
         <div class="work-services">
@@ -358,7 +376,7 @@
       </div>
 
       <!-- 25. Valonz Education -->
-      <div class="work-row" id="valonz-education" data-category="brand" data-tags="education portal workshops brand experience brand" data-preview-video="" data-preview-img="https://netergy.com.au/wp-content/uploads/2020/04/Untitled-1-03-e1593426123249.png">
+      <div class="work-row" id="valonz-education" data-category="brand" data-tags="education portal workshops brand experience brand" data-preview-video="" data-preview-img="assets/projects/untitled-1-03-e1593426123249.png">
         <div class="work-brand">Valonz Education</div>
         <div class="work-desc">Professional styling academy curriculum and online masterclass registration platform for elite salon apprentices.</div>
         <div class="work-services">

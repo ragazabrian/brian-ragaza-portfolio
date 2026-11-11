@@ -6,6 +6,9 @@
   <title>Insights & Philosophy | Brian Ragaza</title>
   <meta name="description" content="Essays and insights on UX research, workflow architecture, and designing software where mistakes are expensive.">
   <link rel="icon" href="https://cdn.dribbble.com/users/6427175/avatars/normal/e4a6acaa2ade0cceccc4dbbfe1ae71a5?1794066809">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
     .article-list {
@@ -64,12 +67,12 @@
     </div>
 
     <div class="header-center">
-      <a href="index.html" class="logo-link">Brian Ragaza</a>
+      <a href="index.html" class="logo-link" aria-label="Brian Ragaza Homepage"><span class="logo-desktop">brian ragaza</span><img src="assets/logo-mobile.png" alt="brian ragaza" class="logo-mobile"></a>
     </div>
 
     <div class="header-right">
       <div class="clock-display">
-        <span class="tz">SYD</span>
+        <span class="tz">MNL</span>
         <span id="clock-time">5:52 PM</span>
       </div>
 
@@ -109,14 +112,19 @@
           </div>
         </div>
       </div>
+      <!-- Center Frame: Brian's Face -->
       <div class="menu-middle-frame">
-        <div class="menu-video-card">
-          <video autoplay loop muted playsinline src="https://cdn.dribbble.com/userupload/49571121/file/large-3f20540ca39b89adc7c1a773e2c7d31a.mp4"></video>
+        <div class="menu-photo-card">
+          <img src="assets/brian-ragaza.jpg" alt="Brian Ragaza - Senior Product Designer" class="menu-portrait-img">
+          <div class="menu-photo-caption">
+            <span class="photo-name">Brian Ragaza</span>
+            <span class="photo-title">Senior Product Designer &bull; Manila / Remote</span>
+          </div>
         </div>
       </div>
       <div class="menu-news-column">
         <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="news-card">
-          <div class="news-badge badge-green">VOICE</div>
+          <div class="news-badge badge-linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0 0-3.28 1.64 1.64 0 0 0 0 3.28m1.4 9.74V9.89H5.06v8.61h2.8z"/></svg></div>
           <div>
             <p class="news-meta">Recognition</p>
             <p class="news-text">LinkedIn Top Voice in UX Research — writing on mission-critical workflow architecture.</p>
@@ -129,11 +137,21 @@
             <p class="news-text">Awarded Top 100 Filipino on LinkedIn for contributions to software design & tech.</p>
           </div>
         </div>
-        <a href="https://netergy.com.au/" target="_blank" rel="noopener noreferrer" class="news-card">
-          <div class="news-badge badge-white">SCALE</div>
+        <a href="work.html" class="news-card">
+          <div class="news-badge rotating-logo-badge" aria-label="Hyperscale Clients">
+            <span class="rotating-logo-item active" data-brand="google">
+              <svg viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.3 8.9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.7s.1-2 .4-2.7L1.6 6.4C.6 8.3 0 10.6 0 12s.6 3.7 1.6 5.6l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.3-6.7-5.3L1.6 16C3.5 20.4 7.4 23 12 23z"/></svg>
+            </span>
+            <span class="rotating-logo-item" data-brand="accenture">
+              <svg viewBox="0 0 24 24" fill="#A100FF"><path d="M4 14.5L14 4l-3 10.5 9-9-9 14.5z"/></svg>
+            </span>
+            <span class="rotating-logo-item" data-brand="openai">
+              <svg viewBox="0 0 24 24" fill="#10A37F"><path d="M22.28 9.87a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.61-2.82A5.99 5.99 0 0 0 10.6.6a6.05 6.05 0 0 0-5.8 4.22A5.99 5.99 0 0 0 1.2 8.44a6.05 6.05 0 0 0 .96 7.15 5.98 5.98 0 0 0 .52 4.91 6.05 6.05 0 0 0 6.61 2.82A5.99 5.99 0 0 0 13.8 24.8a6.05 6.05 0 0 0 5.8-4.22 5.99 5.99 0 0 0 3.6-3.62 6.05 6.05 0 0 0-.92-7.09zM13.8 23.2a4.45 4.45 0 0 1-2.9-1.07l.15-.08 4.88-2.82a.8.8 0 0 0 .4-.69v-6.88l2.07 1.2a.78.78 0 0 1 .4.63v5.63a4.52 4.52 0 0 1-4.99 4.08zM3.4 18.02a4.46 4.46 0 0 1-.55-3.05l.15.09 4.88 2.82c.25.14.4.4.4.69v6.88l-2.07-1.2a.78.78 0 0 1-.4-.63v-5.6zm-1.05-8.5a4.46 4.46 0 0 1 2.35-1.97v5.82a.8.8 0 0 0 .4.69l4.88 2.82-2.07 1.2a.78.78 0 0 1-.74 0L2.35 15.2a4.52 4.52 0 0 1 0-5.68zm14.62 2.37l-4.88-2.82 2.07-1.2a.78.78 0 0 1 .74 0l4.8 2.77a4.52 4.52 0 0 1-.38 8.12v-5.82a.8.8 0 0 0-.35-.69v-.36zm2.46-3.26l-.15-.09-4.88-2.82a.8.8 0 0 0-.4-.69V-.14l2.07 1.2a.78.78 0 0 1 .4.63v5.63a4.46 4.46 0 0 1 .96 1.31zm-9.35-3.67l-2.07-1.2a.78.78 0 0 1-.4-.63V1.65a4.52 4.52 0 0 1 7.29-1.18l-.15.09-4.88 2.82a.8.8 0 0 0-.4.69v.91zm-2.07 4.79l2.79-1.61 2.79 1.61v3.23l-2.79 1.61-2.79-1.61V9.75z"/></svg>
+            </span>
+          </div>
           <div>
             <p class="news-meta">Portfolio Impact</p>
-            <p class="news-text">Designing software backed by Google, Accenture & OpenAI, and 25+ brands at Netergy Sydney.</p>
+            <p class="news-text">Designing software backed by Google, Accenture & OpenAI across 25+ platforms.</p>
           </div>
         </a>
       </div>

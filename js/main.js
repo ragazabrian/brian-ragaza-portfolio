@@ -1,4 +1,4 @@
-// --- Studio Clock (Sydney Time) ---
+// --- Studio Clock (Manila Time) ---
 function initClock() {
   const clockEl = document.getElementById("clock-time");
   if (!clockEl) return;
@@ -6,7 +6,7 @@ function initClock() {
   function update() {
     const now = new Date();
     clockEl.textContent = now.toLocaleTimeString("en-US", {
-      timeZone: "Australia/Sydney",
+      timeZone: "Asia/Manila",
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
@@ -25,6 +25,24 @@ function initMenu() {
   menuBtn.addEventListener("click", () => {
     const isOpen = menuDrawer.classList.toggle("open");
     menuBtn.innerHTML = isOpen ? '<span>Close</span> ✕' : '<span>Menu</span>';
+  });
+}
+
+// --- Rotating Client Badge in Menu (Google, Accenture, OpenAI) ---
+function initRotatingLogos() {
+  const badges = document.querySelectorAll(".rotating-logo-badge");
+  if (!badges || badges.length === 0) return;
+
+  badges.forEach((badge) => {
+    const items = badge.querySelectorAll(".rotating-logo-item");
+    if (items.length <= 1) return;
+
+    let currentIndex = 0;
+    setInterval(() => {
+      items[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % items.length;
+      items[currentIndex].classList.add("active");
+    }, 2400);
   });
 }
 
@@ -120,9 +138,109 @@ function initWorkTable() {
   }
 }
 
+// --- Contact Form Submission to ragazabrian@gmail.com ---
+function initContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const submitBtn = document.getElementById("submit-btn");
+    const statusEl = document.getElementById("form-status");
+
+    const name = document.getElementById("contact-name")?.value.trim() || "";
+    const email = document.getElementById("contact-email")?.value.trim() || "";
+    const company = document.getElementById("contact-company")?.value.trim() || "Not specified";
+    const scope = document.getElementById("contact-scope")?.value || "Project Scope Inquiry";
+    const message = document.getElementById("contact-message")?.value.trim() || "";
+
+    if (!name || !email || !message) {
+      if (statusEl) {
+        statusEl.style.display = "block";
+        statusEl.style.color = "#ef4444";
+        statusEl.textContent = "Please fill in all required fields.";
+      }
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending Message...";
+      submitBtn.style.opacity = "0.7";
+    }
+
+    if (statusEl) {
+      statusEl.style.display = "block";
+      statusEl.style.color = "#999999";
+      statusEl.textContent = "Delivering your inquiry to ragazabrian@gmail.com...";
+    }
+
+    const payload = {
+      name: name,
+      email: email,
+      company: company,
+      project_scope: scope,
+      message: message,
+      _subject: `${scope} — Inquiry from ${name}`,
+      _replyto: email,
+    };
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/ragazabrian@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        if (statusEl) {
+          statusEl.style.color = "#10b981";
+          statusEl.innerHTML = `✓ Thank you, ${name}! Your inquiry has been sent to <strong>ragazabrian@gmail.com</strong>. I'll get back to you shortly.`;
+        }
+        form.reset();
+        if (submitBtn) {
+          submitBtn.textContent = "Message Sent ✓";
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Send Message →";
+            submitBtn.style.opacity = "1";
+          }, 4500);
+        }
+      } else {
+        throw new Error("Service returned status: " + response.status);
+      }
+    } catch (err) {
+      console.warn("Direct POST failed, falling back to mailto client:", err);
+      const mailtoSubject = encodeURIComponent(`${scope} (${name})`);
+      const mailtoBody = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nProject Scope: ${scope}\n\nMessage / Bottleneck Screen:\n${message}`
+      );
+      const mailtoUrl = `mailto:ragazabrian@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
+      if (statusEl) {
+        statusEl.style.color = "#f59e0b";
+        statusEl.innerHTML = `Message prepared! If sending didn't trigger automatically: <a href="${mailtoUrl}" style="color: #fff; text-decoration: underline;">Click here to send directly to ragazabrian@gmail.com</a>`;
+      }
+      window.location.href = mailtoUrl;
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message →";
+        submitBtn.style.opacity = "1";
+      }
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initClock();
   initMenu();
+  initRotatingLogos();
   initHeroVideoSwitcher();
   initWorkTable();
+  initContactForm();
 });
