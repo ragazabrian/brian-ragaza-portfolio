@@ -249,7 +249,7 @@ function initContactForm() {
       company: company,
       project_scope: scope,
       message: message,
-      _subject: `${scope} — Response from ${name}`,
+      _subject: `${scope}: Response from ${name}`,
       _replyto: email,
     };
 

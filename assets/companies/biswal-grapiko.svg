@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="24" fill="#0d0d0d" stroke="#262626" stroke-width="2"/>
+  <text x="60" y="68" fill="#ffffff" font-family="'Bricolage Grotesque', sans-serif" font-size="42" font-weight="800" text-anchor="middle" letter-spacing="-0.08em">BG</text>
+  <circle cx="88" cy="44" r="4.5" fill="#ffffff"/>
+</svg>
