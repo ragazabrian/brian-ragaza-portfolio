@@ -1,112 +1,163 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import Hero from "@/components/Hero";
-import ClientMarquee from "@/components/ClientMarquee";
-import ProjectCard from "@/components/ProjectCard";
-import CapabilitiesSection from "@/components/CapabilitiesSection";
-import { FEATURED_PROJECTS } from "@/lib/data";
+import Image from "next/image";
+
+interface CaseStudyPill {
+  label: string;
+  slug: string;
+  video: string;
+  image?: string;
+}
+
+const PILLS: CaseStudyPill[] = [
+  {
+    label: "Robinhood",
+    slug: "robinhood",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/e1d3d5c5d03db97abd91769b3ae3cf13c2a83a2a.mp4",
+  },
+  {
+    label: "Midjourney",
+    slug: "midjourney",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/0ba9b63a2c6fbd52ecab9aa5f9fc5eee78fabf84.mp4",
+  },
+  {
+    label: "Uber",
+    slug: "uber",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/252d9fbe676eacbadfd63fbbab09a6912e459965.mp4",
+  },
+  {
+    label: "Suno",
+    slug: "suno",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/f97dd92a601263f3e1cf6ea57bcd49bb74e73035.mp4",
+  },
+  {
+    label: "Ro",
+    slug: "ro",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/b810fb6a8ea6b187daf93c142d98333fc2d5914b.mp4",
+  },
+  {
+    label: "Atoms",
+    slug: "atoms",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/d586a21cd5f7efa31f7eb1a816534d3d4262a280.mp4",
+  },
+  {
+    label: "The Atlantic",
+    slug: "the-atlantic",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/d8c4a84638ba32a4add866ed0e6529492b9e6f96.mp4",
+  },
+  {
+    label: "Calvin Klein",
+    slug: "calvin-klein",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/a5ee552185b0080836dc855b157e59c3cad20ac6.mp4",
+  },
+  {
+    label: "Headspace",
+    slug: "headspace",
+    video: "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/66c9fa66516f407457747c38548c941a67927f86.mp4",
+  },
+  {
+    label: "All Work",
+    slug: "work",
+    video: "",
+    image: "https://cdn.sanity.io/images/nuxb3jim/production-july-2025/771e3df0cb5787d37a5c781e0411abb65637beb2-2500x1500.png",
+  },
+];
+
+const DEFAULT_VIDEO =
+  "https://cdn.sanity.io/files/nuxb3jim/production-july-2025/6fbb33f6dd694cebe5cc6a5eea7f75df6b664539.mp4";
 
 export default function HomePage() {
+  const [activeMedia, setActiveMedia] = useState<{ video?: string; image?: string }>({
+    video: DEFAULT_VIDEO,
+  });
+  const [hoveredLabel, setHoveredLabel] = useState<string | null>(null);
+
+  const handlePillHover = (pill: CaseStudyPill) => {
+    setHoveredLabel(pill.label);
+    if (pill.video) {
+      setActiveMedia({ video: pill.video });
+    } else if (pill.image) {
+      setActiveMedia({ image: pill.image });
+    }
+  };
+
+  const handlePillLeave = () => {
+    setHoveredLabel(null);
+    setActiveMedia({ video: DEFAULT_VIDEO });
+  };
+
   return (
-    <div className="w-full">
-      {/* 1. Hero */}
-      <Hero />
-
-      {/* 2. Client Marquee */}
-      <ClientMarquee />
-
-      {/* 3. Featured Work Grid */}
-      <section id="featured-work" className="py-24 max-w-7xl mx-auto px-6 sm:px-10">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-zinc-500 font-mono mb-4">
-              Selected Work
-            </p>
-            <h2 className="headline-large text-white">
-              Products that define <br />
-              <span className="text-zinc-500">their categories.</span>
-            </h2>
+    <div className="relative w-screen h-screen overflow-hidden bg-black text-white select-none">
+      {/* 1. Fullscreen Background Video/Image */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        {activeMedia.video ? (
+          <video
+            key={activeMedia.video}
+            src={activeMedia.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover transition-opacity duration-700"
+          />
+        ) : activeMedia.image ? (
+          <div className="relative w-full h-full">
+            <Image
+              src={activeMedia.image}
+              alt="Preview"
+              fill
+              priority
+              className="object-cover transition-opacity duration-700"
+            />
           </div>
+        ) : null}
 
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-medium border border-white/20 text-white hover:bg-white hover:text-black transition-all"
-          >
-            <span>View all 85+ projects</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+        {/* Ambient Dark Overlay */}
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+      </div>
 
-        {/* 2-column responsive layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-          {FEATURED_PROJECTS.map((project, idx) => (
-            <ProjectCard key={project.slug} project={project} priority={idx < 2} />
-          ))}
-        </div>
+      {/* 2. Left Pill Stack */}
+      <div className="absolute top-[48%] -translate-y-1/2 left-8 sm:left-12 z-20 flex flex-col items-start gap-2">
+        {PILLS.map((pill) => {
+          const isHovered = hoveredLabel === pill.label;
+          const href = pill.slug === "work" ? "/work" : `/work/${pill.slug}`;
 
-        <div className="mt-20 text-center">
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm font-medium bg-zinc-900 border border-zinc-800 text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all"
-          >
-            <span>Explore full index of work</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+          return (
+            <Link
+              key={pill.label}
+              href={href}
+              onMouseEnter={() => handlePillHover(pill)}
+              onMouseLeave={handlePillLeave}
+              className={`metalab-nav-pill ${isHovered ? "metalab-nav-pill-active" : ""}`}
+            >
+              {pill.label}
+            </Link>
+          );
+        })}
+      </div>
 
-      {/* 4. Manifesto / Philosophy */}
-      <section className="py-28 bg-zinc-950/80 border-y border-zinc-900">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10">
-          <span className="text-xs uppercase tracking-widest text-zinc-500 font-mono block mb-8">
-            Our Thesis
-          </span>
-          <p className="text-2xl sm:text-4xl md:text-5xl font-light text-zinc-200 leading-tight tracking-tight">
-            &ldquo;Most software is built to function. We build software to be felt. Since
-            2006, our obsession has been creating products that feel so natural, effortless,
-            and beautifully crafted that you can&apos;t imagine your day without
-            them.&rdquo;
-          </p>
+      {/* 3. Middle-Right Statement */}
+      <div className="absolute top-[26%] right-8 sm:right-28 z-20 max-w-[270px] pointer-events-none">
+        <p className="font-sans text-[15px] text-white/90 leading-[1.45] font-normal drop-shadow-md">
+          Since 2006, we’ve helped the most innovative startups and reputable brands
+          design, build, and ship products worth talking about.
+        </p>
+      </div>
 
-          <div className="mt-12 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-xs font-mono">
-              ML
-            </div>
-            <div>
-              <p className="text-sm font-medium text-white">MetaLab Philosophy</p>
-              <p className="text-xs text-zinc-500">Victoria • Vancouver • New York • Remote</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 4. Bottom Giant Headline */}
+      <div className="absolute bottom-6 sm:bottom-12 left-8 sm:left-12 right-8 sm:right-12 z-20 pointer-events-none">
+        <h1 className="metalab-title">
+          We make
+          <span className="metalab-title-line2">interfaces</span>
+        </h1>
+      </div>
 
-      {/* 5. Capabilities */}
-      <CapabilitiesSection />
-
-      {/* 6. Pre-Footer Call to Action Banner */}
-      <section className="py-24 max-w-7xl mx-auto px-6 sm:px-10">
-        <div className="rounded-3xl p-10 sm:p-16 bg-gradient-to-br from-zinc-900 via-zinc-950 to-black border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div>
-            <span className="text-xs uppercase tracking-widest text-zinc-400 font-mono block mb-3">
-              Have a bold idea?
-            </span>
-            <h3 className="text-3xl sm:text-5xl font-light text-white tracking-tight">
-              Let&apos;s build the next <br />
-              <span className="text-zinc-400">breakthrough together.</span>
-            </h3>
-          </div>
-          <Link
-            href="/contact"
-            className="px-8 py-4 rounded-full text-sm font-medium bg-white text-black hover:bg-zinc-200 transition-all flex items-center gap-2"
-          >
-            <span>Start a project</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+      {/* 5. Right Edge Indicator Dot */}
+      <div className="absolute right-6 sm:right-10 top-1/2 -translate-y-1/2 z-20 hidden md:block pointer-events-none">
+        <div className="w-2.5 h-2.5 rounded-full bg-white shadow-lg" />
+      </div>
     </div>
   );
 }

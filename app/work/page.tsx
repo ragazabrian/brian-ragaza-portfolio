@@ -1,126 +1,154 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { ALL_PROJECTS } from "@/lib/data";
-import ProjectCard from "@/components/ProjectCard";
-import { Search } from "lucide-react";
 
 export default function WorkPage() {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
-  const categories = ["All", "AI", "Product", "Full Build", "Web", "Brand"];
+  const filters = [
+    "Startup",
+    "Leader",
+    "AI",
+    "Ecommerce",
+    "Finance",
+    "Health & Wellness",
+    "Productivity",
+    "SaaS",
+    "Media",
+  ];
 
   const filteredProjects = useMemo(() => {
-    return ALL_PROJECTS.filter((project) => {
-      // Category match
-      const matchesCategory =
-        activeCategory === "All" ||
-        project.category.toLowerCase().includes(activeCategory.toLowerCase()) ||
-        project.industries.some((ind) =>
-          ind.toLowerCase().includes(activeCategory.toLowerCase())
-        );
-
-      // Search match
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.shortDescription.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        project.tags.some((tag) =>
-          tag.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-
-      return matchesCategory && matchesSearch;
+    if (activeFilter === "All") return ALL_PROJECTS;
+    return ALL_PROJECTS.filter((p) => {
+      const matchIndustry = p.industries.some(
+        (i) => i.toLowerCase() === activeFilter.toLowerCase()
+      );
+      const matchTag = p.tags.some(
+        (t) => t.toLowerCase() === activeFilter.toLowerCase()
+      );
+      const matchCat = p.category.toLowerCase() === activeFilter.toLowerCase();
+      return matchIndustry || matchTag || matchCat;
     });
-  }, [activeCategory, searchQuery]);
+  }, [activeFilter]);
 
   return (
-    <div className="pt-32 pb-24 max-w-7xl mx-auto px-6 sm:px-10">
-      {/* Header */}
-      <div className="mb-16">
-        <p className="text-xs uppercase tracking-widest text-zinc-500 font-mono mb-4">
-          All Case Studies & Projects
-        </p>
-        <h1 className="headline-large text-white max-w-4xl">
+    <div className="min-h-screen bg-black text-white pt-36 pb-32 px-6 sm:px-12 max-w-7xl mx-auto">
+      {/* Top Massive Serif Heading in PP Eiko */}
+      <div className="mb-20">
+        <h1 className="font-eiko text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.92] tracking-[-0.03em] text-white">
           A sample of our work — <br />
-          <span className="text-zinc-500">from startup to F500</span>
+          from startup to F500
         </h1>
-        <p className="mt-6 text-zinc-400 max-w-2xl text-base sm:text-lg font-light">
-          Explore {ALL_PROJECTS.length} products, platforms, and brands we&apos;ve designed
-          and built over the last two decades.
-        </p>
       </div>
 
-      {/* Filters and Search Bar */}
-      <div className="sticky top-20 z-30 py-4 bg-black/90 backdrop-blur-md border-y border-zinc-900 mb-12 flex flex-col md:flex-row md:items-center justify-between gap-4">
-        {/* Category Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 no-scrollbar">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-medium tracking-wide transition-all whitespace-nowrap ${
-                activeCategory === cat
-                  ? "bg-white text-black"
-                  : "bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800"
-              }`}
+      {/* Filter Row */}
+      <div className="mb-16 flex flex-wrap items-center gap-2.5 text-xs">
+        <span className="text-zinc-500 font-sans mr-2">Filter By:</span>
+        <button
+          onClick={() => setActiveFilter("All")}
+          className={`px-4 py-2 rounded-full font-medium tracking-tight border transition-all ${
+            activeFilter === "All"
+              ? "bg-white text-black border-white"
+              : "bg-white/[0.08] hover:bg-white/[0.14] text-white/80 border-white/10"
+          }`}
+        >
+          All
+        </button>
+        {filters.map((filter) => (
+          <button
+            key={filter}
+            onClick={() => setActiveFilter(activeFilter === filter ? "All" : filter)}
+            className={`px-4 py-2 rounded-full font-medium tracking-tight border transition-all ${
+              activeFilter === filter
+                ? "bg-white text-black border-white"
+                : "bg-white/[0.08] hover:bg-white/[0.14] text-white/80 border-white/10"
+            }`}
+          >
+            {filter}
+          </button>
+        ))}
+      </div>
+
+      {/* Editorial Table / List of Projects */}
+      <div className="border-t border-zinc-900">
+        {filteredProjects.map((project) => {
+          const isHovered = hoveredProject === project.slug;
+          const href = project.hasFullCaseStudy
+            ? `/work/${project.slug}`
+            : `/work#${project.slug}`;
+
+          return (
+            <Link
+              key={project.slug}
+              href={href}
+              onMouseEnter={() => setHoveredProject(project.slug)}
+              onMouseLeave={() => setHoveredProject(null)}
+              className="group relative grid grid-cols-1 md:grid-cols-12 gap-6 py-10 border-b border-zinc-900 transition-colors hover:bg-white/[0.02] items-start"
             >
-              {cat}
-            </button>
-          ))}
-        </div>
+              {/* Col 1: Logo or Title */}
+              <div className="md:col-span-3 flex items-center gap-3">
+                {project.logoWhite ? (
+                  <div className="h-7 w-32 relative">
+                    <Image
+                      src={project.logoWhite}
+                      alt={project.title}
+                      fill
+                      className="object-contain object-left opacity-90 group-hover:opacity-100 transition-opacity"
+                    />
+                  </div>
+                ) : (
+                  <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-zinc-300">
+                    {project.title}
+                  </h3>
+                )}
+              </div>
 
-        {/* Search */}
-        <div className="relative w-full md:w-72">
-          <Search className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            placeholder="Search 85+ projects..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 rounded-full text-xs bg-zinc-900 border border-zinc-800 text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-500 transition-colors"
-          />
-        </div>
+              {/* Col 2: Description */}
+              <div className="md:col-span-6 pr-6">
+                <p className="text-sm text-zinc-400 font-light leading-relaxed group-hover:text-zinc-200 transition-colors">
+                  {project.shortDescription}
+                </p>
+              </div>
+
+              {/* Col 3: Deliverables & Tags */}
+              <div className="md:col-span-3 flex flex-col md:items-end text-xs text-zinc-500 font-sans space-y-1">
+                {project.tags.slice(0, 2).map((tag, idx) => (
+                  <span key={idx}>{tag}</span>
+                ))}
+                {project.hasFullCaseStudy && (
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 mt-1">
+                    Case Study ↗
+                  </span>
+                )}
+              </div>
+
+              {/* Hover Floating Preview if available */}
+              {isHovered && (project.heroImage || project.hoverImage) && (
+                <div className="hidden lg:block fixed right-16 bottom-16 w-80 h-48 rounded-2xl overflow-hidden border border-white/20 bg-zinc-950 shadow-2xl z-30 pointer-events-none animate-in fade-in duration-200">
+                  <Image
+                    src={project.heroImage || project.hoverImage || ""}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                    <span className="text-xs font-mono text-white">{project.title}</span>
+                  </div>
+                </div>
+              )}
+            </Link>
+          );
+        })}
       </div>
 
-      {/* Results Count */}
-      <div className="mb-8 flex items-center justify-between text-xs font-mono text-zinc-500">
-        <span>Showing {filteredProjects.length} projects</span>
-        {searchQuery && (
-          <button
-            onClick={() => setSearchQuery("")}
-            className="hover:text-white underline transition-colors"
-          >
-            Clear search
-          </button>
-        )}
+      {/* Right Edge Dot Indicator */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-20 pointer-events-none hidden sm:block">
+        <div className="w-2.5 h-2.5 rounded-full bg-white" />
       </div>
-
-      {/* Grid */}
-      {filteredProjects.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => (
-            <div key={project.slug} id={project.slug}>
-              <ProjectCard project={project} priority={idx < 6} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="py-24 text-center border border-dashed border-zinc-800 rounded-3xl">
-          <p className="text-lg text-zinc-400 font-light">
-            No projects matched &ldquo;{searchQuery}&rdquo;
-          </p>
-          <button
-            onClick={() => {
-              setActiveCategory("All");
-              setSearchQuery("");
-            }}
-            className="mt-4 px-6 py-2.5 rounded-full text-xs bg-white text-black font-medium hover:bg-zinc-200"
-          >
-            Reset Filters
-          </button>
-        </div>
-      )}
     </div>
   );
 }

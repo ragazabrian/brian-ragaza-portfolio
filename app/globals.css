@@ -1,74 +1,68 @@
 @import "tailwindcss";
+@import "./metalab.css";
+
+@font-face {
+  font-family: 'PP Eiko';
+  src: url('/fonts/ppeiko-light.630362e7.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP Eiko';
+  src: url('/fonts/ppeiko-regular.39027206.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('/fonts/basis-grotesque-regular-pro.d1dbc99c.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Basis Grotesque Pro';
+  src: url('/fonts/basis-grotesque-medium-pro.3f3a69e6.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse Intl';
+  src: url('/fonts/suisse-intl-regular.074f055b.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #000000;
-  --foreground: #f4f4f5;
-  --card-bg: #0d0d0d;
-  --border-subtle: rgba(255, 255, 255, 0.08);
+  --foreground: #ffffff;
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Basis Grotesque Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
-  selection-background-color: #ffffff;
-  selection-color: #000000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.font-eiko {
+  font-family: "PP Eiko", Georgia, serif !important;
 }
 
-::-webkit-scrollbar-track {
-  background: #000000;
+.font-basis {
+  font-family: "Basis Grotesque Pro", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #262626;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #404040;
-}
-
-/* Smooth transitions */
-a, button {
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* MetaLab typography utility */
-.headline-huge {
-  font-size: clamp(3rem, 8vw, 8.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.04em;
-  font-weight: 400;
-}
-
-.headline-large {
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
-  font-weight: 400;
-}
-
-.subheadline {
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  line-height: 1.45;
-  letter-spacing: -0.015em;
-  color: #a1a1aa;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 25s linear infinite;
+.font-suisse {
+  font-family: "Suisse Intl", -apple-system, BlinkMacSystemFont, sans-serif !important;
 }

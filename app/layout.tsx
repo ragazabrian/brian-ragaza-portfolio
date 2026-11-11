@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import MetaLabHeader from "@/components/MetaLabHeader";
 
 export const metadata: Metadata = {
-  title: "MetaLab × Brian Ragaza | We Make Interfaces",
+  title: "Metalab | We make interfaces",
   description:
-    "Metalab helps some of the world's top companies — like Slack, Google, Robinhood, and Midjourney — design, build, and ship amazing digital products and brands. Portfolio recreation by Brian Ragaza.",
+    "Metalab helps some of the world's top companies — like Slack and Google — design, build, and ship amazing digital products and brands.",
   openGraph: {
-    title: "MetaLab × Brian Ragaza | We Make Interfaces",
-    description: "Product design, engineering, and branding for the world's most ambitious tech companies.",
-    url: "https://github.com/ragazabrian/brian-ragaza-portfolio",
-    siteName: "MetaLab Portfolio",
+    title: "Metalab | We make interfaces",
+    description:
+      "Metalab helps some of the world's top companies — like Slack and Google — design, build, and ship amazing digital products and brands.",
+    url: "https://www.metalab.com",
+    siteName: "Metalab",
     locale: "en_US",
     type: "website",
   },
@@ -23,11 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="bg-black text-white min-h-screen flex flex-col selection:bg-white selection:text-black">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" className="dark bg-black">
+      <body className="bg-black text-white min-h-screen selection:bg-white selection:text-black">
+        <MetaLabHeader />
+        <main>{children}</main>
       </body>
     </html>
   );
