@@ -1,3 +1,41 @@
+
+// --- Theme Toggle (Dark / Light Mode with Hugeicons) ---
+function initThemeToggle() {
+  const toggleBtn = document.getElementById("theme-toggle-btn");
+  const sunIcon = window.HUGEICONS && window.HUGEICONS["sun-01"] 
+    ? window.HUGEICONS["sun-01"] 
+    : `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+  const moonIcon = window.HUGEICONS && window.HUGEICONS["moon-02"] 
+    ? window.HUGEICONS["moon-02"] 
+    : `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.5 14.078A8.557 8.557 0 0 1 9.922 2.5C5.668 3.497 2.5 7.315 2.5 11.873a9.627 9.627 0 0 0 9.627 9.627c4.558 0 8.376-3.168 9.373-7.422"/></svg>`;
+
+  function updateIcon(theme) {
+    if (!toggleBtn) return;
+    if (theme === "light") {
+      toggleBtn.innerHTML = moonIcon;
+      toggleBtn.setAttribute("aria-label", "Switch to dark mode");
+      toggleBtn.setAttribute("title", "Switch to dark mode");
+    } else {
+      toggleBtn.innerHTML = sunIcon;
+      toggleBtn.setAttribute("aria-label", "Switch to light mode");
+      toggleBtn.setAttribute("title", "Switch to light mode");
+    }
+  }
+
+  let currentTheme = document.documentElement.getAttribute("data-theme") || localStorage.getItem("portfolio-theme") || "dark";
+  document.documentElement.setAttribute("data-theme", currentTheme);
+  updateIcon(currentTheme);
+
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener("click", () => {
+    currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    localStorage.setItem("portfolio-theme", currentTheme);
+    updateIcon(currentTheme);
+  });
+}
+
 // --- Studio Clock (Manila Time) ---
 function initClock() {
   const clockEl = document.getElementById("clock-time");
@@ -24,7 +62,8 @@ function initMenu() {
 
   menuBtn.addEventListener("click", () => {
     const isOpen = menuDrawer.classList.toggle("open");
-    menuBtn.innerHTML = isOpen ? '<span>Close</span> ✕' : '<span>Menu</span>';
+    const cancelIcon = window.HUGEICONS && window.HUGEICONS['cancel-01'] ? window.HUGEICONS['cancel-01'] : '✕';
+    menuBtn.innerHTML = isOpen ? `<span>Close</span> ${cancelIcon}` : '<span>Menu</span>';
   });
 }
 
@@ -265,15 +304,23 @@ function initWorkTable() {
   }
 }
 
-// --- Contact Form Submission ---
+// --- Contact Form Submission (Direct to Email) ---
 function initContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
 
-  // Obfuscated endpoint destination
-  const endpoint = atob("aHR0cHM6Ly9mb3Jtc3VibWl0LmNvL2FqYXgvcmFnYXphYnJpYW5AZ21haWwuY29t");
+  const recipient = atob("cmFnYXphYnJpYW5AZ21haWwuY29t");
 
-  form.addEventListener("submit", async (e) => {
+  // Wire any direct email trigger buttons
+  const directEmailBtns = document.querySelectorAll(".direct-email-trigger");
+  directEmailBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.href = `mailto:${recipient}?subject=${encodeURIComponent("Product Design Inquiry")}`;
+    });
+  });
+
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const submitBtn = document.getElementById("submit-btn");
@@ -296,77 +343,37 @@ function initContactForm() {
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.textContent = "Sending Message...";
+      submitBtn.textContent = "Opening Email Client...";
       submitBtn.style.opacity = "0.7";
     }
 
+    const subject = encodeURIComponent(`${scope}: Inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Hi Brian,\n\nName: ${name}\nEmail: ${email}\nCompany: ${company}\nProject Scope: ${scope}\n\nMessage / Problem Screen:\n${message}\n`
+    );
+    const mailtoUrl = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
     if (statusEl) {
       statusEl.style.display = "block";
-      statusEl.style.color = "#999999";
-      statusEl.textContent = "Sending your message...";
+      statusEl.style.color = "#10b981";
+      statusEl.innerHTML = `✓ Opening your email client to send your message... If your mail app did not open automatically, <a href="${mailtoUrl}" style="color: inherit; text-decoration: underline; font-weight: 600;">click here to finish sending your note</a>.`;
     }
 
-    const payload = {
-      name: name,
-      email: email,
-      company: company,
-      project_scope: scope,
-      message: message,
-      _subject: `${scope}: Response from ${name}`,
-      _replyto: email,
-    };
+    // Direct to user default email client
+    window.location.href = mailtoUrl;
 
-    try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        if (statusEl) {
-          statusEl.style.color = "#10b981";
-          statusEl.innerHTML = `✓ Thank you, ${name}! Your entry has been sent successfully. I have received your response and will get back to you shortly.`;
-        }
-        form.reset();
-        if (submitBtn) {
-          submitBtn.textContent = "Message Sent ✓";
-          setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Send Message →";
-            submitBtn.style.opacity = "1";
-          }, 4500);
-        }
-      } else {
-        throw new Error("Service returned status: " + response.status);
-      }
-    } catch (err) {
-      console.warn("Direct POST failed, falling back to mail client:", err);
-      const mailtoSubject = encodeURIComponent(`${scope} (${name})`);
-      const mailtoBody = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nCompany: ${company}\nProject Scope: ${scope}\n\nMessage / Bottleneck Screen:\n${message}`
-      );
-      const mailtoUrl = `mailto:${atob("cmFnYXphYnJpYW5AZ21haWwuY29t")}?subject=${mailtoSubject}&body=${mailtoBody}`;
-
-      if (statusEl) {
-        statusEl.style.color = "#f59e0b";
-        statusEl.innerHTML = `Thank you! If you did not receive immediate confirmation, <a href="${mailtoUrl}" style="color: #fff; text-decoration: underline;">click here to finish sending your response</a>.`;
-      }
-      window.location.href = mailtoUrl;
-
+    setTimeout(() => {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message →";
+        submitBtn.textContent = "Send Another Message →";
         submitBtn.style.opacity = "1";
       }
-    }
+    }, 3000);
   });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  initThemeToggle();
   initClock();
   initMenu();
   initRotatingLogos();

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');
 
 /* --- Global Reset & Variables --- */
+
 :root {
   --bg: #000000;
   --fg: #ffffff;
@@ -13,7 +14,22 @@
   --pill-hover: rgba(255, 255, 255, 0.28);
   --card-bg: #0c0c0e;
   --font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- Light Mode Color Palette (Overrides :root) --- */
+:root[data-theme="light"],
+[data-theme="light"] {
+  --bg: #f8f8fa !important;
+  --fg: #111114 !important;
+  --fg-subtle: #5f5d68 !important;
+  --fg-muted: #8c8a94 !important;
+  --border: rgba(0, 0, 0, 0.09) !important;
+  --border-subtle: rgba(0, 0, 0, 0.05) !important;
+  --pill-bg: rgba(0, 0, 0, 0.06) !important;
+  --pill-hover: rgba(0, 0, 0, 0.12) !important;
+  --card-bg: #ffffff !important;
+  --card-border: rgba(0, 0, 0, 0.09) !important;
 }
 
 * {
@@ -81,7 +97,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-family) !important;
   font-weight: 600 !important;
   letter-spacing: -0.06em !important;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 /* Body & Paragraphs: Regular 400, Bricolage Grotesque, Balanced Tracking */
@@ -122,7 +138,7 @@ input, select, textarea, button {
   font-family: var(--font-family) !important;
 }
 
-/* Monospace Meta, Badges, Labels, Timestamps across All Pages */
+/* Unified Labels, Badges, Meta, Timestamps across All Pages (Bricolage Grotesque) */
 .font-mono,
 .stat-label,
 .section-label,
@@ -141,9 +157,13 @@ input, select, textarea, button {
 .menu-subhead,
 .news-meta,
 .work-meta,
-.city-meta {
-  font-family: var(--font-mono) !important;
-  letter-spacing: 0.05em;
+.city-meta,
+.resume-stat-label,
+.resume-exp-meta,
+.resume-edu-year,
+.resume-speak-year {
+  font-family: var(--font-family) !important;
+  letter-spacing: -0.01em;
 }
 
 .hero-title {
@@ -151,7 +171,7 @@ input, select, textarea, button {
   font-size: clamp(3.4rem, 8vw, 8.2rem);
   line-height: 0.96;
   letter-spacing: -0.07em !important;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .hero-title-line2 {
@@ -164,7 +184,7 @@ input, select, textarea, button {
   font-size: clamp(2.6rem, 6vw, 5.8rem);
   line-height: 0.96;
   letter-spacing: -0.06em !important;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 /* --- Top Navigation Header --- */
@@ -201,7 +221,7 @@ input, select, textarea, button {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .logo-desktop {
@@ -265,7 +285,7 @@ input, select, textarea, button {
 }
 
 .clock-display .tz {
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   color: #777777;
   font-size: 11px;
 }
@@ -290,9 +310,10 @@ input, select, textarea, button {
 }
 
 .icon-btn svg {
-  width: 14px;
-  height: 14px;
-  fill: currentColor;
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  display: block;
 }
 
 /* --- Fullscreen Menu Drawer --- */
@@ -341,7 +362,7 @@ input, select, textarea, button {
   font-weight: 600 !important;
   letter-spacing: -0.06em !important;
   line-height: 1.1;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .menu-nav-links a:hover {
@@ -354,7 +375,7 @@ input, select, textarea, button {
 
 .menu-subhead {
   font-size: 11px;
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #777777;
@@ -415,7 +436,7 @@ input, select, textarea, button {
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .photo-title {
@@ -530,7 +551,7 @@ input, select, textarea, button {
 
 .news-meta {
   font-size: 11px;
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   color: #777777;
   margin-bottom: 2px;
 }
@@ -696,7 +717,7 @@ input, select, textarea, button {
 
 .filter-label {
   font-size: 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   text-transform: uppercase;
   color: #888888;
   margin-right: 8px;
@@ -714,7 +735,7 @@ input, select, textarea, button {
 
 .filter-pill:hover {
   background: #222226;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .filter-pill.active {
@@ -745,7 +766,7 @@ input, select, textarea, button {
   font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.05em;
-  color: #ffffff;
+  color: var(--fg);
 }
 
 .work-brand img {
@@ -775,7 +796,7 @@ input, select, textarea, button {
 .work-services .case-badge {
   display: inline-block;
   color: #10b981;
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   font-size: 11px;
   letter-spacing: 0.05em;
   margin-top: 4px;
@@ -855,7 +876,7 @@ input, select, textarea, button {
 
 .chrome-title {
   margin-left: 12px;
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   font-size: 11px;
   color: #888888;
   letter-spacing: 0.04em;
@@ -883,7 +904,7 @@ input, select, textarea, button {
 
 .cap-tag {
   font-size: 11px;
-  font-family: var(--font-mono);
+  font-family: var(--font-family);
   text-transform: uppercase;
   color: #777777;
   margin-bottom: 12px;
@@ -1087,4 +1108,518 @@ input, select, textarea, button {
   .menu-nav-links a {
     font-size: 28px;
   }
+}
+
+
+/* ============================================================
+   LIGHT THEME ADAPTATIONS
+   ============================================================ */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6,
+[data-theme="light"] .hero-title,
+[data-theme="light"] .page-title,
+[data-theme="light"] .section-heading,
+[data-theme="light"] .section-title,
+[data-theme="light"] .work-title,
+[data-theme="light"] .cap-title,
+[data-theme="light"] .article-title {
+  color: var(--fg) !important;
+}
+
+[data-theme="light"] .page-title span,
+[data-theme="light"] .font-serif,
+[data-theme="light"] .italic,
+[data-theme="light"] .font-light {
+  color: #3f3e46;
+}
+
+/* Header & Navigation in Light Mode */
+[data-theme="light"] .logo-desktop {
+  color: #111114;
+}
+
+[data-theme="light"] .logo-mobile {
+  filter: invert(1);
+}
+
+[data-theme="light"] .menu-button {
+  color: #111114;
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .menu-button:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .clock-display {
+  color: #4b4952;
+}
+
+[data-theme="light"] .clock-display .tz {
+  color: #71717a;
+}
+
+[data-theme="light"] .icon-btn {
+  color: #111114;
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .icon-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+/* Fullscreen Menu Drawer in Light Mode */
+[data-theme="light"] .menu-drawer {
+  background: rgba(248, 248, 250, 0.98);
+}
+
+[data-theme="light"] .menu-nav-links a {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .menu-nav-links a:hover {
+  color: #71717a !important;
+}
+
+[data-theme="light"] .menu-subhead {
+  color: #71717a;
+}
+
+[data-theme="light"] .news-card {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .news-card:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="light"] .news-meta {
+  color: #71717a;
+}
+
+[data-theme="light"] .news-text {
+  color: #18181b;
+}
+
+[data-theme="light"] .badge-top100 {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .badge-top100 img {
+  filter: invert(1);
+}
+
+[data-theme="light"] .rotating-logo-badge {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .rotating-logo-item svg,
+[data-theme="light"] .rotating-logo-item svg path {
+  fill: #111114 !important;
+}
+
+[data-theme="light"] .rotating-logo-item img {
+  filter: invert(1);
+}
+
+/* Editorial Work Table in Light Mode */
+[data-theme="light"] .work-table {
+  border-top-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .work-row {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .work-row:hover {
+  border-bottom-color: rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="light"] .work-brand {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .work-desc {
+  color: #52525b;
+}
+
+[data-theme="light"] .work-row:hover .work-desc {
+  color: #111114;
+}
+
+[data-theme="light"] .work-services {
+  color: #71717a;
+}
+
+[data-theme="light"] .filter-label {
+  color: #71717a;
+}
+
+[data-theme="light"] .filter-pill {
+  background: rgba(0, 0, 0, 0.05);
+  color: #52525b;
+}
+
+[data-theme="light"] .filter-pill:hover {
+  background: rgba(0, 0, 0, 0.09);
+  color: #111114;
+}
+
+[data-theme="light"] .filter-pill.active {
+  background: #111114;
+  color: #ffffff;
+}
+
+[data-theme="light"] .floating-preview {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+}
+
+/* Capabilities & Devices Showcase in Light Mode */
+[data-theme="light"] .device-frame {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .device-chrome {
+  background: #f0f0f3;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .cap-tag {
+  color: #71717a;
+}
+
+[data-theme="light"] .cap-title {
+  color: #111114;
+}
+
+[data-theme="light"] .cap-desc {
+  color: #52525b;
+}
+
+[data-theme="light"] .cap-deliverable {
+  color: #52525b;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Contact Page in Light Mode */
+[data-theme="light"] .contact-form {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .form-label {
+  color: #52525b;
+}
+
+[data-theme="light"] .form-input,
+[data-theme="light"] .form-select,
+[data-theme="light"] .form-textarea {
+  background: #f4f4f7;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #111114;
+}
+
+[data-theme="light"] .form-input:focus,
+[data-theme="light"] .form-select:focus,
+[data-theme="light"] .form-textarea:focus {
+  background: #ffffff;
+  border-color: #111114;
+}
+
+[data-theme="light"] .submit-btn {
+  background: #111114;
+  color: #ffffff;
+}
+
+[data-theme="light"] .submit-btn:hover {
+  background: #2a2a30;
+}
+
+[data-theme="light"] .contact-intro p {
+  color: #52525b;
+}
+
+[data-theme="light"] .channel-link {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #111114;
+}
+
+[data-theme="light"] .channel-link:hover {
+  background: #f4f4f7;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Cursor in Light Mode */
+[data-theme="light"] .custom-cursor {
+  background-color: #111114;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .custom-cursor.hovering {
+  background-color: rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Smooth Transitions for Theme Toggle */
+html, body {
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.site-header,
+.work-row,
+.news-card,
+.contact-form,
+.icon-btn,
+.menu-button,
+.filter-pill,
+.pill-item {
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+/* Resume / About Page in Light Mode */
+[data-theme="light"] .resume-hero-name {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-hero-bio {
+  color: #52525b !important;
+}
+
+[data-theme="light"] .resume-hero-bio strong {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-avatar-wrap {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  background: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .resume-btn-primary {
+  background: #111114 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .resume-btn-primary:hover {
+  background: #27272a !important;
+}
+
+[data-theme="light"] .resume-btn-secondary {
+  background: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-btn-secondary:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.22) !important;
+}
+
+[data-theme="light"] .resume-stats-strip {
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .resume-stat-val {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-stat-label {
+  color: #71717a !important;
+}
+
+[data-theme="light"] .resume-block {
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .resume-block-title {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-exp-item {
+  border-bottom-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .resume-exp-logo {
+  background: #111114 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .resume-exp-role {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-exp-company {
+  color: #18181b !important;
+}
+
+[data-theme="light"] .resume-exp-meta {
+  color: #71717a !important;
+}
+
+[data-theme="light"] .resume-exp-bullets li {
+  color: #52525b !important;
+}
+
+[data-theme="light"] .resume-exp-bullets li strong {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-tool-card {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #111114 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="light"] .resume-tool-card:hover {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+  background: #fcfcfd !important;
+}
+
+[data-theme="light"] .resume-tool-icon {
+  background: #f4f4f5 !important;
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-tool-name {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-tool-cat {
+  color: #71717a !important;
+}
+
+[data-theme="light"] .resume-tag {
+  background: #f4f4f5 !important;
+  border-color: rgba(0, 0, 0, 0.07) !important;
+  color: #27272a !important;
+}
+
+[data-theme="light"] .resume-tag:hover {
+  background: #e4e4e7 !important;
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-edu-degree,
+[data-theme="light"] .resume-speak-event {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .resume-edu-school,
+[data-theme="light"] .resume-speak-org {
+  color: #52525b !important;
+}
+
+[data-theme="light"] .resume-edu-year,
+[data-theme="light"] .resume-speak-year {
+  color: #71717a !important;
+}
+
+/* Careers / Writing Articles in Light Mode */
+[data-theme="light"] .article-card {
+  background: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme="light"] .article-card:hover {
+  border-color: rgba(0, 0, 0, 0.22) !important;
+  background: #fbfbfd !important;
+}
+
+[data-theme="light"] .article-title {
+  color: #111114 !important;
+}
+
+[data-theme="light"] .article-meta {
+  color: #71717a !important;
+}
+
+[data-theme="light"] .read-badge {
+  background: rgba(0, 0, 0, 0.06) !important;
+  color: #111114 !important;
+}
+
+[data-theme="light"] .read-badge:hover {
+  background: rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Homepage Hero Video Scrim Protection in Light Mode */
+body:has(.hero-wrapper):not(:has(.menu-drawer.open)) .site-header .logo-desktop {
+  color: #ffffff !important;
+}
+
+body:has(.hero-wrapper):not(:has(.menu-drawer.open)) .site-header .menu-button {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+body:has(.hero-wrapper):not(:has(.menu-drawer.open)) .site-header .clock-display {
+  color: #ffffff !important;
+}
+
+body:has(.hero-wrapper):not(:has(.menu-drawer.open)) .site-header .clock-display .tz {
+  color: #bbbbbb !important;
+}
+
+body:has(.hero-wrapper):not(:has(.menu-drawer.open)) .site-header .icon-btn {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+body:has(.hero-wrapper) .hero-pills-stack .pill-item {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+body:has(.hero-wrapper) .hero-pills-stack .pill-item:hover,
+body:has(.hero-wrapper) .hero-pills-stack .pill-item.active {
+  background: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* When Menu Drawer is Open in Light Mode, Ensure Header is Dark & Readable */
+[data-theme="light"] body:has(.menu-drawer.open) .site-header .logo-desktop {
+  color: #111114 !important;
+}
+[data-theme="light"] body:has(.menu-drawer.open) .site-header .logo-mobile {
+  filter: invert(1) !important;
+}
+
+[data-theme="light"] body:has(.menu-drawer.open) .site-header .menu-button,
+[data-theme="light"] body:has(.menu-drawer.open) .site-header .icon-btn {
+  color: #111114 !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] body:has(.menu-drawer.open) .site-header .clock-display {
+  color: #4b4952 !important;
+}
+
+[data-theme="light"] body:has(.menu-drawer.open) .site-header .clock-display .tz {
+  color: #71717a !important;
 }
