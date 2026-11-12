@@ -1652,9 +1652,21 @@ html, body {
 }
 
 [data-theme="light"] .resume-exp-logo {
-  background: #111114 !important;
-  border-color: rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  background: #ebebeb !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .resume-exp-logo img[src*="kaya-ai"],
+[data-theme="light"] .resume-exp-logo img[src*="ciit"],
+[data-theme="light"] .resume-exp-logo img[src*="netergy"] {
+  filter: brightness(0) !important;
+}
+
+[data-theme="light"] .resume-exp-logo img[src*="premai"],
+[data-theme="light"] .resume-exp-logo img[src*="biswal-grapiko"] {
+  filter: invert(1) !important;
+  mix-blend-mode: multiply !important;
 }
 
 [data-theme="light"] .resume-exp-role {
