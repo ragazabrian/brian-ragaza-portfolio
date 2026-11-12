@@ -20,9 +20,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     <script>
     (function() {
-      const savedTheme = localStorage.getItem("portfolio-theme");
+      try {
+        if (localStorage.getItem("portfolio-theme") === "light") {
+          localStorage.removeItem("portfolio-theme");
+        }
+      } catch(e) {}
+      const savedTheme = sessionStorage.getItem("portfolio-theme");
       if (savedTheme === "light") {
         document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
       }
     })();
   </script>

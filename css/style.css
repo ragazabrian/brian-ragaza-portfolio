@@ -1629,7 +1629,6 @@ html, body {
 
 [data-theme="light"] .resume-stats-strip {
   border-top-color: rgba(0, 0, 0, 0.08) !important;
-  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
 }
 
 [data-theme="light"] .resume-stat-val {
@@ -1637,7 +1636,7 @@ html, body {
 }
 
 [data-theme="light"] .resume-stat-label {
-  color: #71717a !important;
+  color: #52525b !important;
 }
 
 [data-theme="light"] .resume-block {

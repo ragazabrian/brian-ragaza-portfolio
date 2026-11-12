@@ -20,9 +20,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
     <script>
     (function() {
-      const savedTheme = localStorage.getItem("portfolio-theme");
+      try {
+        if (localStorage.getItem("portfolio-theme") === "light") {
+          localStorage.removeItem("portfolio-theme");
+        }
+      } catch(e) {}
+      const savedTheme = sessionStorage.getItem("portfolio-theme");
       if (savedTheme === "light") {
         document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
       }
     })();
   </script>
@@ -126,12 +133,11 @@
     /* Stats Strip */
     .resume-stats-strip {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      padding: 32px 0;
+      padding: 32px 0 0;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      margin: 36px 0 54px;
+      margin: 36px 0 0;
     }
     .resume-stat-val {
       font-family: var(--font-family);
@@ -422,9 +428,9 @@
         font-size: 15px;
       }
       .resume-stats-strip {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-        padding: 24px 0;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        padding: 24px 0 0;
       }
       .resume-stat-val {
         font-size: 32px;
@@ -477,7 +483,6 @@
     }
     [data-theme="light"] .resume-stats-strip {
       border-top-color: rgba(0, 0, 0, 0.1) !important;
-      border-bottom-color: rgba(0, 0, 0, 0.1) !important;
     }
     [data-theme="light"] .resume-stat-val {
       color: #111114 !important;
@@ -757,10 +762,6 @@
       <div>
         <div class="resume-stat-val">25+</div>
         <div class="resume-stat-label">Brand Launches</div>
-      </div>
-      <div>
-        <div class="resume-stat-val">Top 1%</div>
-        <div class="resume-stat-label">LinkedIn Voice UX Research</div>
       </div>
     </div>
 

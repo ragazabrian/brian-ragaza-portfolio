@@ -30,11 +30,19 @@ function initThemeToggle() {
     }
   }
 
-  let currentTheme = localStorage.getItem("portfolio-theme") || "dark";
+  // Clear any legacy localStorage light theme to enforce dark mode as default
+  try {
+    if (localStorage.getItem("portfolio-theme") === "light") {
+      localStorage.removeItem("portfolio-theme");
+    }
+  } catch(e) {}
+
+  let currentTheme = sessionStorage.getItem("portfolio-theme") || "dark";
   if (currentTheme === "light") {
     document.documentElement.setAttribute("data-theme", "light");
   } else {
     document.documentElement.removeAttribute("data-theme");
+    currentTheme = "dark";
   }
   updateIcon(currentTheme);
 
@@ -42,10 +50,11 @@ function initThemeToggle() {
     currentTheme = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
     if (currentTheme === "light") {
       document.documentElement.setAttribute("data-theme", "light");
+      sessionStorage.setItem("portfolio-theme", "light");
     } else {
       document.documentElement.removeAttribute("data-theme");
+      sessionStorage.setItem("portfolio-theme", "dark");
     }
-    localStorage.setItem("portfolio-theme", currentTheme);
     updateIcon(currentTheme);
   });
 }
