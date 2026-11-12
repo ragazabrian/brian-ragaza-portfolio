@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Construction Dashboard | Brian Ragaza</title>
+  <meta name="description" content="Case study: Hyperscale data center construction management dashboard supporting global cloud infrastructure teams and multi-billion-dollar build programs.">
+  <meta property="og:title" content="AI Construction Dashboard | Brian Ragaza">
+  <meta property="og:description" content="Hyperscale data center construction management platform coordinating multi-billion-dollar build programs with real-time site telemetry.">
+  <meta property="og:image" content="https://ragazabrian.github.io/brian-ragaza-portfolio/assets/case-studies/construction-overview-dark.png">
+  <meta property="og:url" content="https://ragazabrian.github.io/brian-ragaza-portfolio/work-ai-construction.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Construction Dashboard | Brian Ragaza">
+  <meta name="twitter:description" content="Hyperscale data center construction management platform coordinating multi-billion-dollar build programs.">
+  <meta name="twitter:image" content="https://ragazabrian.github.io/brian-ragaza-portfolio/assets/case-studies/construction-overview-dark.png">
+  <link rel="icon" href="https://cdn.dribbble.com/users/6427175/avatars/normal/e4a6acaa2ade0cceccc4dbbfe1ae71a5?1794066809">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem("portfolio-theme") === "light") {
+          localStorage.removeItem("portfolio-theme");
+        }
+      } catch(e) {}
+      const savedTheme = sessionStorage.getItem("portfolio-theme");
+      if (savedTheme === "light") {
+        document.documentElement.setAttribute("data-theme", "light");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=3.3">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menu-toggle-btn" class="menu-button" aria-label="Open the main navigation menu" aria-expanded="false">
+        <span class="menu-text menu-text-closed">Menu</span>
+        <span class="menu-text menu-text-open">Close</span>
+        <span class="menu-icon menu-icon-hamburger" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+        </span>
+        <span class="menu-icon menu-icon-close" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18m12 0L6 6"/></svg>
+        </span>
+      </button>
+    </div>
+
+    <div class="header-center">
+      <a href="index.html" class="logo-link" aria-label="Brian Ragaza Homepage"><span class="logo-desktop">brian ragaza</span><img src="assets/logo-mobile.png" alt="brian ragaza" class="logo-mobile"></a>
+    </div>
+
+    <div class="header-right">
+      <div class="clock-display">
+        <span class="tz">MNL</span>
+        <span id="clock-time">5:52 PM</span>
+      </div>
+
+      <a href="mailto:ragazabrian@gmail.com" class="icon-btn" aria-label="Email Brian Ragaza" title="Email Brian Ragaza">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="m2 6l6.913 3.917c2.549 1.444 3.625 1.444 6.174 0L22 6"/><path d="M2.016 13.476c.065 3.065.098 4.598 1.229 5.733c1.131 1.136 2.705 1.175 5.854 1.254c1.94.05 3.862.05 5.802 0c3.149-.079 4.723-.118 5.854-1.254c1.131-1.135 1.164-2.668 1.23-5.733c.02-.986.02-1.966 0-2.952c-.066-3.065-.099-4.598-1.23-5.733c-1.131-1.136-2.705-1.175-5.854-1.254a115 115 0 0 0-5.802 0c-3.149.079-4.723.118-5.854 1.254c-1.131 1.135-1.164 2.668-1.23 5.733a69 69 0 0 0 0 2.952Z"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Fullscreen Menu Drawer -->
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
+    <div class="menu-grid">
+      <!-- Left Column -->
+      <div>
+        <nav class="menu-nav-links">
+          <a href="what-we-do.html">What I Do</a>
+          <a href="work.html">Selected Work</a>
+          <a href="process.html">Design Process</a>
+          <a href="about.html">About Brian</a>
+        </nav>
+      </div>
+      <!-- Center Frame: Brian's Face -->
+      <div class="menu-middle-frame">
+        <div class="menu-photo-card">
+          <img src="assets/brian-ragaza.jpg" alt="Brian Ragaza - Senior Product Designer" class="menu-portrait-img">
+          <div class="menu-photo-caption">
+            <span class="photo-name">Brian Ragaza</span>
+            <span class="photo-title">Senior Product Designer &bull; Manila / Remote</span>
+          </div>
+        </div>
+      </div>
+      <div class="menu-news-column">
+        <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="news-card">
+          <div class="news-badge badge-linkedin" role="img" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+          </div>
+          <div>
+            <p class="news-meta">Recognition</p>
+            <p class="news-text">LinkedIn Top Voice in UX Research: writing on mission-critical workflow architecture.</p>
+          </div>
+        </a>
+        <div class="news-card">
+          <div class="news-badge badge-top100" role="img" aria-label="Top 100 Filipinos on LinkedIn">
+            <img src="assets/top-100-filipinos-white.png" alt="Top 100 Filipinos on LinkedIn">
+          </div>
+          <div>
+            <p class="news-meta">2024 & 2025</p>
+            <p class="news-text">Awarded Top 100 Filipino on LinkedIn for contributions to software design & tech.</p>
+          </div>
+        </div>
+        <a href="work.html" class="news-card">
+          <div class="news-badge rotating-logo-badge" role="img" aria-label="Hyperscale Clients">
+            <span class="rotating-logo-item active" data-brand="google">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+            </span>
+            <span class="rotating-logo-item" data-brand="accenture">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="#ffffff" aria-hidden="true"><path d="m.66 16.95 13.242-4.926L.66 6.852V0l22.68 9.132v5.682L.66 24Z"/></svg>
+            </span>
+            <span class="rotating-logo-item" data-brand="openai">
+              <svg viewBox="0 0 256 260" width="20" height="20" fill="#ffffff" aria-hidden="true"><path d="M239.184 106.203a64.72 64.72 0 0 0-5.576-53.103C219.452 28.459 191 15.784 163.213 21.74A65.586 65.586 0 0 0 52.096 45.22a64.72 64.72 0 0 0-43.23 31.36c-14.31 24.602-11.061 55.634 8.033 76.74a64.67 64.67 0 0 0 5.525 53.102c14.174 24.65 42.644 37.324 70.446 31.36a64.72 64.72 0 0 0 48.754 21.744c28.481.025 53.714-18.361 62.414-45.481a64.77 64.77 0 0 0 43.229-31.36c14.137-24.558 10.875-55.423-8.083-76.483m-97.56 136.338a48.4 48.4 0 0 1-31.105-11.255l1.535-.87l51.67-29.825a8.6 8.6 0 0 0 4.247-7.367v-72.85l21.845 12.636c.218.111.37.32.409.563v60.367c-.056 26.818-21.783 48.545-48.601 48.601M37.158 197.93a48.35 48.35 0 0 1-5.781-32.589l1.534.921l51.722 29.826a8.34 8.34 0 0 0 8.441 0l63.181-36.425v25.221a.87.87 0 0 1-.358.665l-52.335 30.184c-23.257 13.398-52.97 5.431-66.404-17.803M23.549 85.38a48.5 48.5 0 0 1 25.58-21.333v61.39a8.29 8.29 0 0 0 4.195 7.316l62.874 36.272l-21.845 12.636a.82.82 0 0 1-.767 0L41.353 151.53c-23.211-13.454-31.171-43.144-17.804-66.405zm179.466 41.695l-63.08-36.63L161.73 77.86a.82.82 0 0 1 .768 0l52.233 30.184a48.6 48.6 0 0 1-7.316 87.635v-61.391a8.54 8.54 0 0 0-4.4-7.213m21.742-32.69l-1.535-.922l-51.619-30.081a8.39 8.39 0 0 0-8.492 0L99.98 99.808V74.587a.72.72 0 0 1 .307-.665l52.233-30.133a48.652 48.652 0 0 1 72.236 50.391zM88.061 139.097l-21.845-12.585a.87.87 0 0 1-.41-.614V65.685a48.652 48.652 0 0 1 79.757-37.346l-1.535.87l-51.67 29.825a8.6 8.6 0 0 0-4.246 7.367zm11.868-25.58L128.067 97.3l28.188 16.218v32.434l-28.086 16.218l-28.188-16.218z"/></svg>
+            </span>
+          </div>
+          <div>
+            <p class="news-meta">Portfolio Impact</p>
+            <p class="news-text">Designing software backed by Google, Accenture & OpenAI across 25+ platforms.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-container case-study-page">
+    
+    <!-- Back to Work Navigation -->
+    <a href="work.html" class="case-back-nav" aria-label="Return to Selected Work">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <span>Selected Work</span>
+    </a>
+
+    <!-- MetaLab Suno Pattern: Case Study Hero Header -->
+    <header class="case-hero-header">
+      <span class="case-hero-eyebrow">Enterprise Product Design &bull; Mission-Critical Systems</span>
+      <h1 class="case-hero-title">AI Construction Dashboard</h1>
+
+      <!-- Metadata Grid -->
+      <div class="case-meta-grid">
+        <dl class="case-meta-col">
+          <dt class="case-meta-label">Project Type</dt>
+          <dd class="case-meta-value">B2B SaaS / Enterprise Platform</dd>
+        </dl>
+        <dl class="case-meta-col">
+          <dt class="case-meta-label">Stage</dt>
+          <dd class="case-meta-value">Hyperscale Infrastructure</dd>
+        </dl>
+        <dl class="case-meta-col">
+          <dt class="case-meta-label">Deliverables</dt>
+          <dd class="case-meta-value">
+            <span class="case-tag-list">
+              <span class="case-tag-pill">Console UX</span>
+              <span class="case-tag-pill">Design System</span>
+              <span class="case-tag-pill">Live Telemetry</span>
+              <span class="case-tag-pill">Logistics AI</span>
+            </span>
+          </dd>
+        </dl>
+        <dl class="case-meta-col">
+          <dt class="case-meta-label">Backing & Scope</dt>
+          <dd class="case-meta-value">Google, Accenture & OpenAI</dd>
+        </dl>
+      </div>
+
+      <!-- Executive Editorial Summary -->
+      <p class="case-hero-summary">
+        Architecting a zero-latency operational control plane for hyperscale data center infrastructure: coordinating multi-billion-dollar build programs with real-time site telemetry, automated delivery reconciliation, and predictive risk mitigation.
+      </p>
+    </header>
+
+    <!-- Edge-to-Edge Hero Media Showcase -->
+    <figure class="case-hero-media-wrapper">
+      <div class="case-hero-media-inner">
+        <img src="assets/case-studies/construction-overview-dark.png" alt="AI Construction Dashboard Overview Console in Dark Mode showing capital budget, site progress, telemetry charts, and submittal alerts" class="case-hero-img" width="1024" height="683">
+      </div>
+      <figcaption class="case-media-caption">
+        <span>Figure 1.0: Central Operations Console &bull; High-Density Multi-Site Overview</span>
+        <span>Figma Node 845:8816 &bull; Dark Surface</span>
+      </figcaption>
+    </figure>
+
+    <!-- Narrative Section 01: The Context & The Challenge -->
+    <section class="case-section" aria-labelledby="section-01-heading">
+      <div class="case-section-grid">
+        <div class="case-section-left">
+          <p class="case-section-kicker">01 / The Context</p>
+          <h2 id="section-01-heading" class="case-section-heading">Managing multi-billion-dollar capital programs with zero tolerance for schedule drift.</h2>
+        </div>
+        <div class="case-narrative-prose">
+          <p class="case-section-lead">
+            Hyperscale cloud data center campuses involve thousands of specialized contractors, hundreds of weekly freight shipments, and supply chain constraints where a single delayed generator can cascade into millions of dollars in penalty costs per day.
+          </p>
+          <p>
+            Field superintendents and regional program directors previously navigated a fractured ecosystem of fragmented spreadsheets, disconnected ERP modules, and static PDF manifests. Critical bottleneck signals were buried under administrative noise, leading to delayed escalations and reactive firefighting on site.
+          </p>
+          <p>
+            The mandate was clear: <strong>create an intelligent, unified command system</strong> that synthesizes physical site telemetry, automated material scans, and contractor schedules into an immediate, high-density dashboard that demands minimal cognitive overhead under intense operational pressure.
+          </p>
+
+          <!-- Highlight Cards Grid -->
+          <div class="case-card-grid">
+            <div class="case-feature-card">
+              <div class="case-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <h3 class="case-card-title">Capital Exposure Tracking</h3>
+              <p class="case-card-desc">Real-time burn rate against milestone completion, giving project controllers immediate variance alerts before overrun thresholds trigger.</p>
+            </div>
+            <div class="case-feature-card">
+              <div class="case-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m12 6v6l4 2"/></svg>
+              </div>
+              <h3 class="case-card-title">Sub-Second Telemetry</h3>
+              <p class="case-card-desc">Live streaming sensor metrics, concrete cure telemetry, and crane cycle times processed through automated edge AI gateways.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Narrative Section 02: Design Architecture & Foundations -->
+    <section class="case-section" aria-labelledby="section-02-heading">
+      <div class="case-section-grid">
+        <div class="case-section-left">
+          <p class="case-section-kicker">02 / Design Architecture</p>
+          <h2 id="section-02-heading" class="case-section-heading">A cohesive, tokenized interface system engineered for extreme operational density.</h2>
+        </div>
+        <div class="case-narrative-prose">
+          <p class="case-section-lead">
+            To serve both high-ambient-light field trailers and dimly lit network operations control centers, the system required flawless semantic parity between Dark, Light, and Aurora themes.
+          </p>
+          <p>
+            Every visual attribute was mapped to strict design tokens: <strong>status colors are rigorously deterministic</strong> (Emerald for verified arrival, Amber for pending safety signoff, Crimson for critical path blockage), ensuring no engineer ever misinterprets a vital signal during rapid visual scanning.
+          </p>
+          <p>
+            We selected <strong>Bricolage Grotesque</strong> paired with tabular monospaced numerics to maintain absolute vertical alignment across dense multi-column tables, preventing layout shifting when live websocket streams update numerical values in place.
+          </p>
+        </div>
+      </div>
+
+      <!-- Light Mode Parity Showcase -->
+      <div class="case-full-showcase">
+        <div class="case-showcase-header">
+          <span class="case-showcase-title">Light Mode Surface Parity &bull; Field Operations Trailer View</span>
+          <span class="case-showcase-badge">Figma Node 828:5623</span>
+        </div>
+        <img src="assets/case-studies/construction-overview-light.png" alt="AI Construction Dashboard Overview Console in Light Mode showcasing clear contrast and tabular data" loading="lazy" width="1024" height="683">
+      </div>
+    </section>
+
+    <!-- Narrative Section 03: High-Density Interface Deep Dive -->
+    <section class="case-section" aria-labelledby="section-03-heading">
+      <div class="case-section-grid">
+        <div class="case-section-left">
+          <p class="case-section-kicker">03 / Interface Deep Dive</p>
+          <h2 id="section-03-heading" class="case-section-heading">From macro-level capital portfolio tracking down to individual structural submittals.</h2>
+        </div>
+        <div class="case-narrative-prose">
+          <p class="case-section-lead">
+            The platform architecture splits cleanly into three primary operational vectors: Project Performance Telematics, Material Logistics Logistics, and Regulatory Submittal Governance.
+          </p>
+          <p>
+            Rather than forcing users into deep modal tunnels, we implemented a <strong>progressive disclosure split-pane pattern</strong>: clicking any delivery or milestone opens an inspectable side drawer that maintains live context with the background table, allowing superintendents to review freight bills without losing their position in a 400-row delivery queue.
+          </p>
+        </div>
+      </div>
+
+      <!-- Side-by-Side Screen Deep Dives -->
+      <div class="case-card-grid" style="grid-template-columns: 1fr; gap: 40px; margin-top: 48px;">
+        
+        <div class="case-full-showcase" style="margin: 0;">
+          <div class="case-showcase-header">
+            <span class="case-showcase-title">Operational Telematics & Analytics Console</span>
+            <span class="case-showcase-badge">Telemetry Module</span>
+          </div>
+          <img src="assets/case-studies/construction-dashboards-dark.png" alt="Operational Telematics and Analytics Console showing live charts, milestone progress, and budget burn rate" loading="lazy" width="1024" height="683">
+        </div>
+
+        <div class="case-full-showcase" style="margin: 0;">
+          <div class="case-showcase-header">
+            <span class="case-showcase-title">Automated Deliveries & Freight Gate Reconciliation</span>
+            <span class="case-showcase-badge">Logistics Module</span>
+          </div>
+          <img src="assets/case-studies/construction-deliveries-dark.png" alt="Automated Deliveries Console tracking incoming trucks, bill of lading matches, and staging zone assignments" loading="lazy" width="1024" height="683">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Narrative Section 04: Shipped Impact & Key Outcomes -->
+    <section class="case-section" aria-labelledby="section-04-heading">
+      <div class="case-section-grid">
+        <div class="case-section-left">
+          <p class="case-section-kicker">04 / Shipped Impact</p>
+          <h2 id="section-04-heading" class="case-section-heading">Measurable acceleration across global cloud infrastructure deployments.</h2>
+        </div>
+        <div class="case-narrative-prose">
+          <p class="case-section-lead">
+            Deployed across major data center build programs in North America, Europe, and the Asia-Pacific region, the dashboard established a new gold standard for construction workflow software.
+          </p>
+          <p>
+            By eliminating manual status aggregation calls and automating manifest reconciliation at the gate, project teams reclaimed over 14 hours per week of supervisory time, redirecting focus to high-impact safety and quality governance.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stat Banner -->
+      <div class="case-stat-banner">
+        <div class="case-stat-item">
+          <span class="case-stat-number">-38%</span>
+          <span class="case-stat-label">Reduction in delivery manifest discrepancies and staging delays</span>
+        </div>
+        <div class="case-stat-item">
+          <span class="case-stat-number">$4.2B+</span>
+          <span class="case-stat-label">Active capital expenditure tracked across enterprise builds</span>
+        </div>
+        <div class="case-stat-item">
+          <span class="case-stat-number">&lt;200ms</span>
+          <span class="case-stat-label">Live data table filter response time across 10,000+ line items</span>
+        </div>
+        <div class="case-stat-item">
+          <span class="case-stat-number">100%</span>
+          <span class="case-stat-label">WCAG 2.1 AA accessibility compliance across both Dark & Light surfaces</span>
+        </div>
+      </div>
+
+      <!-- Client Quote Callout -->
+      <div class="case-quote-box">
+        <p class="case-quote-text">
+          "The density of information without cognitive overload is unprecedented. Our site superintendents went from dreading software updates to relying on this console as their primary morning briefing tool."
+        </p>
+        <p class="case-quote-author">Infrastructure Program Director &bull; Hyperscale Cloud Program</p>
+      </div>
+    </section>
+
+    <!-- Next Project Footer Navigation -->
+    <section class="case-next-section" aria-labelledby="next-project-heading">
+      <p class="case-next-kicker">Next Selected Work</p>
+      <a href="work-fintech-banking.html" class="case-next-card" aria-label="View next case study: Global Fintech Banking">
+        <div class="case-next-info">
+          <span class="case-tag-pill" style="align-self: flex-start;">Fintech &bull; Mobile App</span>
+          <h2 id="next-project-heading" class="case-next-title">Global Fintech Banking</h2>
+          <p class="case-next-desc">
+            End-to-end mobile banking experience featuring global FX multi-currency wallets, instant conversion, and proactive fraud protection controls.
+          </p>
+          <span class="case-next-cta">
+            <span>Read Case Study</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </div>
+        <div class="case-next-preview">
+          <img src="assets/case-studies/fintech-home-dark.png" alt="Global Fintech Banking App preview" loading="lazy" width="402" height="874">
+        </div>
+      </a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="footer-copy">&copy; 2026 Brian Ragaza. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <a href="what-we-do.html">What I Do</a>
+        <a href="work.html">Selected Work</a>
+        <a href="process.html">Design Process</a>
+        <a href="about.html">About Brian</a>
+        <a href="resume.html">Resume</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/hugeicons.js?v=2.0"></script>
+  <script src="js/data.js?v=2.0"></script>
+  <script src="js/main.js?v=2.6"></script>
+</body>
+</html>
