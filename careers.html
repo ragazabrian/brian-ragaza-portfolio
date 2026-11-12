@@ -43,7 +43,7 @@
       transform: translateY(-2px);
     }
     .article-title { font-size: 20px; font-weight: 600; font-family: var(--font-family); letter-spacing: -0.04em; color: #fff; margin-bottom: 6px; }
-    .article-meta { font-size: 12px; font-family: var(--font-family); color: #777; }
+    .article-meta { font-size: 12px; font-family: var(--font-family); color: #a1a1aa; }
     .read-badge {
       padding: 8px 18px;
       border-radius: 9999px;
@@ -99,7 +99,7 @@
   </header>
 
   <!-- Fullscreen Menu Drawer -->
-  <div id="menu-drawer" class="menu-drawer">
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
     <div class="menu-grid">
       <div>
         <nav class="menu-nav-links">
@@ -185,7 +185,7 @@
     <div class="article-list">
       <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="article-card">
         <div>
-          <h3 class="article-title">Map the workflow before drawing screens</h3>
+          <h2 class="article-title">Map the workflow before drawing screens</h2>
           <p class="article-meta">UX Research • Systems Architecture • 6 min read</p>
         </div>
         <span class="read-badge">Read on LinkedIn ↗</span>
@@ -193,7 +193,7 @@
 
       <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="article-card">
         <div>
-          <h3 class="article-title">Designing for software where mistakes are expensive</h3>
+          <h2 class="article-title">Designing for software where mistakes are expensive</h2>
           <p class="article-meta">Hyperscale SaaS • Mission-Critical UX • 8 min read</p>
         </div>
         <span class="read-badge">Read on LinkedIn ↗</span>
@@ -201,7 +201,7 @@
 
       <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="article-card">
         <div>
-          <h3 class="article-title">Handoff screens developers can build without guessing</h3>
+          <h2 class="article-title">Handoff screens developers can build without guessing</h2>
           <p class="article-meta">Design Systems • Engineering Collaboration • 5 min read</p>
         </div>
         <span class="read-badge">Read on LinkedIn ↗</span>
@@ -209,7 +209,7 @@
 
       <a href="https://www.linkedin.com/in/ragazabrian" target="_blank" rel="noopener noreferrer" class="article-card">
         <div>
-          <h3 class="article-title">How to audit and eliminate high-friction cognitive bottlenecks</h3>
+          <h2 class="article-title">How to audit and eliminate high-friction cognitive bottlenecks</h2>
           <p class="article-meta">Enterprise UX • Cognitive Walkthroughs • 7 min read</p>
         </div>
         <span class="read-badge">Read on LinkedIn ↗</span>
@@ -218,7 +218,7 @@
   </main>
 
     <!-- Interactive Custom Cursor Dot (Smooth mouse follower) -->
-  <div class="custom-cursor" id="custom-cursor">
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
     <span class="cursor-dot"></span>
     <span class="cursor-badge">YOU</span>
   </div>

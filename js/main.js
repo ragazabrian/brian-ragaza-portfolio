@@ -74,11 +74,22 @@ function initMenu() {
   const menuDrawer = document.getElementById("menu-drawer");
   if (!menuBtn || !menuDrawer) return;
 
+  const mainContent = document.querySelector("main");
+
   function setMenuState(open) {
     menuDrawer.classList.toggle("open", open);
     menuBtn.classList.toggle("is-open", open);
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     menuBtn.setAttribute("aria-label", open ? "Close navigation menu" : "Open main navigation menu");
+    if (mainContent) {
+      if (open) {
+        mainContent.setAttribute("aria-hidden", "true");
+        mainContent.setAttribute("inert", "");
+      } else {
+        mainContent.removeAttribute("aria-hidden");
+        mainContent.removeAttribute("inert");
+      }
+    }
   }
 
   menuBtn.addEventListener("click", () => {

@@ -66,7 +66,7 @@
   </header>
 
   <!-- Fullscreen Menu Drawer -->
-  <div id="menu-drawer" class="menu-drawer">
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
     <div class="menu-grid">
       <div>
         <nav class="menu-nav-links">
@@ -456,13 +456,13 @@
   </main>
 
   <!-- Floating Hover Preview Container -->
-  <div id="floating-preview" class="floating-preview">
+  <div id="floating-preview" class="floating-preview" aria-hidden="true">
     <video id="preview-video" autoplay loop muted playsinline></video>
     <img id="preview-img" alt="Project Preview">
   </div>
 
-    <!-- Interactive Custom Cursor Dot (Smooth mouse follower) -->
-  <div class="custom-cursor" id="custom-cursor">
+  <!-- Interactive Custom Cursor Dot (Smooth mouse follower) -->
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
     <span class="cursor-dot"></span>
     <span class="cursor-badge">YOU</span>
   </div>

@@ -145,7 +145,7 @@
       font-size: 11px;
       font-family: var(--font-family);
       text-transform: uppercase;
-      color: #71717a;
+      color: #a1a1aa;
       letter-spacing: 0.04em;
     }
 
@@ -315,7 +315,7 @@
     }
     .resume-tool-purpose {
       font-size: 12.5px;
-      color: #71717a;
+      color: #a1a1aa;
       line-height: 1.4;
       margin-top: 2px;
     }
@@ -517,9 +517,9 @@
       color: #52525b !important;
     }
     [data-theme="light"] .resume-exp-meta-badge {
-      background: rgba(5, 150, 105, 0.1) !important;
-      border-color: rgba(5, 150, 105, 0.3) !important;
-      color: #047857 !important;
+      background: #ecfdf5 !important;
+      border-color: rgba(6, 78, 59, 0.25) !important;
+      color: #064e3b !important;
       font-weight: 600 !important;
     }
     [data-theme="light"] .resume-exp-bullets li {
@@ -589,6 +589,20 @@
       color: #3f3f46 !important;
     }
 
+    .resume-inline-link {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+    .resume-inline-link:hover {
+      opacity: 0.8;
+    }
+    [data-theme="light"] .resume-inline-link {
+      color: #111114 !important;
+    }
+
   </style>
 </head>
 <body>
@@ -629,7 +643,7 @@
   </header>
 
   <!-- Fullscreen Menu Drawer -->
-  <div id="menu-drawer" class="menu-drawer">
+  <div id="menu-drawer" class="menu-drawer" role="dialog" aria-modal="true" aria-label="Navigation Menu">
     <div class="menu-grid">
       <div>
         <nav class="menu-nav-links">
@@ -886,7 +900,7 @@
               </div>
             </div>
             <ul class="resume-exp-bullets">
-              <li>Designed end-to-end UX for Emma by AXA (<a href="https://www.axa.com.ph/emma" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">axa.com.ph/emma</a>) on <a href="https://play.google.com/store/apps/details?id=com.axa.ph.emma&hl=en" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Google Play</a> and iOS, serving 1M+ policyholders.</li>
+              <li>Designed end-to-end UX for Emma by AXA (<a href="https://www.axa.com.ph/emma" target="_blank" rel="noopener noreferrer" class="resume-inline-link">axa.com.ph/emma</a>) on <a href="https://play.google.com/store/apps/details?id=com.axa.ph.emma&hl=en" target="_blank" rel="noopener noreferrer" class="resume-inline-link">Google Play</a> and iOS, serving 1M+ policyholders.</li>
               <li>Conducted multi-segment user research across individual, SME, and corporate customers, informing improvements to digital onboarding and claims flows.</li>
               <li>Delivered production-ready kiosk specifications deployed across 45+ branches nationwide, supporting a shift to digital self-service.</li>
             </ul>
@@ -1217,7 +1231,7 @@
   </main>
 
   <!-- Interactive Custom Cursor Dot (Smooth mouse follower) -->
-  <div class="custom-cursor" id="custom-cursor">
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
     <span class="cursor-dot"></span>
     <span class="cursor-badge">YOU</span>
   </div>
