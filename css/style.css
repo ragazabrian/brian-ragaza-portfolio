@@ -1106,6 +1106,377 @@ input, select, textarea, button {
   display: block;
 }
 
+/* --- Design Process Page --- */
+.process-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.process-hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.process-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a1a1aa;
+  margin-bottom: 16px;
+}
+
+.process-lead {
+  font-size: clamp(17px, 2vw, 20px);
+  color: #a1a1aa;
+  line-height: 1.6;
+  max-width: 780px;
+  margin: 24px auto 0;
+  text-wrap: balance;
+}
+
+.process-section {
+  margin-bottom: 90px;
+}
+
+.process-section-header {
+  margin-bottom: 36px;
+}
+
+.process-section-title {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  color: var(--fg);
+  margin-bottom: 12px;
+}
+
+.process-section-desc {
+  font-size: 16px;
+  color: #888888;
+  line-height: 1.5;
+  max-width: 720px;
+}
+
+/* Duality Grid (Academe vs. Industry) */
+.duality-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.duality-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.25s ease;
+}
+
+.duality-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.duality-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.duality-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.duality-card-title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.duality-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.duality-box {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.duality-box-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  color: #a1a1aa;
+}
+
+.duality-box-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a1a1aa;
+}
+
+.duality-synthesis {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.duality-synthesis-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.duality-synthesis-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e4e4e7;
+}
+
+/* 4-Stage Process Timeline */
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.process-phase-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 40px;
+  transition: all 0.25s ease;
+}
+
+.process-phase-card:hover {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.phase-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.phase-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.phase-num {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #a1a1aa;
+}
+
+.phase-title {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-top: 2px;
+}
+
+.phase-tag {
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #a1a1aa;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.phase-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin-bottom: 24px;
+  max-width: 820px;
+}
+
+.phase-deliverables-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.phase-item {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #d4d4d8;
+  transition: all 0.2s ease;
+}
+
+.phase-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.phase-item-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  flex-shrink: 0;
+}
+
+/* Anatomy of a Production-Ready Handoff Card */
+.handoff-spec-card {
+  background: #0d0d0f;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.handoff-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.handoff-pillar {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.handoff-pillar:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.handoff-pillar-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.handoff-pillar-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.handoff-pillar-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a1a1aa;
+}
+
+/* Philosophy Callout */
+.process-philosophy-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px;
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.process-philosophy-quote {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 500;
+  line-height: 1.45;
+  color: #f4f4f5;
+  letter-spacing: -0.03em;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.process-philosophy-author {
+  font-size: 13px;
+  color: #71717a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* CTAs */
+.process-cta-wrap {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.process-cta-btns {
+  display: inline-flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* --- Responsive Breakpoints --- */
 
 /* Tablet (769px to 1024px) */
@@ -1899,4 +2270,144 @@ body:has(.hero-wrapper) .hero-pills-stack .pill-item.active {
 }
 [data-theme="light"] :focus-visible {
   outline-color: #0284c7 !important;
+}
+
+/* Process Page in Light Mode */
+[data-theme="light"] .process-title,
+[data-theme="light"] .process-section-title,
+[data-theme="light"] .handoff-card-title,
+[data-theme="light"] .duality-card-title,
+[data-theme="light"] .phase-title,
+[data-theme="light"] .handoff-pillar-title,
+[data-theme="light"] .process-philosophy-quote {
+  color: #111114;
+}
+
+[data-theme="light"] .process-lead,
+[data-theme="light"] .process-section-desc,
+[data-theme="light"] .phase-desc,
+[data-theme="light"] .handoff-card-desc,
+[data-theme="light"] .handoff-pillar-desc,
+[data-theme="light"] .handoff-pillar-text {
+  color: #27272a;
+}
+
+[data-theme="light"] .process-tag {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #27272a;
+}
+
+[data-theme="light"] .duality-card,
+[data-theme="light"] .process-phase-card,
+[data-theme="light"] .handoff-spec-card,
+[data-theme="light"] .process-philosophy-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .duality-card:hover,
+[data-theme="light"] .process-phase-card:hover {
+  background: #fafafa;
+  border-color: rgba(0, 0, 0, 0.16);
+}
+
+[data-theme="light"] .duality-icon,
+[data-theme="light"] .phase-icon,
+[data-theme="light"] .handoff-pillar-icon {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #111114;
+}
+
+[data-theme="light"] .duality-box {
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .duality-box-label,
+[data-theme="light"] .phase-num {
+  color: #52525b;
+}
+
+[data-theme="light"] .duality-box-text {
+  color: #3f3f46;
+}
+
+[data-theme="light"] .duality-synthesis {
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .duality-synthesis-label {
+  color: #111114;
+}
+
+[data-theme="light"] .duality-synthesis-text {
+  color: #27272a;
+}
+
+[data-theme="light"] .phase-item,
+[data-theme="light"] .handoff-pillar {
+  background: #f4f4f5;
+  border-color: rgba(0, 0, 0, 0.06);
+  color: #27272a;
+}
+
+[data-theme="light"] .phase-item:hover,
+[data-theme="light"] .handoff-pillar:hover {
+  background: #ebebeb;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #111114;
+}
+
+[data-theme="light"] .phase-item-icon {
+  color: #52525b;
+}
+
+[data-theme="light"] .phase-tag {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #27272a;
+}
+
+[data-theme="light"] .process-philosophy-author {
+  color: #52525b;
+}
+
+/* Process Page Responsive Rules */
+@media (max-width: 1024px) {
+  .duality-grid {
+    grid-template-columns: 1fr;
+  }
+  .phase-deliverables-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .handoff-spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .duality-comparison {
+    grid-template-columns: 1fr;
+  }
+  .phase-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .phase-deliverables-grid {
+    grid-template-columns: 1fr;
+  }
+  .handoff-spec-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-phase-card,
+  .handoff-spec-card,
+  .duality-card,
+  .process-philosophy-card {
+    padding: 24px;
+  }
 }
