@@ -1,15 +1,15 @@
 const PROJECTS_DATA = [
   {
-    "title": "AI-Powered Construction Management Dashboard",
+    "title": "AI Construction UI Architecture & Design System",
     "slug": "ai-construction",
     "client": "US Construction Software (Google, Accenture & OpenAI Backed)",
-    "category": "SaaS & AI",
-    "industries": ["AI", "SaaS", "Enterprise"],
-    "shortDescription": "Hyperscale data center construction management dashboard supporting global cloud infrastructure teams and multi-billion-dollar build programs.",
-    "tags": ["B2B SaaS", "Design System", "Data Visualization", "AI"],
+    "category": "Enterprise & AI",
+    "industries": ["AI", "Enterprise", "Design System"],
+    "shortDescription": "Modular UI element architecture, bento KPI widgets, and component tokens for hyperscale data center infrastructure.",
+    "tags": ["Enterprise", "Design System", "UI Architecture", "AI"],
     "hasFullCaseStudy": true,
-    "hoverImage": "https://cdn.dribbble.com/userupload/49571121/file/still-d7d15aa46b0b69bee840070869cc9eea.png?resize=1200x900&vertical=center",
-    "videoDesktop": "https://cdn.dribbble.com/userupload/49571121/file/large-3f20540ca39b89adc7c1a773e2c7d31a.mp4",
+    "caseStudyUrl": "work-ai-construction.html",
+    "hoverImage": "assets/case-studies/construction-widgets-bento.png",
     "link": "https://dribbble.com/shots/27876031-AI-Powered-Construction-Management-Dashboard-UI-UX-Design",
     "linkText": "DRIBBBLE ↗"
   },
